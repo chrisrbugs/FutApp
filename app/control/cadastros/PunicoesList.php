@@ -64,7 +64,7 @@ class PunicoesList extends TPage
       
         $formata_categoria = function($value)
         {
-           $objCategoria = Categoria::where('id', '=', $value);
+           $objCategoria = Categorias::where('id', '=', $value);
              
            return $objCategoria->descricao;    
         };
