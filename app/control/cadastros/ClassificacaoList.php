@@ -301,6 +301,50 @@ class ClassificacaoList extends TPage
         }
         parent::show();
     }
+  
+    public function onDelete($param = null) 
+    { 
+        if(isset($param['delete']) && $param['delete'] == 1)
+        {
+            try
+            {
+                // get the paramseter $key
+                $key = $param['key'];
+                // open a transaction with database
+                TTransaction::open(self::$database);
+
+                // instantiates object
+                $object = new Punicoes($key, FALSE); 
+
+                // deletes the object from the database
+                $object->delete();
+
+                // close the transaction
+                TTransaction::close();
+
+                // reload the listing
+                $this->onReload( $param );
+                // shows the success message
+                new TMessage('info', AdiantiCoreTranslator::translate('Record deleted'));
+            }
+            catch (Exception $e) // in case of exception
+            {
+                // shows the exception error message
+                new TMessage('error', $e->getMessage());
+                // undo all pending operations
+                TTransaction::rollback();
+            }
+        }
+        else
+        {
+            // define the delete action
+            $action = new TAction(array($this, 'onDelete'));
+            $action->setParameters($param); // pass the key paramseter ahead
+            $action->setParameter('delete', 1);
+            // shows a dialog to the user
+            new TQuestion(AdiantiCoreTranslator::translate('Do you really want to delete ?'), $action);   
+        }
+    }
 
 }
 
