@@ -19,22 +19,6 @@
         <icon>fa:circle-o fa-fw </icon>
         <action>ClassificacaoList#method=onShow</action>
       </menuitem>
-      <menuitem label="Punições">
-        <icon>fa:circle-o fa-fw </icon>
-        <action>PunicoesList#method=onShow</action>
-      </menuitem>
-      <menuitem label="Partidas">
-        <icon>fa:circle-o fa-fw </icon>
-        <action>PartidasList#method=onShow</action>
-      </menuitem>
-      <menuitem label="Goleadores">
-        <icon>fa:circle-o fa-fw </icon>
-        <action>GoleadoresList#method=onShow</action>
-      </menuitem>
-      <menuitem label="Classificação">
-        <icon>fa:circle-o fa-fw </icon>
-        <action>ClassificacaoList#method=onShow</action>
-      </menuitem>
       <menuitem label="Categorias">
         <icon>fa:circle-o fa-fw </icon>
         <action>CategoriasForm#method=onShow</action>
