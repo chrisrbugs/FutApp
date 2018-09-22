@@ -27,7 +27,7 @@ class PunicoesList extends TPage
         $this->form->setFormTitle('Punições');
 
 
-        $ref_categoria = new TDBCombo('ref_categoria', 'futapp', 'Categorias', 'id', '{id}','id asc'  );
+        $ref_categoria = new TDBCombo('ref_categoria', 'futapp', 'Categorias', 'id', '{descricao}','id asc'  );
         $nome_jogador = new TEntry('nome_jogador');
         $time = new TEntry('time');
 
@@ -64,9 +64,8 @@ class PunicoesList extends TPage
       
         $formata_categoria = function($value)
         {
-           $objCategoria = Categorias::where('id', '=', $value);
-             
-           return $objCategoria->descricao;    
+           $objCategoria = new Categorias($value);
+	   return $objCategoria->descricao;    
         };
 
         $column_ref_categoria->setTransformer( $formata_categoria );
@@ -76,7 +75,7 @@ class PunicoesList extends TPage
         $this->datagrid->addColumn($column_nome_jogador);
         $this->datagrid->addColumn($column_descricao);
 
-        $action_onShow = new TDataGridAction(array('PunicoesForm', 'onShow'));
+        $action_onShow = new TDataGridAction(array('PunicoesForm', 'onEdit'));
         $action_onShow->setUseButton(false);
         $action_onShow->setButtonClass('btn btn-default btn-sm');
         $action_onShow->setLabel('Editar');

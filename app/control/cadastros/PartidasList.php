@@ -27,7 +27,7 @@ class PartidasList extends TPage
         $this->form->setFormTitle('Partidas');
 
 
-        $ref_categoria = new TDBCombo('ref_categoria', 'futapp', 'Categorias', 'id', '{id}','id asc'  );
+        $ref_categoria = new TDBCombo('ref_categoria', 'futapp', 'Categorias', 'id', '{descricao}','id asc'  );
         $dt_jogo = new TDateTime('dt_jogo');
 
         $dt_jogo->setMask('dd/mm/yyyy hh:ii');
@@ -36,7 +36,7 @@ class PartidasList extends TPage
         $ref_categoria->setSize('70%');
 
 
-        $row1 = $this->form->addFields([new TLabel('Ref categoria:', null, '14px', null)],[$ref_categoria]);
+        $row1 = $this->form->addFields([new TLabel('Categoria:', null, '14px', null)],[$ref_categoria]);
         $row2 = $this->form->addFields([new TLabel('Dt jogo:', null, '14px', null)],[$dt_jogo]);
 
         // keep the form filled during navigation with session data
@@ -64,7 +64,7 @@ class PartidasList extends TPage
         $this->datagrid->addColumn($column_time_visitante);
         $this->datagrid->addColumn($column_dt_jogo);
 
-        $action_onShow = new TDataGridAction(array('PartidasForm', 'onShow'));
+        $action_onShow = new TDataGridAction(array('PartidasForm', 'onEdit'));
         $action_onShow->setUseButton(false);
         $action_onShow->setButtonClass('btn btn-default btn-sm');
         $action_onShow->setLabel('Editar');

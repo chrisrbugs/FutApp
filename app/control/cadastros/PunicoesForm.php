@@ -24,7 +24,7 @@ class PunicoesForm extends TPage
 
 
         $id = new TEntry('id');
-        $ref_categoria = new TDBCombo('ref_categoria', 'futapp', 'Categorias', 'id', '{id}','id asc'  );
+        $ref_categoria = new TDBCombo('ref_categoria', 'futapp', 'Categorias', 'id', '{descricao}','id asc'  );
         $nome_jogador = new TEntry('nome_jogador');
         $descricao = new TEntry('descricao');
         $time = new TEntry('time');
@@ -41,7 +41,7 @@ class PunicoesForm extends TPage
 
 
         $row1 = $this->form->addFields([new TLabel('Id:', null, '14px', null)],[$id]);
-        $row2 = $this->form->addFields([new TLabel('Ref categoria:', '#ff0000', '14px', null)],[$ref_categoria]);
+        $row2 = $this->form->addFields([new TLabel('Categoria:', '#ff0000', '14px', null)],[$ref_categoria]);
         $row3 = $this->form->addFields([new TLabel('Nome jogador:', null, '14px', null)],[$nome_jogador]);
         $row4 = $this->form->addFields([new TLabel('Descricao:', null, '14px', null)],[$descricao]);
         $row5 = $this->form->addFields([new TLabel('Time:', null, '14px', null)],[$time]);

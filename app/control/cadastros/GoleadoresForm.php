@@ -24,7 +24,7 @@ class GoleadoresForm extends TPage
 
 
         $id = new TEntry('id');
-        $ref_categoria = new TDBCombo('ref_categoria', 'futapp', 'Categorias', 'id', '{id}','id asc'  );
+        $ref_categoria = new TDBCombo('ref_categoria', 'futapp', 'Categorias', 'id', '{descricao}','id asc'  );
         $nome = new TEntry('nome');
         $time = new TEntry('time');
         $num_gols = new TEntry('num_gols');
@@ -41,7 +41,7 @@ class GoleadoresForm extends TPage
 
 
         $row1 = $this->form->addFields([new TLabel('Id:', null, '14px', null)],[$id]);
-        $row2 = $this->form->addFields([new TLabel('Ref categoria:', '#ff0000', '14px', null)],[$ref_categoria]);
+        $row2 = $this->form->addFields([new TLabel('Categoria:', '#ff0000', '14px', null)],[$ref_categoria]);
         $row3 = $this->form->addFields([new TLabel('Nome:', null, '14px', null)],[$nome]);
         $row4 = $this->form->addFields([new TLabel('Time:', null, '14px', null)],[$time]);
         $row5 = $this->form->addFields([new TLabel('Num gols:', null, '14px', null)],[$num_gols]);

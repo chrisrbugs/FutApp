@@ -24,7 +24,7 @@ class ClassificacaoForm extends TPage
 
 
         $id = new TEntry('id');
-        $ref_categoria = new TDBCombo('ref_categoria', 'futapp', 'Categorias', 'id', '{id}','id asc'  );
+        $ref_categoria = new TDBCombo('ref_categoria', 'futapp', 'Categorias', 'id', '{descricao}','id asc'  );
         $time = new TEntry('time');
         $posicao = new TEntry('posicao');
         $jogos = new TEntry('jogos');
@@ -165,6 +165,6 @@ class ClassificacaoForm extends TPage
     {
 
     } 
-
+    
 }
 

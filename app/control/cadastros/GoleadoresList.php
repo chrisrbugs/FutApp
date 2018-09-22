@@ -27,11 +27,11 @@ class GoleadoresList extends TPage
         $this->form->setFormTitle('Goleadores');
 
 
-        $ref_categoria = new TDBCombo('ref_categoria', 'futapp', 'Categorias', 'id', '{id}','id asc'  );
+        $ref_categoria = new TDBCombo('ref_categoria', 'futapp', 'Categorias', 'id', '{descricao}','id asc'  );
 
         $ref_categoria->setSize('70%');
 
-        $row1 = $this->form->addFields([new TLabel('Ref categoria:', null, '14px', null)],[$ref_categoria]);
+        $row1 = $this->form->addFields([new TLabel('Categoria:', null, '14px', null)],[$ref_categoria]);
 
         // keep the form filled during navigation with session data
         $this->form->setData( TSession::getValue(__CLASS__.'_filter_data') );
@@ -58,7 +58,7 @@ class GoleadoresList extends TPage
         $this->datagrid->addColumn($column_time);
         $this->datagrid->addColumn($column_num_gols);
 
-        $action_onShow = new TDataGridAction(array('GoleadoresForm', 'onShow'));
+        $action_onShow = new TDataGridAction(array('GoleadoresForm', 'onEdit'));
         $action_onShow->setUseButton(false);
         $action_onShow->setButtonClass('btn btn-default btn-sm');
         $action_onShow->setLabel('Editar');

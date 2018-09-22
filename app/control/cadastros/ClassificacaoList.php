@@ -27,11 +27,11 @@ class ClassificacaoList extends TPage
         $this->form->setFormTitle('Classificação');
 
 
-        $ref_categoria = new TDBCombo('ref_categoria', 'futapp', 'Categorias', 'id', '{id}','id asc'  );
+        $ref_categoria = new TDBCombo('ref_categoria', 'futapp', 'Categorias', 'id', '{descricao}','id asc'  );
 
         $ref_categoria->setSize('70%');
 
-        $row1 = $this->form->addFields([new TLabel('Ref categoria:', null, '14px', null)],[$ref_categoria]);
+        $row1 = $this->form->addFields([new TLabel('Categoria:', null, '14px', null)],[$ref_categoria]);
 
         // keep the form filled during navigation with session data
         $this->form->setData( TSession::getValue(__CLASS__.'_filter_data') );
@@ -77,8 +77,8 @@ class ClassificacaoList extends TPage
 
         $this->datagrid->addAction($action_onEdit);
 
-        $action_onEdit = new TDataGridAction(array('ClassificacaoForm', 'onEdit'));
-        $action_onEdit->setUseButton(false);
+        $action_onEdit = new TDataGridAction(array('ClassificacaoForm', 'onDelete'));
+	$action_onEdit->setUseButton(false);
         $action_onEdit->setButtonClass('btn btn-default btn-sm');
         $action_onEdit->setLabel('Excluir');
         $action_onEdit->setImage('fa:trash-o #dd5a43');
