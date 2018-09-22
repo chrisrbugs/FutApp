@@ -36,8 +36,8 @@ class PunicoesList extends TPage
         $ref_categoria->setSize('70%');
 
 
-        $row1 = $this->form->addFields([new TLabel('Ref categoria:', null, '14px', null)],[$ref_categoria]);
-        $row2 = $this->form->addFields([new TLabel('Nome jogador:', null, '14px', null)],[$nome_jogador]);
+        $row1 = $this->form->addFields([new TLabel('Categoria:', null, '14px', null)],[$ref_categoria]);
+        $row2 = $this->form->addFields([new TLabel('Nome do jogador:', null, '14px', null)],[$nome_jogador]);
         $row3 = $this->form->addFields([new TLabel('Time:', null, '14px', null)],[$time]);
 
         // keep the form filled during navigation with session data
@@ -57,10 +57,19 @@ class PunicoesList extends TPage
         $this->datagrid->style = 'width: 100%';
         $this->datagrid->setHeight(320);
 
-        $column_ref_categoria = new TDataGridColumn('ref_categoria', 'Ref categoria', 'left');
+        $column_ref_categoria = new TDataGridColumn('ref_categoria', 'Categoria', 'left');
         $column_time = new TDataGridColumn('time', 'Time', 'left');
         $column_nome_jogador = new TDataGridColumn('nome_jogador', 'Nome jogador', 'left');
         $column_descricao = new TDataGridColumn('descricao', 'Descricao', 'left');
+      
+        $formata_categoria = function($value)
+        {
+           $objCategoria = Categoria::where('id', '=', $value);
+             
+           return $objCategoria->descricao;    
+        };
+
+        $column_ref_categoria->setTransformer( $formata_categoria );
 
         $this->datagrid->addColumn($column_ref_categoria);
         $this->datagrid->addColumn($column_time);
