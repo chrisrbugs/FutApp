@@ -38,11 +38,14 @@ class ClassificacaoList extends TPage
 
         $btn_onsearch = $this->form->addAction('Buscar', new TAction([$this, 'onSearch']), 'fa:search #ffffff');
         $btn_onsearch->addStyleClass('btn-primary'); 
+        
+        if ( TSession::getValue('logged') )
+        {
+          $btn_onexportcsv = $this->form->addAction('Exportar como CSV', new TAction([$this, 'onExportCsv']), 'fa:file-text-o #000000');
 
-        $btn_onexportcsv = $this->form->addAction('Exportar como CSV', new TAction([$this, 'onExportCsv']), 'fa:file-text-o #000000');
-
-        $btn_onedit = $this->form->addAction('Cadastrar', new TAction(['ClassificacaoForm', 'onEdit']), 'fa:plus #69aa46');
-
+          $btn_onedit = $this->form->addAction('Cadastrar', new TAction(['ClassificacaoForm', 'onEdit']), 'fa:plus #69aa46');
+        }
+      
         // creates a Datagrid
         $this->datagrid = new TDataGrid;
         $this->datagrid = new BootstrapDatagridWrapper($this->datagrid);
