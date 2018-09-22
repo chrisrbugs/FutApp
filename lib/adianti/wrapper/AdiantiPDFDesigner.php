@@ -15,7 +15,7 @@ use SimpleXMLIterator;
  * @license    http://www.adianti.com.br/framework-license
  * @alias      TPDFDesigner
  */
-class AdiantiPDFDesigner extends FPDF
+class AdiantiPDFDesigner //extends FPDF
 {
     private $current_locale;
     private $elements;
