@@ -16,7 +16,7 @@ else
     $content = file_get_contents("app/templates/{$theme}/login.html");
 }
 
-$content = ApplicationTranslator::translateTemplate($content);
+//$content = ApplicationTranslator::translateTemplate($content);
 $content = AdiantiTemplateParser::parse($content);
 
 echo $content;
