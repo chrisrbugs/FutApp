@@ -50,7 +50,7 @@ class ClassificacaoForm extends TPage
 
 
         $row1 = $this->form->addFields([new TLabel('Id:', null, '14px', null)],[$id]);
-        $row2 = $this->form->addFields([new TLabel('Ref categoria:', '#ff0000', '14px', null)],[$ref_categoria]);
+        $row2 = $this->form->addFields([new TLabel('Categoria:', '#ff0000', '14px', null)],[$ref_categoria]);
         $row3 = $this->form->addFields([new TLabel('Time:', null, '14px', null)],[$time]);
         $row4 = $this->form->addFields([new TLabel('Posicao:', null, '14px', null)],[$posicao]);
         $row5 = $this->form->addFields([new TLabel('Jogos:', null, '14px', null)],[$jogos]);
