@@ -38,12 +38,6 @@ class GoleadoresList extends TPage
 
         $btn_onsearch = $this->form->addAction('Buscar', new TAction([$this, 'onSearch']), 'fa:search #ffffff');
         $btn_onsearch->addStyleClass('btn-primary'); 
-        if ( TSession::getValue('logged') )
-        {
-          $btn_onexportcsv = $this->form->addAction('Exportar como CSV', new TAction([$this, 'onExportCsv']), 'fa:file-text-o #000000');
-
-          $btn_onshow = $this->form->addAction('Cadastrar', new TAction(['GoleadoresForm', 'onShow']), 'fa:plus #69aa46');
-        }
           
         // creates a Datagrid
         $this->datagrid = new TDataGrid;
@@ -59,24 +53,33 @@ class GoleadoresList extends TPage
         $this->datagrid->addColumn($column_nome);
         $this->datagrid->addColumn($column_time);
         $this->datagrid->addColumn($column_num_gols);
+      
+        if ( TSession::getValue('logged') )
+        {
+          $btn_onexportcsv = $this->form->addAction('Exportar como CSV', new TAction([$this, 'onExportCsv']), 'fa:file-text-o #000000');
 
-        $action_onShow = new TDataGridAction(array('GoleadoresForm', 'onEdit'));
-        $action_onShow->setUseButton(false);
-        $action_onShow->setButtonClass('btn btn-default btn-sm');
-        $action_onShow->setLabel('Editar');
-        $action_onShow->setImage('fa:pencil-square-o #478fca');
-        $action_onShow->setField(self::$primaryKey);
+          $btn_onshow = $this->form->addAction('Cadastrar', new TAction(['GoleadoresForm', 'onShow']), 'fa:plus #69aa46');
+          
+          $action_onShow = new TDataGridAction(array('GoleadoresForm', 'onEdit'));
+          $action_onShow->setUseButton(false);
+          $action_onShow->setButtonClass('btn btn-default btn-sm');
+          $action_onShow->setLabel('Editar');
+          $action_onShow->setImage('fa:pencil-square-o #478fca');
+          $action_onShow->setField(self::$primaryKey);
 
-        $this->datagrid->addAction($action_onShow);
+          $this->datagrid->addAction($action_onShow);
 
-        $action_onDelete = new TDataGridAction(array('GoleadoresList', 'onDelete'));
-        $action_onDelete->setUseButton(false);
-        $action_onDelete->setButtonClass('btn btn-default btn-sm');
-        $action_onDelete->setLabel('Excluir');
-        $action_onDelete->setImage('fa:trash-o #dd5a43');
-        $action_onDelete->setField(self::$primaryKey);
+          $action_onDelete = new TDataGridAction(array('GoleadoresList', 'onDelete'));
+          $action_onDelete->setUseButton(false);
+          $action_onDelete->setButtonClass('btn btn-default btn-sm');
+          $action_onDelete->setLabel('Excluir');
+          $action_onDelete->setImage('fa:trash-o #dd5a43');
+          $action_onDelete->setField(self::$primaryKey);
 
-        $this->datagrid->addAction($action_onDelete);
+          $this->datagrid->addAction($action_onDelete);
+        }
+
+        
 
         // create the datagrid model
         $this->datagrid->createModel();

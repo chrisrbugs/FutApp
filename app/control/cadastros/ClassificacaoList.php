@@ -38,13 +38,6 @@ class ClassificacaoList extends TPage
 
         $btn_onsearch = $this->form->addAction('Buscar', new TAction([$this, 'onSearch']), 'fa:search #ffffff');
         $btn_onsearch->addStyleClass('btn-primary'); 
-        
-        if ( TSession::getValue('logged') )
-        {
-          $btn_onexportcsv = $this->form->addAction('Exportar como CSV', new TAction([$this, 'onExportCsv']), 'fa:file-text-o #000000');
-
-          $btn_onedit = $this->form->addAction('Cadastrar', new TAction(['ClassificacaoForm', 'onEdit']), 'fa:plus #69aa46');
-        }
       
         // creates a Datagrid
         $this->datagrid = new TDataGrid;
@@ -70,24 +63,33 @@ class ClassificacaoList extends TPage
         $this->datagrid->addColumn($column_empates);
         $this->datagrid->addColumn($column_derrotas);
         $this->datagrid->addColumn($column_disciplina);
+      
+        
+        if ( TSession::getValue('logged') )
+        {
+          $btn_onexportcsv = $this->form->addAction('Exportar como CSV', new TAction([$this, 'onExportCsv']), 'fa:file-text-o #000000');
 
-        $action_onEdit = new TDataGridAction(array('ClassificacaoForm', 'onEdit'));
-        $action_onEdit->setUseButton(false);
-        $action_onEdit->setButtonClass('btn btn-default btn-sm');
-        $action_onEdit->setLabel('Editar');
-        $action_onEdit->setImage('fa:pencil-square-o #478fca');
-        $action_onEdit->setField(self::$primaryKey);
+          $btn_onedit = $this->form->addAction('Cadastrar', new TAction(['ClassificacaoForm', 'onEdit']), 'fa:plus #69aa46');
+          $action_onEdit = new TDataGridAction(array('ClassificacaoForm', 'onEdit'));
+          $action_onEdit->setUseButton(false);
+          $action_onEdit->setButtonClass('btn btn-default btn-sm');
+          $action_onEdit->setLabel('Editar');
+          $action_onEdit->setImage('fa:pencil-square-o #478fca');
+          $action_onEdit->setField(self::$primaryKey);
 
-        $this->datagrid->addAction($action_onEdit);
+          $this->datagrid->addAction($action_onEdit);
 
-        $action_onEdit = new TDataGridAction(array('ClassificacaoForm', 'onDelete'));
-	$action_onEdit->setUseButton(false);
-        $action_onEdit->setButtonClass('btn btn-default btn-sm');
-        $action_onEdit->setLabel('Excluir');
-        $action_onEdit->setImage('fa:trash-o #dd5a43');
-        $action_onEdit->setField(self::$primaryKey);
+          $action_onEdit = new TDataGridAction(array('ClassificacaoForm', 'onDelete'));
+          $action_onEdit->setUseButton(false);
+          $action_onEdit->setButtonClass('btn btn-default btn-sm');
+          $action_onEdit->setLabel('Excluir');
+          $action_onEdit->setImage('fa:trash-o #dd5a43');
+          $action_onEdit->setField(self::$primaryKey);
 
-        $this->datagrid->addAction($action_onEdit);
+          $this->datagrid->addAction($action_onEdit);
+        }
+
+        
 
         // create the datagrid model
         $this->datagrid->createModel();

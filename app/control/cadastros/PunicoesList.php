@@ -46,12 +46,6 @@ class PunicoesList extends TPage
         $btn_onsearch = $this->form->addAction('Buscar', new TAction([$this, 'onSearch']), 'fa:search #ffffff');
         $btn_onsearch->addStyleClass('btn-primary'); 
         
-        if ( TSession::getValue('logged') )
-        {
-          $btn_onexportcsv = $this->form->addAction('Exportar como CSV', new TAction([$this, 'onExportCsv']), 'fa:file-text-o #000000');
-
-          $btn_onshow = $this->form->addAction('Cadastrar', new TAction(['PunicoesForm', 'onShow']), 'fa:plus #69aa46');
-        }
         // creates a Datagrid
         $this->datagrid = new TDataGrid;
         $this->datagrid = new BootstrapDatagridWrapper($this->datagrid);
@@ -67,7 +61,7 @@ class PunicoesList extends TPage
         $formata_categoria = function($value)
         {
            $objCategoria = new Categorias($value);
-	   return $objCategoria->descricao;    
+	          return $objCategoria->descricao;    
         };
 
         $column_ref_categoria->setTransformer( $formata_categoria );
@@ -76,25 +70,31 @@ class PunicoesList extends TPage
         $this->datagrid->addColumn($column_time);
         $this->datagrid->addColumn($column_nome_jogador);
         $this->datagrid->addColumn($column_descricao);
+      
+        if ( TSession::getValue('logged') )
+        {
+          $btn_onexportcsv = $this->form->addAction('Exportar como CSV', new TAction([$this, 'onExportCsv']), 'fa:file-text-o #000000');
 
-        $action_onShow = new TDataGridAction(array('PunicoesForm', 'onEdit'));
-        $action_onShow->setUseButton(false);
-        $action_onShow->setButtonClass('btn btn-default btn-sm');
-        $action_onShow->setLabel('Editar');
-        $action_onShow->setImage('fa:pencil-square-o #478fca');
-        $action_onShow->setField(self::$primaryKey);
+          $btn_onshow = $this->form->addAction('Cadastrar', new TAction(['PunicoesForm', 'onShow']), 'fa:plus #69aa46');
+          $action_onShow = new TDataGridAction(array('PunicoesForm', 'onEdit'));
+          $action_onShow->setUseButton(false);
+          $action_onShow->setButtonClass('btn btn-default btn-sm');
+          $action_onShow->setLabel('Editar');
+          $action_onShow->setImage('fa:pencil-square-o #478fca');
+          $action_onShow->setField(self::$primaryKey);
 
-        $this->datagrid->addAction($action_onShow);
+          $this->datagrid->addAction($action_onShow);
 
-        $action_onDelete = new TDataGridAction(array('PunicoesList', 'onDelete'));
-        $action_onDelete->setUseButton(false);
-        $action_onDelete->setButtonClass('btn btn-default btn-sm');
-        $action_onDelete->setLabel('Excluir');
-        $action_onDelete->setImage('fa:trash-o #dd5a43');
-        $action_onDelete->setField(self::$primaryKey);
+          $action_onDelete = new TDataGridAction(array('PunicoesList', 'onDelete'));
+          $action_onDelete->setUseButton(false);
+          $action_onDelete->setButtonClass('btn btn-default btn-sm');
+          $action_onDelete->setLabel('Excluir');
+          $action_onDelete->setImage('fa:trash-o #dd5a43');
+          $action_onDelete->setField(self::$primaryKey);
 
-        $this->datagrid->addAction($action_onDelete);
-
+          $this->datagrid->addAction($action_onDelete);
+        }
+      
         // create the datagrid model
         $this->datagrid->createModel();
 
