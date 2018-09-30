@@ -101,6 +101,7 @@ class AlbumForm extends TPage
 		
 		$fotos_album->caminho_foto = "album/".$foto;
 		$fotos_album->ref_album = $album->id;
+		
 		$fotos_album->store();
 		
 	    }
