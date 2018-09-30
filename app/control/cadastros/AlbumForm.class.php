@@ -108,7 +108,7 @@ class AlbumForm extends TPage
 	    }
             
             // send id back to the form
-            $data->id = $object->id;
+            $data->id = $album->id;
             $this->form->setData($data);
             
             TTransaction::close();
