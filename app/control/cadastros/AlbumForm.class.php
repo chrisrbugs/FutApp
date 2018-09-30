@@ -101,11 +101,23 @@ class AlbumForm extends TPage
 		
 		$fotos_album->store();
 		
-		$data->photo_path = $foto;
-		// copy file to target folder
-		$this->saveFile($fotos_album, $data, 'photo_path', 'album');
 		
 	    }
+		
+			            /**
+     * Save files
+     * @param $object      Active Record
+     * @param $data        Form data
+     * @param $input_name  Input field name
+     * @param $target_path Target file path
+     * @param $model_files Files Active Record
+     * @param $file_field  File field in model_files
+     * @param $foreign_key Foreign key to $object
+     */
+    public function saveFiles($object, $data, 'photo_path', 'album', $model_files, $file_field, $foreign_key)
+		
+	    // copy file to target folder
+	    $this->saveFiles($album, $data, 'photo_path', 'album','caminho_foto',$album->id);
             
             // send id back to the form
             $data->id = $album->id;
