@@ -27,7 +27,7 @@
         <icon>fa:circle-o fa-fw </icon>
         <action>AlbumForm#method=onShow</action>
       </menuitem>
-       <menuitem label="Albuns">
+       <menuitem label="Galeria">
         <icon>fa:circle-o fa-fw </icon>
         <action>GaleriaFotosView#method=onShow</action>
       </menuitem>
