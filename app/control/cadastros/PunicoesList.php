@@ -275,7 +275,8 @@ class PunicoesList extends TPage
         try
         {
             // open a transaction with database 'futapp'
-            TTransaction::open(self::$database);
+		
+	    TTransaction::open(self::$database);
 
             // creates a repository for Punicoes
             $repository = new TRepository(self::$activeRecord);
@@ -303,10 +304,10 @@ class PunicoesList extends TPage
                     $criteria->add($filter);       
                 }
             }
-
-            // load the objects according to criteria
+          
+  	    // load the objects according to criteria	    
             $objects = $repository->load($criteria, FALSE);
-
+	    
             $this->datagrid->clear();
             if ($objects)
             {

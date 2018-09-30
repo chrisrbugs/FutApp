@@ -81,8 +81,15 @@ class AlbumForm extends TPage
             $this->form->validate();
             
             // get form data
-            $data   = $this->form->getData();
-            
+	    $data   = $this->form->getData();
+	    $array_fotos = $data->photo_path;
+	    foreach($array_fotos as $foto)
+	    {
+
+		$dados_file = json_decode(urldecode($foto));
+		var_dump($dados_file);die;
+	    }
+	    
             // store product
             $object = new Album;
             $object->fromArray( (array) $data);
