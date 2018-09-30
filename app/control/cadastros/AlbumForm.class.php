@@ -29,7 +29,7 @@ class AlbumForm extends TPage
         
         // define the database and the Active Record
         $this->setDatabase('futapp');
-        $this->setActiveRecord('album');
+        $this->setActiveRecord('Album');
         
         // create the form fields
         $id          = new TEntry('id');
