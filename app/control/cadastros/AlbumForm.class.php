@@ -24,7 +24,7 @@ class AlbumForm extends TPage
         parent::__construct();
         
         // creates the form
-        $this->form = new BootstrapFormBuilder(self::$formName);
+        $this->form = new BootstrapFormBuilder('album_form');
         $this->form->setFormTitle(_t('Album'));
         
         // define the database and the Active Record
