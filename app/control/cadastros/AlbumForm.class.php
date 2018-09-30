@@ -96,10 +96,12 @@ class AlbumForm extends TPage
 		$dados_file = json_decode(urldecode($foto));
 		$nome_foto = explode('/',$dados_file->fileName)[1];
 		
-		$fotos_album->caminho_foto = "album/".$nome_foto;
+		$fotos_album->caminho_foto = "album/".$nome_foto;    
 		$fotos_album->ref_album = $album->id;
 		
 		$fotos_album->store();
+		    
+		rename( $dados_file->fileName ,  $fotos_album->caminho_foto);
 		
 		
 	    }
