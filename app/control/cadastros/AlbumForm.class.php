@@ -103,7 +103,7 @@ class AlbumForm extends TPage
 		
 		$fotos_album->store();
 		    // copy file to target folder
-		$this->saveFilesByComma($fotos_album, $data, 'photo_path', 'album');
+		$this->saveFile($fotos_album, $data, 'photo_path', 'album');
 		
 	    }
             
