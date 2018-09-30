@@ -57,11 +57,11 @@ class AlbumForm extends TPage
         // add the actions
         $this->form->addAction( 'Save', new TAction([$this, 'onSave']), 'fa:save green');
         $this->form->addAction( 'Clear', new TAction([$this, 'onEdit']), 'fa:eraser red');
-        $this->form->addActionLink( 'List', new TAction(['ProductList', 'onReload']), 'fa:table blue');
+        //$this->form->addActionLink( 'List', new TAction(['ProductList', 'onReload']), 'fa:table blue');
 
         $vbox = new TVBox;
         $vbox->style = 'width: 100%';
-        $vbox->add(new TXMLBreadCrumb('menu.xml', 'ProductList'));
+        //$vbox->add(new TXMLBreadCrumb('menu.xml', 'ProductList'));
         $vbox->add($this->form);
 
         parent::add($vbox);
