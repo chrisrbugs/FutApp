@@ -18,7 +18,9 @@ class Partidas extends TRecord
         parent::addAttribute('ref_categoria');
         parent::addAttribute('time_local');
         parent::addAttribute('time_visitante');
-        parent::addAttribute('dt_jogo');
+	parent::addAttribute('dt_jogo');
+	parent::addAttribute('gols_local');
+	parent::addAttribute('gols_visitante');
     }
 
     /**
