@@ -91,15 +91,25 @@ class AlbumForm extends TPage
 	    $array_fotos = $data->photo_path;
 	    foreach($array_fotos as $foto)
 	    {
+		$fotos_album = new FotosAlbum();
+		    
 		$dados_file = json_decode(urldecode($foto));
-		var_dump($dados_file->fileName);die;
+		$foto = explode('/',$dados_file->fileName)[1];
+		
+		// copy file to target folder
+		$this->saveFile($fotos_album, $data, 'photo_path', 'album');
+		    
+		$fotos_album->caminho_foto = "album/".$foto;
+		$fotos_album->ref_album = $album->id;
+		$fotos_album->store();
+		
+                
 		
 	    }
 	    
            
             
-            // copy file to target folder
-            $this->saveFile($object, $data, 'photo_path', 'files/images');
+           
             
             // send id back to the form
             $data->id = $object->id;
