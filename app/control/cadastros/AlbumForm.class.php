@@ -100,8 +100,7 @@ class AlbumForm extends TPage
 		$fotos_album->ref_album = $album->id;
 		
 		$fotos_album->store();
-		
-	        $data->photo_path = "album/".$foto;
+
 		// copy file to target folder
 		$this->saveFile($fotos_album, $data, 'photo_path', 'album');
 		
