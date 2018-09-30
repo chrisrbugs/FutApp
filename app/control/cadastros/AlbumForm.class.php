@@ -95,13 +95,15 @@ class AlbumForm extends TPage
 		    
 		$dados_file = json_decode(urldecode($foto));
 		$foto = explode('/',$dados_file->fileName)[1];
-		
-		// copy file to target folder
-		$this->saveFilesByComma($fotos_album, $data, 'photo_path', 'album');
 		    
 		$fotos_album->caminho_foto = "album/".$foto;
 		$fotos_album->ref_album = $album->id;
 		$fotos_album->store();
+		
+		// copy file to target folder
+		$this->saveFilesByComma($fotos_album, $data, 'photo_path', 'album');
+		    
+		
 		
                 
 		
