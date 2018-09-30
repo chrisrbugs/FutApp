@@ -97,7 +97,7 @@ class AlbumForm extends TPage
 		$foto = explode('/',$dados_file->fileName)[1];
 		
 		// copy file to target folder
-		$this->saveFile($fotos_album, $data, 'photo_path', 'album');
+		$this->saveFilesByComma($fotos_album, $data, 'photo_path', 'album');
 		    
 		$fotos_album->caminho_foto = "album/".$foto;
 		$fotos_album->ref_album = $album->id;
