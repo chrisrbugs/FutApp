@@ -1,7 +1,7 @@
 <?php
 class FotosAlbum extends TRecord
 {
-    const TABLENAME  = '_fotos_album';
+    const TABLENAME  = 'fotos_album';
     const PRIMARYKEY = 'id';
     const IDPOLICY   =  'serial'; // {max, serial}
     
