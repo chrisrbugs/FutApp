@@ -103,11 +103,7 @@ class AlbumForm extends TPage
 		    
 		rename( $dados_file->fileName ,  $fotos_album->caminho_foto);
 		
-		
 	    }
-		
-	    // copy file to target folder
-	    $this->saveFilesByComma($album, $data, 'photo_path', 'album');
             
             // send id back to the form
             $data->id = $album->id;
