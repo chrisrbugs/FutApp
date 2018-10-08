@@ -14,7 +14,7 @@ class GaleriaFotosView extends TPage
     /**
      * Page constructor
      */
-    function __construct()
+    function __construct($param)
     {
         parent::__construct();
         
@@ -25,11 +25,15 @@ class GaleriaFotosView extends TPage
         $galleria = new TElement('div');
         $galleria->id    = 'images';
         $galleria->style = "width:100%;height:460px";
+
+        TTransaction::open('futapp');
+        $fotosAlbum = FotosAlbum::where('ref_album', ' = ', 37)->load();
+        TTransaction::close();
         
-        for ($n=1; $n<=4; $n++)
+        foreach ($fotosAlbum as $fotoAlbum) 
         {
             $img  = new TElement('img');
-            $img->src = "app/images/nature/nature{$n}.jpg";
+            $img->src = $fotoAlbum->caminho_foto;
             $galleria->add($img);
         }
         
@@ -48,5 +52,10 @@ class GaleriaFotosView extends TPage
         $vbox->add($script);
 
         parent::add($vbox);
+    }
+
+    public function onShow($param = null)
+    {
+
     }
 }

@@ -13,7 +13,8 @@ if ( TSession::getValue('logged') )
 }
 else
 {
-    $content = file_get_contents("app/templates/{$theme}/login.html");
+    //$content = file_get_contents("app/templates/{$theme}/login.html");
+    $content = file_get_contents("blog/index.html");
 }
 
 //$content = ApplicationTranslator::translateTemplate($content);

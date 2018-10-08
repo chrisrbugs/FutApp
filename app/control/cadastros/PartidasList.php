@@ -37,7 +37,7 @@ class PartidasList extends TPage
 
 
         $row1 = $this->form->addFields([new TLabel('Categoria:', null, '14px', null)],[$ref_categoria]);
-        $row2 = $this->form->addFields([new TLabel('Dt jogo:', null, '14px', null)],[$dt_jogo]);
+        $row2 = $this->form->addFields([new TLabel('Data jogo:', null, '14px', null)],[$dt_jogo]);
 
         // keep the form filled during navigation with session data
         $this->form->setData( TSession::getValue(__CLASS__.'_filter_data') );
@@ -55,6 +55,8 @@ class PartidasList extends TPage
         $column_time_local = new TDataGridColumn('time_local', 'Time local', 'left');
         $column_time_visitante = new TDataGridColumn('time_visitante', 'Time visitante', 'left');
         $column_dt_jogo = new TDataGridColumn('dt_jogo', 'Dt jogo', 'left');
+
+        $column_dt_jogo->setTransformer(array($this, 'formatDate'));
 
         $this->datagrid->addColumn($column_time_local);
         $this->datagrid->addColumn($column_time_visitante);
@@ -350,5 +352,9 @@ class PartidasList extends TPage
         parent::show();
     }
 
+    public function formatDate($date)
+    {
+        return date('d/m/Y G:i:s', strtotime($date));
+    }
 }
 

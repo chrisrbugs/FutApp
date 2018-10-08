@@ -12,7 +12,7 @@
 class AlbumForm extends TPage
 {
     protected $form;
-    
+
     // trait with onSave, onClear, onEdit, ...
     use Adianti\Base\AdiantiStandardFormTrait;
     
@@ -118,5 +118,9 @@ class AlbumForm extends TPage
             new TMessage('error', $e->getMessage());
             TTransaction::rollback();
         }
+    }
+    public function onShow($param = null)
+    {
+
     }
 }

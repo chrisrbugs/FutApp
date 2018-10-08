@@ -225,12 +225,12 @@ class ClassificacaoList extends TPage
 
             if (empty($param['order']))
             {
-                $param['order'] = 'id';    
+                $param['order'] = 'posicao';    
             }
 
             if (empty($param['direction']))
             {
-                $param['direction'] = 'desc';
+                $param['direction'] = 'asc';
             }
 
             $criteria->setProperties($param); // order, offset

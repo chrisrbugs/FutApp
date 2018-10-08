@@ -244,13 +244,13 @@ class PunicoesList extends TPage
         if (isset($data->nome_jogador) AND ( (is_scalar($data->nome_jogador) AND $data->nome_jogador !== '') OR (is_array($data->nome_jogador) AND (!empty($data->nome_jogador)) )) )
         {
 
-            $filters[] = new TFilter('nome_jogador', 'like', "%{$data->nome_jogador}%");// create the filter 
+            $filters[] = new TFilter('nome_jogador', 'ilike', "%{$data->nome_jogador}%");// create the filter 
         }
 
         if (isset($data->time) AND ( (is_scalar($data->time) AND $data->time !== '') OR (is_array($data->time) AND (!empty($data->time)) )) )
         {
 
-            $filters[] = new TFilter('time', 'like', "%{$data->time}%");// create the filter 
+            $filters[] = new TFilter('time', 'ilike', "%{$data->time}%");// create the filter 
         }
 
         $param = array();

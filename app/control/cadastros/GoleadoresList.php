@@ -28,10 +28,13 @@ class GoleadoresList extends TPage
 
 
         $ref_categoria = new TDBCombo('ref_categoria', 'futapp', 'Categorias', 'id', '{descricao}','id asc'  );
+        $nome = new TEntry('nome');
 
         $ref_categoria->setSize('70%');
+        $nome->setSize('70%');
 
         $row1 = $this->form->addFields([new TLabel('Categoria:', null, '14px', null)],[$ref_categoria]);
+        $row2 = $this->form->addFields([new TLabel('Nome do jogador:', null, '14px', null)],[$nome]);
 
         // keep the form filled during navigation with session data
         $this->form->setData( TSession::getValue(__CLASS__.'_filter_data') );
@@ -221,6 +224,12 @@ class GoleadoresList extends TPage
         TSession::setValue(__CLASS__.'_filter_data', NULL);
         TSession::setValue(__CLASS__.'_filters', NULL);
 
+        if (isset($data->nome) AND ( (is_scalar($data->nome) AND $data->nome !== '') OR (is_array($data->nome) AND (!empty($data->nome)) )) )
+        {
+
+            $filters[] = new TFilter('nome', 'ilike', "%{$data->nome}%");// create the filter 
+        }
+
         if (isset($data->ref_categoria) AND ( (is_scalar($data->ref_categoria) AND $data->ref_categoria !== '') OR (is_array($data->ref_categoria) AND (!empty($data->ref_categoria)) )) )
         {
 
@@ -259,7 +268,7 @@ class GoleadoresList extends TPage
 
             if (empty($param['order']))
             {
-                $param['order'] = 'id';    
+                $param['order'] = 'num_gols';    
             }
 
             if (empty($param['direction']))

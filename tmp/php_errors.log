@@ -1,0 +1,180 @@
+[30-Sep-2018 14:19:27 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 97
+[30-Sep-2018 14:19:27 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 97
+[30-Sep-2018 14:19:27 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 104
+[30-Sep-2018 14:19:27 America/Sao_Paulo] PHP Warning:  rename(,album/): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 104
+[30-Sep-2018 14:22:48 America/Sao_Paulo] PHP Warning:  rename(tmp/118.png,album/118.png): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 104
+[30-Sep-2018 14:22:48 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 97
+[30-Sep-2018 14:22:48 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 97
+[30-Sep-2018 14:22:48 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 104
+[30-Sep-2018 14:22:48 America/Sao_Paulo] PHP Warning:  rename(,album/): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 104
+[04-Oct-2018 22:38:49 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected 'var_dump' (T_STRING), expecting function (T_FUNCTION) or const (T_CONST) in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 16
+[05-Oct-2018 00:07:37 America/Sao_Paulo] PHP Notice:  A non well formed numeric value encountered in /var/www/html/FutApp/app/control/cadastros/PartidasList.php on line 357
+[05-Oct-2018 00:07:53 America/Sao_Paulo] PHP Notice:  A non well formed numeric value encountered in /var/www/html/FutApp/app/control/cadastros/PartidasList.php on line 357
+[05-Oct-2018 00:08:06 America/Sao_Paulo] PHP Notice:  A non well formed numeric value encountered in /var/www/html/FutApp/app/control/cadastros/PartidasList.php on line 357
+[05-Oct-2018 00:10:24 America/Sao_Paulo] PHP Notice:  A non well formed numeric value encountered in /var/www/html/FutApp/app/control/cadastros/PartidasList.php on line 357
+[05-Oct-2018 00:10:36 America/Sao_Paulo] PHP Notice:  A non well formed numeric value encountered in /var/www/html/FutApp/app/control/cadastros/PartidasList.php on line 357
+[05-Oct-2018 00:17:40 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ';', expecting ',' or ')' in /var/www/html/FutApp/app/control/cadastros/PartidasList.php on line 357
+[05-Oct-2018 00:20:12 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ')' in /var/www/html/FutApp/app/control/cadastros/PartidasList.php on line 357
+[07-Oct-2018 16:19:34 America/Sao_Paulo] PHP Notice:  Undefined variable: fotoAlbum in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 30
+[07-Oct-2018 16:22:22 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to undefined method GaleriaFotosView::setDatabase() in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php:28
+Stack trace:
+#0 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(60): GaleriaFotosView->__construct(Array)
+#1 /var/www/html/FutApp/engine.php(23): Adianti\Core\AdiantiCoreApplication::run(true)
+#2 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#3 {main}
+  thrown in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 28
+[07-Oct-2018 16:23:36 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Class 'Transaction' not found in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php:29
+Stack trace:
+#0 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(60): GaleriaFotosView->__construct(Array)
+#1 /var/www/html/FutApp/engine.php(23): Adianti\Core\AdiantiCoreApplication::run(true)
+#2 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#3 {main}
+  thrown in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 29
+[07-Oct-2018 16:40:05 America/Sao_Paulo] PHP Notice:  Undefined variable: action_onDelete in /var/www/html/FutApp/app/control/cadastros/AlbumList.class.php on line 58
+[07-Oct-2018 16:40:05 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to Adianti\Widget\Datagrid\TDataGrid::addAction() must be an instance of Adianti\Widget\Datagrid\TDataGridAction, null given in /var/www/html/FutApp/lib/adianti/widget/datagrid/TDataGrid.php:174
+Stack trace:
+#0 [internal function]: Adianti\Widget\Datagrid\TDataGrid->addAction(NULL)
+#1 /var/www/html/FutApp/lib/adianti/wrapper/BootstrapDatagridWrapper.php(35): call_user_func_array(Array, Array)
+#2 /var/www/html/FutApp/app/control/cadastros/AlbumList.class.php(58): Adianti\Wrapper\BootstrapDatagridWrapper->__call('addAction', Array)
+#3 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(60): AlbumList->__construct(Array)
+#4 /var/www/html/FutApp/engine.php(23): Adianti\Core\AdiantiCoreApplication::run(true)
+#5 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#6 {main}
+  thrown in /var/www/html/FutApp/lib/adianti/widget/datagrid/TDataGrid.php on line 174
+[07-Oct-2018 16:48:09 America/Sao_Paulo] PHP Notice:  Undefined variable: column in /var/www/html/FutApp/app/control/cadastros/AlbumList.class.php on line 51
+[07-Oct-2018 16:48:09 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to a member function setTransformer() on null in /var/www/html/FutApp/app/control/cadastros/AlbumList.class.php:51
+Stack trace:
+#0 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(60): AlbumList->__construct(Array)
+#1 /var/www/html/FutApp/engine.php(23): Adianti\Core\AdiantiCoreApplication::run(true)
+#2 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#3 {main}
+  thrown in /var/www/html/FutApp/app/control/cadastros/AlbumList.class.php on line 51
+[07-Oct-2018 16:54:13 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ';', expecting ',' or ')' in /var/www/html/FutApp/app/control/cadastros/AlbumList.class.php on line 57
+[07-Oct-2018 16:55:29 America/Sao_Paulo] PHP Notice:  Undefined variable: action_onShow in /var/www/html/FutApp/app/control/cadastros/AlbumList.class.php on line 72
+[07-Oct-2018 16:55:29 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to a member function setButtonClass() on null in /var/www/html/FutApp/app/control/cadastros/AlbumList.class.php:72
+Stack trace:
+#0 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(60): AlbumList->__construct(Array)
+#1 /var/www/html/FutApp/engine.php(23): Adianti\Core\AdiantiCoreApplication::run(true)
+#2 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#3 {main}
+  thrown in /var/www/html/FutApp/app/control/cadastros/AlbumList.class.php on line 72
+[07-Oct-2018 16:58:44 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to a member function getData() on null in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php:33
+Stack trace:
+#0 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(60): GaleriaFotosView->__construct(Array)
+#1 /var/www/html/FutApp/engine.php(23): Adianti\Core\AdiantiCoreApplication::run(true)
+#2 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#3 {main}
+  thrown in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 33
+[07-Oct-2018 16:59:05 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to a member function getData() on null in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php:33
+Stack trace:
+#0 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(60): GaleriaFotosView->__construct(Array)
+#1 /var/www/html/FutApp/engine.php(23): Adianti\Core\AdiantiCoreApplication::run(true)
+#2 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#3 {main}
+  thrown in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 33
+[07-Oct-2018 17:01:10 America/Sao_Paulo] PHP Notice:  Undefined index: id in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 29
+[07-Oct-2018 17:01:10 America/Sao_Paulo] PHP Notice:  Undefined index: id in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 31
+[07-Oct-2018 17:04:45 America/Sao_Paulo] PHP Notice:  Undefined index: key in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 30
+[07-Oct-2018 17:07:03 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ''contruct'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /var/www/html/FutApp/app/control/cadastros/AlbumList.class.php on line 70
+[07-Oct-2018 17:07:22 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ''show'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /var/www/html/FutApp/app/control/cadastros/AlbumList.class.php on line 70
+[07-Oct-2018 17:07:25 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ''show'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /var/www/html/FutApp/app/control/cadastros/AlbumList.class.php on line 70
+[07-Oct-2018 17:07:30 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ''show'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /var/www/html/FutApp/app/control/cadastros/AlbumList.class.php on line 70
+[07-Oct-2018 17:12:01 America/Sao_Paulo] PHP Notice:  Undefined index: key in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 30
+[07-Oct-2018 17:12:05 America/Sao_Paulo] PHP Notice:  Undefined index: key in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 30
+[07-Oct-2018 17:16:51 America/Sao_Paulo] PHP Notice:  Undefined index: key in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 30
+[07-Oct-2018 17:18:15 America/Sao_Paulo] PHP Notice:  Undefined index: key in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 30
+[07-Oct-2018 17:18:59 America/Sao_Paulo] PHP Notice:  Undefined index: key in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 30
+[07-Oct-2018 17:22:16 America/Sao_Paulo] PHP Notice:  Undefined variable: container in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 53
+[07-Oct-2018 17:22:16 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to a member function add() on null in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php:53
+Stack trace:
+#0 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(60): GaleriaFotosView->__construct(Array)
+#1 /var/www/html/FutApp/engine.php(23): Adianti\Core\AdiantiCoreApplication::run(true)
+#2 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#3 {main}
+  thrown in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 53
+[07-Oct-2018 17:22:29 America/Sao_Paulo] PHP Notice:  Undefined variable: container in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 59
+[07-Oct-2018 17:22:36 America/Sao_Paulo] PHP Notice:  Undefined variable: container in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 59
+[07-Oct-2018 17:27:27 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/lib/adianti/control/TAction.php on line 63
+[07-Oct-2018 17:28:03 America/Sao_Paulo] PHP Notice:  Undefined index: key in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 30
+[07-Oct-2018 17:28:09 America/Sao_Paulo] PHP Notice:  Undefined index: key in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 30
+[07-Oct-2018 17:30:20 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to undefined method GaleriaFotosView::onReload() in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php:59
+Stack trace:
+#0 [internal function]: GaleriaFotosView->onShow(Array)
+#1 /var/www/html/FutApp/lib/adianti/control/TPage.php(51): call_user_func(Array, Array)
+#2 /var/www/html/FutApp/lib/adianti/control/TPage.php(205): Adianti\Control\TPage->run()
+#3 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(62): Adianti\Control\TPage->show(Array)
+#4 /var/www/html/FutApp/engine.php(23): Adianti\Core\AdiantiCoreApplication::run(true)
+#5 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#6 {main}
+  thrown in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 59
+[07-Oct-2018 17:34:17 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to undefined method GaleriaFotosView::onReload() in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php:69
+Stack trace:
+#0 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(62): GaleriaFotosView->show(Array)
+#1 /var/www/html/FutApp/engine.php(23): Adianti\Core\AdiantiCoreApplication::run(true)
+#2 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#3 {main}
+  thrown in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 69
+[07-Oct-2018 17:35:11 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Access to undeclared static property: GaleriaFotosView::$database in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php:85
+Stack trace:
+#0 /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php(69): GaleriaFotosView->onReload(Array)
+#1 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(62): GaleriaFotosView->show(Array)
+#2 /var/www/html/FutApp/engine.php(23): Adianti\Core\AdiantiCoreApplication::run(true)
+#3 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#4 {main}
+  thrown in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 85
+[07-Oct-2018 17:49:57 America/Sao_Paulo] PHP Notice:  Undefined index: key in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 30
+[07-Oct-2018 18:03:07 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to a member function setData() on null in /var/www/html/FutApp/app/control/cadastros/PunicoesForm.php:114
+Stack trace:
+#0 [internal function]: PunicoesForm->onEdit(Array)
+#1 /var/www/html/FutApp/lib/adianti/control/TPage.php(51): call_user_func(Array, Array)
+#2 /var/www/html/FutApp/lib/adianti/control/TPage.php(205): Adianti\Control\TPage->run()
+#3 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(62): Adianti\Control\TPage->show(Array)
+#4 /var/www/html/FutApp/engine.php(23): Adianti\Core\AdiantiCoreApplication::run(true)
+#5 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#6 {main}
+  thrown in /var/www/html/FutApp/app/control/cadastros/PunicoesForm.php on line 114
+[07-Oct-2018 18:06:34 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Access to undeclared static property: GaleriaFotosView::$formName in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php:23
+Stack trace:
+#0 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(60): GaleriaFotosView->__construct(Array)
+#1 /var/www/html/FutApp/engine.php(23): Adianti\Core\AdiantiCoreApplication::run(true)
+#2 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#3 {main}
+  thrown in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 23
+[07-Oct-2018 18:07:25 America/Sao_Paulo] PHP Notice:  Undefined variable: btn_onsave in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 55
+[07-Oct-2018 18:07:25 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to a member function addStyleClass() on null in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php:55
+Stack trace:
+#0 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(60): GaleriaFotosView->__construct(Array)
+#1 /var/www/html/FutApp/engine.php(23): Adianti\Core\AdiantiCoreApplication::run(true)
+#2 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#3 {main}
+  thrown in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 55
+[07-Oct-2018 18:08:50 America/Sao_Paulo] PHP Notice:  Undefined index: key in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 30
+[07-Oct-2018 19:07:10 America/Sao_Paulo] PHP Notice:  Undefined index: key in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 30
+[07-Oct-2018 19:07:23 America/Sao_Paulo] PHP Notice:  Undefined index: key in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 30
+[07-Oct-2018 21:12:39 America/Sao_Paulo] PHP Notice:  Undefined index: key in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 30
+[08-Oct-2018 09:37:49 America/Sao_Paulo] PHP Notice:  Undefined index: key in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 30
+[08-Oct-2018 09:41:40 America/Sao_Paulo] PHP Notice:  Undefined index: key in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 30
+[08-Oct-2018 12:22:48 America/Sao_Paulo] PHP Notice:  Undefined index: key in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 30
+[08-Oct-2018 12:35:10 America/Sao_Paulo] PHP Notice:  Undefined index: key in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 30
+[08-Oct-2018 12:36:52 America/Sao_Paulo] PHP Fatal error:  Uncaught ReflectionException: Method GaleriaFotosView::() does not exist in /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php:46
+Stack trace:
+#0 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(46): ReflectionMethod->__construct('GaleriaFotosVie...', '')
+#1 /var/www/html/FutApp/engine.php(23): Adianti\Core\AdiantiCoreApplication::run(true)
+#2 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#3 {main}
+  thrown in /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php on line 46
+[08-Oct-2018 12:37:01 America/Sao_Paulo] PHP Fatal error:  Uncaught ReflectionException: Method GaleriaFotosView::() does not exist in /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php:46
+Stack trace:
+#0 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(46): ReflectionMethod->__construct('GaleriaFotosVie...', '')
+#1 /var/www/html/FutApp/engine.php(23): Adianti\Core\AdiantiCoreApplication::run(true)
+#2 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#3 {main}
+  thrown in /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php on line 46
+[08-Oct-2018 12:37:03 America/Sao_Paulo] PHP Fatal error:  Uncaught ReflectionException: Method GaleriaFotosView::() does not exist in /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php:46
+Stack trace:
+#0 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(46): ReflectionMethod->__construct('GaleriaFotosVie...', '')
+#1 /var/www/html/FutApp/engine.php(23): Adianti\Core\AdiantiCoreApplication::run(true)
+#2 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#3 {main}
+  thrown in /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php on line 46
+[08-Oct-2018 12:37:19 America/Sao_Paulo] PHP Notice:  Undefined index: key in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 30
