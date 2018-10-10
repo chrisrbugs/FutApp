@@ -27,9 +27,9 @@ class PartidasForm extends TPage
         $ref_categoria = new TDBCombo('ref_categoria', 'futapp', 'Categorias', 'id', '{descricao}','id asc'  );
         $time_local = new TEntry('time_local');
         $time_visitante = new TEntry('time_visitante');
-	$dt_jogo = new TDateTime('dt_jogo');
-	$gols_visitante = new TEntry('gols_visitante');
-	$gols_local     = new TEntry('gols_local'); 
+	    $dt_jogo = new TDateTime('dt_jogo');
+	    $gols_visitante = new TEntry('gols_visitante');
+	    $gols_local     = new TEntry('gols_local'); 
 
         $ref_categoria->addValidation('Ref categoria', new TRequiredValidator()); 
 
@@ -46,10 +46,10 @@ class PartidasForm extends TPage
 
         $row1 = $this->form->addFields([new TLabel('Id:', null, '14px', null)],[$id]);
         $row2 = $this->form->addFields([new TLabel('Categoria:', '#ff0000', '14px', null)],[$ref_categoria]);
-	$row3 = $this->form->addFields([new TLabel('Time local:', null, '14px', null)],[$time_local]);
-	$row4 = $this->form->addFields([new TLabel('Gols Local:', null, '14px', null)],[$gols_local]);
-	$row5 = $this->form->addFields([new TLabel('Time visitante:', null, '14px', null)],[$time_visitante]);
-	$row6 = $this->form->addFields([new TLabel('Gols Visitante:', null, '14px', null)],[$gols_visitante]);
+	    $row3 = $this->form->addFields([new TLabel('Time local:', null, '14px', null)],[$time_local]);
+	    $row4 = $this->form->addFields([new TLabel('Gols Local:', null, '14px', null)],[$gols_local]);
+	    $row5 = $this->form->addFields([new TLabel('Time visitante:', null, '14px', null)],[$time_visitante]);
+	    $row6 = $this->form->addFields([new TLabel('Gols Visitante:', null, '14px', null)],[$gols_visitante]);
         $row7 = $this->form->addFields([new TLabel('Data do jogo:', null, '14px', null)],[$dt_jogo]);
      
         // create the form actions

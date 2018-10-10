@@ -293,17 +293,17 @@ class ClassificacaoList extends TPage
     public function show()
     {
         // check if the datagrid is already loaded
-        if (!$this->loaded AND (!isset($_GET['method']) OR !(in_array($_GET['method'],  array('onReload', 'onSearch')))) )
-        {
-            if (func_num_args() > 0)
-            {
-                $this->onReload( func_get_arg(0) );
-            }
-            else
-            {
-                $this->onReload();
-            }
-        }
+        //if (!$this->loaded AND (!isset($_GET['method']) OR !(in_array($_GET['method'],  array('onReload', 'onSearch')))) )
+        //{
+          //  if (func_num_args() > 0)
+            //{
+              //  $this->onReload( func_get_arg(0) );
+            //}
+            //else
+            //{
+              //  $this->onReload();
+            //}
+        //}
         parent::show();
     }
 

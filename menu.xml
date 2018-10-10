@@ -23,17 +23,9 @@
         <icon>fa:circle-o fa-fw </icon>
         <action>CategoriasForm#method=onShow</action>
       </menuitem>
-      <menuitem label="Albuns List">
-        <icon>fa:circle-o fa-fw </icon>
-        <action>AlbumList#method=onShow</action>
-      </menuitem>
       <menuitem label="Albuns">
         <icon>fa:circle-o fa-fw </icon>
-        <action>AlbumForm#method=onShow</action>
-      </menuitem>
-       <menuitem label="Galeria">
-        <icon>fa:circle-o fa-fw </icon>
-        <action>GaleriaFotosView#method=onShow</action>
+        <action>AlbumList#method=onShow</action>
       </menuitem>
     </menu>
   </menuitem>

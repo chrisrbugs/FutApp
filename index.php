@@ -32,5 +32,12 @@ if (TSession::getValue('logged') OR $public)
 }
 else
 {
-    AdiantiCoreApplication::loadPage('LoginForm', '', $_REQUEST);
+    if ($class) 
+    {
+        AdiantiCoreApplication::loadPage('LoginForm', '', $_REQUEST);
+    }
+    else
+    {
+        AdiantiCoreApplication::loadPage('PublicView', '', $_REQUEST);
+    }
 }

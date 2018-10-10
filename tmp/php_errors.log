@@ -178,3 +178,64 @@ Stack trace:
 #3 {main}
   thrown in /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php on line 46
 [08-Oct-2018 12:37:19 America/Sao_Paulo] PHP Notice:  Undefined index: key in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 30
+[08-Oct-2018 20:15:54 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to undefined function __adianti_load_page() in /var/www/html/FutApp/app/control/cadastros/AlbumList.class.php:331
+Stack trace:
+#0 [internal function]: AlbumList->onAlbum(Array)
+#1 /var/www/html/FutApp/lib/adianti/control/TPage.php(51): call_user_func(Array, Array)
+#2 /var/www/html/FutApp/lib/adianti/control/TPage.php(205): Adianti\Control\TPage->run()
+#3 /var/www/html/FutApp/app/control/cadastros/AlbumList.class.php(352): Adianti\Control\TPage->show()
+#4 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(62): AlbumList->show(Array)
+#5 /var/www/html/FutApp/engine.php(23): Adianti\Core\AdiantiCoreApplication::run(true)
+#6 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#7 {main}
+  thrown in /var/www/html/FutApp/app/control/cadastros/AlbumList.class.php on line 331
+[08-Oct-2018 20:19:54 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to undefined function __adianti_load_page() in /var/www/html/FutApp/app/control/cadastros/AlbumList.class.php:331
+Stack trace:
+#0 [internal function]: AlbumList->onAlbum(Array)
+#1 /var/www/html/FutApp/lib/adianti/control/TPage.php(51): call_user_func(Array, Array)
+#2 /var/www/html/FutApp/lib/adianti/control/TPage.php(205): Adianti\Control\TPage->run()
+#3 /var/www/html/FutApp/app/control/cadastros/AlbumList.class.php(352): Adianti\Control\TPage->show()
+#4 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(62): AlbumList->show(Array)
+#5 /var/www/html/FutApp/engine.php(23): Adianti\Core\AdiantiCoreApplication::run(true)
+#6 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#7 {main}
+  thrown in /var/www/html/FutApp/app/control/cadastros/AlbumList.class.php on line 331
+[08-Oct-2018 20:53:50 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ';', expecting ',' or ')' in /var/www/html/FutApp/app/control/cadastros/PartidasList.php on line 232
+[08-Oct-2018 20:53:58 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ';', expecting ',' or ')' in /var/www/html/FutApp/app/control/cadastros/PartidasList.php on line 232
+[08-Oct-2018 22:02:04 America/Sao_Paulo] PHP Warning:  rename(tmp/1.jpg,album/1.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 104
+[08-Oct-2018 22:02:04 America/Sao_Paulo] PHP Warning:  rename(tmp/2.jpg,album/2.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 104
+[08-Oct-2018 22:02:04 America/Sao_Paulo] PHP Warning:  rename(tmp/3.jpg,album/3.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 104
+[08-Oct-2018 22:02:04 America/Sao_Paulo] PHP Warning:  rename(tmp/4.jpg,album/4.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 104
+[08-Oct-2018 22:02:04 America/Sao_Paulo] PHP Warning:  rename(tmp/5.jpg,album/5.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 104
+[08-Oct-2018 22:02:04 America/Sao_Paulo] PHP Warning:  rename(tmp/6.jpg,album/6.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 104
+[08-Oct-2018 22:02:04 America/Sao_Paulo] PHP Warning:  rename(tmp/7.jpg,album/7.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 104
+[08-Oct-2018 22:02:04 America/Sao_Paulo] PHP Warning:  rename(tmp/8.jpg,album/8.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 104
+[08-Oct-2018 22:02:04 America/Sao_Paulo] PHP Warning:  rename(tmp/9.jpg,album/9.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 104
+[08-Oct-2018 22:02:04 America/Sao_Paulo] PHP Warning:  rename(tmp/10.jpg,album/10.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 104
+[08-Oct-2018 22:02:04 America/Sao_Paulo] PHP Warning:  rename(tmp/11.jpg,album/11.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 104
+[08-Oct-2018 22:02:04 America/Sao_Paulo] PHP Warning:  rename(tmp/12.jpg,album/12.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 104
+[08-Oct-2018 22:02:04 America/Sao_Paulo] PHP Warning:  rename(tmp/13.jpg,album/13.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 104
+[08-Oct-2018 22:02:04 America/Sao_Paulo] PHP Warning:  rename(tmp/14.jpg,album/14.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 104
+[08-Oct-2018 22:02:04 America/Sao_Paulo] PHP Warning:  rename(tmp/15.jpg,album/15.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 104
+[08-Oct-2018 22:02:04 America/Sao_Paulo] PHP Warning:  rename(tmp/16.jpg,album/16.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 104
+[08-Oct-2018 22:02:04 America/Sao_Paulo] PHP Warning:  rename(tmp/17.jpg,album/17.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 104
+[08-Oct-2018 22:02:04 America/Sao_Paulo] PHP Warning:  rename(tmp/18.jpg,album/18.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 104
+[08-Oct-2018 22:02:04 America/Sao_Paulo] PHP Warning:  rename(tmp/19.jpg,album/19.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 104
+[08-Oct-2018 22:02:04 America/Sao_Paulo] PHP Warning:  rename(tmp/20.jpg,album/20.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 104
+[09-Oct-2018 19:58:59 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Access to undeclared static property: AlbumForm::$database in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php:133
+Stack trace:
+#0 [internal function]: AlbumForm->onEdit(Array)
+#1 /var/www/html/FutApp/lib/adianti/control/TPage.php(51): call_user_func(Array, Array)
+#2 /var/www/html/FutApp/lib/adianti/control/TPage.php(205): Adianti\Control\TPage->run()
+#3 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(62): Adianti\Control\TPage->show(Array)
+#4 /var/www/html/FutApp/engine.php(23): Adianti\Core\AdiantiCoreApplication::run(true)
+#5 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#6 {main}
+  thrown in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 133
+[09-Oct-2018 20:00:04 America/Sao_Paulo] PHP Fatal error:  AlbumForm and Adianti\Base\AdiantiStandardFormTrait define the same property ($database) in the composition of AlbumForm. However, the definition differs and is considered incompatible. Class was composed in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 12
+[09-Oct-2018 20:06:54 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected end of file in /var/www/html/FutApp/app/control/cadastros/AlbumList.class.php on line 233
+[09-Oct-2018 20:10:11 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected '$album' (T_VARIABLE) in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 99
+[09-Oct-2018 20:11:15 America/Sao_Paulo] PHP Warning:  rename(tmp/Captura de tela de 2018-10-07 12-39-20.png,album/38/Captura de tela de 2018-10-07 12-39-20.png): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 104
+[09-Oct-2018 20:14:45 America/Sao_Paulo] PHP Warning:  rename(tmp/Captura de tela de 2018-10-07 12-39-20.png,album/40/Captura de tela de 2018-10-07 12-39-20.png): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 104
+[09-Oct-2018 20:14:45 America/Sao_Paulo] PHP Warning:  rename(tmp/Captura de tela de 2018-10-08 12-24-29.png,album/40/Captura de tela de 2018-10-08 12-24-29.png): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 104
+[09-Oct-2018 20:21:10 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ')' in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 99

@@ -61,33 +61,43 @@ class AlbumList extends TPage
 
         $this->datagrid->addColumn($column_descricao);
         $this->datagrid->addColumn($column_imagem);
+
+        $action_onShow = new TDataGridAction(array($this, 'onAlbum'));
+        $action_onShow->setUseButton(false);
+        $action_onShow->setButtonClass('btn btn-default btn-sm');
+        $action_onShow->setLabel('Visualizar');
+        $action_onShow->setImage('fa:eye #478fca');
+        $action_onShow->setField(self::$primaryKey);
+
+        $this->datagrid->addAction($action_onShow);
       
         if ( TSession::getValue('logged') )
         {
+            $btn_onshow = $this->form->addAction('Cadastrar', new TAction(['AlbumForm', 'onShow']), 'fa:plus #69aa46');
           //$btn_onexportcsv = $this->form->addAction('Exportar como CSV', new TAction([$this, 'onExportCsv']), 'fa:file-text-o #000000');
 
-          $btn_onshow = $this->form->addAction('Cadastrar', new TAction(['AlbumForm', 'onShow']), 'fa:plus #69aa46');
-          $action_onShow = new TDataGridAction(array('GaleriaFotosView', 'onShow'));
-          $action_onShow->setUseButton(false);
-          $action_onShow->setButtonClass('btn btn-default btn-sm');
-          $action_onShow->setLabel('Editar');
-          $action_onShow->setImage('fa:pencil-square-o #478fca');
-          $action_onShow->setField(self::$primaryKey);
+            $action_onShow = new TDataGridAction(array('AlbumForm', 'onEdit'));
+            $action_onShow->setUseButton(false);
+            $action_onShow->setButtonClass('btn btn-default btn-sm');
+            $action_onShow->setLabel('Editar');
+            $action_onShow->setImage('fa:pencil-square-o #478fca');
+            $action_onShow->setField(self::$primaryKey);
 
-          $this->datagrid->addAction($action_onShow);
+            $this->datagrid->addAction($action_onShow);
 
-          //$action_onDelete = new TDataGridAction(array('PunicoesList', 'onDelete'));
-          //$action_onDelete->setUseButton(false);
-          //$action_onDelete->setButtonClass('btn btn-default btn-sm');
-          //$action_onDelete->setLabel('Excluir');
-          //$action_onDelete->setImage('fa:trash-o #dd5a43');
-          //$action_onDelete->setField(self::$primaryKey);
+            $action_onDelete = new TDataGridAction(array('AlbumList', 'onDelete'));
+            $action_onDelete->setUseButton(false);
+            $action_onDelete->setButtonClass('btn btn-default btn-sm');
+            $action_onDelete->setLabel('Excluir');
+            $action_onDelete->setImage('fa:trash-o #dd5a43');
+            $action_onDelete->setField(self::$primaryKey);
 
-          //$this->datagrid->addAction($action_onDelete);
+            $this->datagrid->addAction($action_onDelete);
         }
       
         // create the datagrid model
         $this->datagrid->createModel();
+	
 
         // creates the page navigation
         $this->pageNavigation = new TPageNavigation;
@@ -182,7 +192,9 @@ class AlbumList extends TPage
                 TTransaction::open(self::$database);
 
                 // instantiates object
-                $object = new Punicoes($key, FALSE); 
+                $fotosAlbum = FotosAlbum::where('ref_album', '=' ,$key)->delete();
+
+                $object = new Album($key, FALSE); 
 
                 // deletes the object from the database
                 $object->delete();
@@ -229,7 +241,7 @@ class AlbumList extends TPage
         if (isset($data->descricao) AND ( (is_scalar($data->descricao) AND $data->descricao !== '') OR (is_array($data->descricao) AND (!empty($data->descricao)) )) )
         {
 
-            $filters[] = new TFilter('descricao', '=', $data->descricao);// create the filter 
+            $filters[] = new TFilter('descricao', ' ilike ', '%'.$data->descricao.'%');// create the filter 
         }
 
         $param = array();
@@ -265,7 +277,7 @@ class AlbumList extends TPage
 
             if (empty($param['order']))
             {
-                $param['order'] = 'id';    
+                $param['order'] = 'dt_album';    
             }
 
             if (empty($param['direction']))
@@ -324,6 +336,11 @@ class AlbumList extends TPage
     public function onShow($param = null)
     {
 
+    }
+
+      public function onAlbum($param = null)
+    {
+       AdiantiCoreApplication::gotoPage('GaleriaFotosView', 'onShow', $param);  
     }
 
     /**

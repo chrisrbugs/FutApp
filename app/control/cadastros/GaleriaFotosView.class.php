@@ -27,7 +27,7 @@ class GaleriaFotosView extends TPage
         $galleria->style = "width:100%;height:460px";
 
         TTransaction::open('futapp');
-        $fotosAlbum = FotosAlbum::where('ref_album', ' = ', 37)->load();
+        $fotosAlbum = FotosAlbum::where('ref_album', ' = ', $param['id'])->load();
         TTransaction::close();
         
         foreach ($fotosAlbum as $fotoAlbum) 
@@ -36,7 +36,7 @@ class GaleriaFotosView extends TPage
             $img->src = $fotoAlbum->caminho_foto;
             $galleria->add($img);
         }
-        
+     
         // creates the script element
         $script =new TElement('script');
         $script->type = 'text/javascript';
@@ -47,7 +47,7 @@ class GaleriaFotosView extends TPage
         // wrap the page content using vertical box
         $vbox = new TVBox;
         $vbox->style = 'width: 100%';
-        $vbox->add(new TXMLBreadCrumb('menu.xml', __CLASS__));
+        //$vbox->add(new TXMLBreadCrumb(null,'teste'));
         $vbox->add($galleria);
         $vbox->add($script);
 

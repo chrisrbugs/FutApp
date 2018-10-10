@@ -235,7 +235,10 @@ class PartidasList extends TPage
         if (isset($data->dt_jogo) AND ( (is_scalar($data->dt_jogo) AND $data->dt_jogo !== '') OR (is_array($data->dt_jogo) AND (!empty($data->dt_jogo)) )) )
         {
 
-            $filters[] = new TFilter('dt_jogo', '=', $data->dt_jogo);// create the filter 
+            $dt = str_replace('/', '-', $data->dt_jogo);
+            $dt_usa = date('Y-m-d', strtotime($dt));
+
+            $filters[] = new TFilter('dt_jogo::date', '=', $dt_usa);// create the filter 
         }
 
         $param = array();
@@ -316,6 +319,7 @@ class PartidasList extends TPage
             // close the transaction
             TTransaction::close();
             $this->loaded = true;
+
         }
         catch (Exception $e) // in case of exception
         {
