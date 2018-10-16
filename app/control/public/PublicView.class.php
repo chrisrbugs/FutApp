@@ -20,9 +20,9 @@ class PublicView extends TPage
         // replace the main section variables
         $html->enableSection('main', array());
         
-        $panel = new TPanelGroup('J30 EVENTOS!');
+        $panel = new TPanelGroup('J30 EVENTOS ESPORTIVOS!');
         $panel->add($html);
-        $panel->style = 'margin: 100px';
+        
         
         // add the template to the page
         parent::add( $panel );

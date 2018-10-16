@@ -104,8 +104,7 @@ class PunicoesList extends TPage
         $this->pageNavigation->setWidth($this->datagrid->getWidth());
 
         $panel = new TPanelGroup;
-        $panel->add($this->datagrid);
-
+        $panel->add($this->datagrid)->style = 'overflow-x:auto';
         $panel->addFooter($this->pageNavigation);
 
         // vertical box container

@@ -42,7 +42,7 @@ class GaleriaFotosView extends TPage
         $script->type = 'text/javascript';
         $script->add('Galleria.loadTheme("app/lib/jquery/galleria/themes/classic/galleria.classic.min.js");
                       
-                      setTimeout( function() { $("#images").galleria()}, 10 ); ');
+                      setTimeout( function() { $("#images").galleria()}, 50 ); ');
         
         // wrap the page content using vertical box
         $vbox = new TVBox;
