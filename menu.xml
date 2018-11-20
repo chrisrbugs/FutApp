@@ -3,6 +3,14 @@
   <menuitem label="Cadastros">
     <icon>fa:align-justify fa-fw </icon>
     <menu>
+      <menuitem label="Pessoas">
+        <icon>fa:circle-o fa-fw </icon>
+        <action>PessoasList#method=onShow</action>
+      </menuitem>
+      <menuitem label="Marcações">
+        <icon>fa:circle-o fa-fw </icon>
+        <action>MarcacoesList#method=onShow</action>
+      </menuitem>
       <menuitem label="Punições">
         <icon>fa:circle-o fa-fw </icon>
         <action>PunicoesList#method=onShow</action>
@@ -21,7 +29,7 @@
       </menuitem>
       <menuitem label="Categorias">
         <icon>fa:circle-o fa-fw </icon>
-        <action>CategoriasForm#method=onShow</action>
+        <action>CategoriasList#method=onShow</action>
       </menuitem>
       <menuitem label="Albuns">
         <icon>fa:circle-o fa-fw </icon>

@@ -2937,3 +2937,68 @@ Stack trace:
 [13-Oct-2018 00:32:27 America/Sao_Paulo] PHP Warning:  rename(,album/96/5bc1674b7e333): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
 [14-Oct-2018 23:39:08 America/Sao_Paulo] PHP Notice:  Undefined index: id in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 30
 [14-Oct-2018 23:39:27 America/Sao_Paulo] PHP Notice:  Undefined index: id in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 30
+[21-Oct-2018 16:44:56 America/Sao_Paulo] PHP Warning:  Invalid argument supplied for foreach() in /var/www/html/FutApp/lib/adianti/wrapper/BootstrapFormBuilder.php on line 594
+[21-Oct-2018 16:57:25 America/Sao_Paulo] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to Adianti\Widget\Datagrid\TDataGridColumn::setTransformer() must be callable, array given, called in /var/www/html/FutApp/app/control/cadastros/PartidasList.php on line 63 and defined in /var/www/html/FutApp/lib/adianti/widget/datagrid/TDataGridColumn.php:220
+Stack trace:
+#0 /var/www/html/FutApp/app/control/cadastros/PartidasList.php(63): Adianti\Widget\Datagrid\TDataGridColumn->setTransformer(Array)
+#1 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(60): PartidasList->__construct(Array)
+#2 /var/www/html/FutApp/engine.php(23): Adianti\Core\AdiantiCoreApplication::run(true)
+#3 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#4 {main}
+  thrown in /var/www/html/FutApp/lib/adianti/widget/datagrid/TDataGridColumn.php on line 220
+[23-Oct-2018 00:41:43 America/Sao_Paulo] PHP Notice:  Undefined index: id in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 30
+[25-Oct-2018 15:03:54 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to undefined method ClassificacaoForm::onReload() in /var/www/html/FutApp/app/control/cadastros/ClassificacaoForm.php:195
+Stack trace:
+#0 [internal function]: ClassificacaoForm->onDelete(Array)
+#1 /var/www/html/FutApp/lib/adianti/control/TPage.php(51): call_user_func(Array, Array)
+#2 /var/www/html/FutApp/lib/adianti/control/TPage.php(205): Adianti\Control\TPage->run()
+#3 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(62): Adianti\Control\TPage->show(Array)
+#4 /var/www/html/FutApp/engine.php(23): Adianti\Core\AdiantiCoreApplication::run(true)
+#5 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#6 {main}
+  thrown in /var/www/html/FutApp/app/control/cadastros/ClassificacaoForm.php on line 195
+[25-Oct-2018 15:04:23 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to undefined method ClassificacaoForm::onReload() in /var/www/html/FutApp/app/control/cadastros/ClassificacaoForm.php:195
+Stack trace:
+#0 [internal function]: ClassificacaoForm->onDelete(Array)
+#1 /var/www/html/FutApp/lib/adianti/control/TPage.php(51): call_user_func(Array, Array)
+#2 /var/www/html/FutApp/lib/adianti/control/TPage.php(205): Adianti\Control\TPage->run()
+#3 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(62): Adianti\Control\TPage->show(Array)
+#4 /var/www/html/FutApp/engine.php(23): Adianti\Core\AdiantiCoreApplication::run(true)
+#5 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#6 {main}
+  thrown in /var/www/html/FutApp/app/control/cadastros/ClassificacaoForm.php on line 195
+[25-Oct-2018 15:05:10 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to undefined method ClassificacaoForm::onReload() in /var/www/html/FutApp/app/control/cadastros/ClassificacaoForm.php:195
+Stack trace:
+#0 [internal function]: ClassificacaoForm->onDelete(Array)
+#1 /var/www/html/FutApp/lib/adianti/control/TPage.php(51): call_user_func(Array, Array)
+#2 /var/www/html/FutApp/lib/adianti/control/TPage.php(205): Adianti\Control\TPage->run()
+#3 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(62): Adianti\Control\TPage->show(Array)
+#4 /var/www/html/FutApp/engine.php(23): Adianti\Core\AdiantiCoreApplication::run(true)
+#5 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#6 {main}
+  thrown in /var/www/html/FutApp/app/control/cadastros/ClassificacaoForm.php on line 195
+[30-Oct-2018 14:38:01 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to undefined method ClassificacaoForm::onReload() in /var/www/html/FutApp/app/control/cadastros/ClassificacaoForm.php:195
+Stack trace:
+#0 [internal function]: ClassificacaoForm->onDelete(Array)
+#1 /var/www/html/FutApp/lib/adianti/control/TPage.php(51): call_user_func(Array, Array)
+#2 /var/www/html/FutApp/lib/adianti/control/TPage.php(205): Adianti\Control\TPage->run()
+#3 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(62): Adianti\Control\TPage->show(Array)
+#4 /var/www/html/FutApp/engine.php(23): Adianti\Core\AdiantiCoreApplication::run(true)
+#5 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#6 {main}
+  thrown in /var/www/html/FutApp/app/control/cadastros/ClassificacaoForm.php on line 195
+[19-Nov-2018 21:13:29 America/Sao_Paulo] PHP Warning:  SimpleXMLElement::__construct(): Entity: line 15: parser error : expected '&gt;' in /var/www/html/FutApp/app/lib/menu/AdiantiMenuBuilder.php on line 41
+[19-Nov-2018 21:13:29 America/Sao_Paulo] PHP Warning:  SimpleXMLElement::__construct():   &lt;/menuitem&gt; in /var/www/html/FutApp/app/lib/menu/AdiantiMenuBuilder.php on line 41
+[19-Nov-2018 21:13:29 America/Sao_Paulo] PHP Warning:  SimpleXMLElement::__construct():         ^ in /var/www/html/FutApp/app/lib/menu/AdiantiMenuBuilder.php on line 41
+[19-Nov-2018 21:13:29 America/Sao_Paulo] PHP Warning:  SimpleXMLElement::__construct(): Entity: line 128: parser error : Opening and ending tag mismatch: menuitem line 3 and menu in /var/www/html/FutApp/app/lib/menu/AdiantiMenuBuilder.php on line 41
+[19-Nov-2018 21:13:29 America/Sao_Paulo] PHP Warning:  SimpleXMLElement::__construct(): &lt;/menu&gt; in /var/www/html/FutApp/app/lib/menu/AdiantiMenuBuilder.php on line 41
+[19-Nov-2018 21:13:29 America/Sao_Paulo] PHP Warning:  SimpleXMLElement::__construct():        ^ in /var/www/html/FutApp/app/lib/menu/AdiantiMenuBuilder.php on line 41
+[19-Nov-2018 21:13:29 America/Sao_Paulo] PHP Warning:  SimpleXMLElement::__construct(): Entity: line 129: parser error : Premature end of data in tag menu line 2 in /var/www/html/FutApp/app/lib/menu/AdiantiMenuBuilder.php on line 41
+[19-Nov-2018 21:13:29 America/Sao_Paulo] PHP Warning:  SimpleXMLElement::__construct():  in /var/www/html/FutApp/app/lib/menu/AdiantiMenuBuilder.php on line 41
+[19-Nov-2018 21:13:29 America/Sao_Paulo] PHP Warning:  SimpleXMLElement::__construct(): ^ in /var/www/html/FutApp/app/lib/menu/AdiantiMenuBuilder.php on line 41
+[19-Nov-2018 21:13:29 America/Sao_Paulo] PHP Fatal error:  Uncaught Exception: String could not be parsed as XML in /var/www/html/FutApp/app/lib/menu/AdiantiMenuBuilder.php:41
+Stack trace:
+#0 /var/www/html/FutApp/app/lib/menu/AdiantiMenuBuilder.php(41): SimpleXMLElement->__construct('<?xml version="...')
+#1 /var/www/html/FutApp/index.php(11): AdiantiMenuBuilder::parse('menu.xml', 'theme4')
+#2 {main}
+  thrown in /var/www/html/FutApp/app/lib/menu/AdiantiMenuBuilder.php on line 41

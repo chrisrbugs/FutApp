@@ -1,6 +1,6 @@
 <?php
 
-class ClassificacaoList extends TPage
+class CategoriasList extends TPage
 {
     private $form; // form
     private $datagrid; // listing
@@ -9,9 +9,9 @@ class ClassificacaoList extends TPage
     private $loaded;
     private $deleteButton;
     private static $database = 'futapp';
-    private static $activeRecord = 'Classificacao';
+    private static $activeRecord = 'Categorias';
     private static $primaryKey = 'id';
-    private static $formName = 'formList_Classificacao';
+    private static $formName = 'formList_Categorias';
 
     /**
      * Class constructor
@@ -24,21 +24,17 @@ class ClassificacaoList extends TPage
         $this->form = new BootstrapFormBuilder(self::$formName);
 
         // define the form title
-        $this->form->setFormTitle('Classificação');
+        $this->form->setFormTitle('Categorias');
+        $descricao = new TEntry('descricao');
 
 
-        $ref_categoria = new TDBCombo('ref_categoria', 'futapp', 'Categorias', 'id', '{descricao}','id asc'  );
-
-        $ref_categoria->setSize('70%');
-
-        $row1 = $this->form->addFields([new TLabel('Categoria:', null, '14px', null)],[$ref_categoria]);
-
+        $row1 = $this->form->addFields([new TLabel('Descrição:', null, '14px', null)],[$descricao]);
         // keep the form filled during navigation with session data
         $this->form->setData( TSession::getValue(__CLASS__.'_filter_data') );
 
         $btn_onsearch = $this->form->addAction('Buscar', new TAction([$this, 'onSearch']), 'fa:search #ffffff');
         $btn_onsearch->addStyleClass('btn-primary'); 
-      
+        
         // creates a Datagrid
         $this->datagrid = new TDataGrid;
         $this->datagrid = new BootstrapDatagridWrapper($this->datagrid);
@@ -46,51 +42,31 @@ class ClassificacaoList extends TPage
         $this->datagrid->style = 'width: 100%';
         $this->datagrid->setHeight(320);
 
-        $column_posicao = new TDataGridColumn('posicao', 'Posicao', 'left');
-        $column_time = new TDataGridColumn('time', 'Time', 'left');
-        $column_pontos = new TDataGridColumn('pontos', 'Pontos', 'left');
-        $column_jogos = new TDataGridColumn('jogos', 'Jogos', 'left');
-        $column_vitorias = new TDataGridColumn('vitorias', 'Vitorias', 'left');
-        $column_empates = new TDataGridColumn('empates', 'Empates', 'left');
-        $column_derrotas = new TDataGridColumn('derrotas', 'Derrotas', 'left');
-        $column_disciplina = new TDataGridColumn('disciplina', 'Disciplina', 'left');
+        $column_descricao = new TDataGridColumn('descricao', 'Descricao', 'left');
 
-        $this->datagrid->addColumn($column_posicao);
-        $this->datagrid->addColumn($column_time);
-        $this->datagrid->addColumn($column_pontos);
-        $this->datagrid->addColumn($column_jogos);
-        $this->datagrid->addColumn($column_vitorias);
-        $this->datagrid->addColumn($column_empates);
-        $this->datagrid->addColumn($column_derrotas);
-        $this->datagrid->addColumn($column_disciplina);
+        $this->datagrid->addColumn($column_descricao);
+    
+        $btn_onexportcsv = $this->form->addAction('Exportar como CSV', new TAction([$this, 'onExportCsv']), 'fa:file-text-o #000000');
+
+        $btn_onshow = $this->form->addAction('Cadastrar', new TAction(['CategoriasForm', 'onShow']), 'fa:plus #69aa46');
+        $action_onShow = new TDataGridAction(array('CategoriasForm', 'onEdit'));
+        $action_onShow->setUseButton(false);
+        $action_onShow->setButtonClass('btn btn-default btn-sm');
+        $action_onShow->setLabel('Editar');
+        $action_onShow->setImage('fa:pencil-square-o #478fca');
+        $action_onShow->setField(self::$primaryKey);
+
+        $this->datagrid->addAction($action_onShow);
+
+        $action_onDelete = new TDataGridAction(array('CategoriasList', 'onDelete'));
+        $action_onDelete->setUseButton(false);
+        $action_onDelete->setButtonClass('btn btn-default btn-sm');
+        $action_onDelete->setLabel('Excluir');
+        $action_onDelete->setImage('fa:trash-o #dd5a43');
+        $action_onDelete->setField(self::$primaryKey);
+
+        $this->datagrid->addAction($action_onDelete);        
       
-        
-        if ( TSession::getValue('logged') )
-        {
-          $btn_onexportcsv = $this->form->addAction('Exportar como CSV', new TAction([$this, 'onExportCsv']), 'fa:file-text-o #000000');
-
-          $btn_onedit = $this->form->addAction('Cadastrar', new TAction(['ClassificacaoForm', 'onEdit']), 'fa:plus #69aa46');
-          $action_onEdit = new TDataGridAction(array('ClassificacaoForm', 'onEdit'));
-          $action_onEdit->setUseButton(false);
-          $action_onEdit->setButtonClass('btn btn-default btn-sm');
-          $action_onEdit->setLabel('Editar');
-          $action_onEdit->setImage('fa:pencil-square-o #478fca');
-          $action_onEdit->setField(self::$primaryKey);
-
-          $this->datagrid->addAction($action_onEdit);
-
-          $action_onEdit = new TDataGridAction(array('ClassificacaoForm', 'onDelete'));
-          $action_onEdit->setUseButton(false);
-          $action_onEdit->setButtonClass('btn btn-default btn-sm');
-          $action_onEdit->setLabel('Excluir');
-          $action_onEdit->setImage('fa:trash-o #dd5a43');
-          $action_onEdit->setField(self::$primaryKey);
-
-          $this->datagrid->addAction($action_onEdit);
-        }
-
-        
-
         // create the datagrid model
         $this->datagrid->createModel();
 
@@ -106,7 +82,7 @@ class ClassificacaoList extends TPage
         // vertical box container
         $container = new TVBox;
         $container->style = 'width: 100%';
-        $container->add(TBreadCrumb::create(['Cadastros','Classificação']));
+        $container->add(TBreadCrumb::create(['Cadastros','Categorias']));
         $container->add($this->form);
         $container->add($panel);
 
@@ -174,6 +150,50 @@ class ClassificacaoList extends TPage
         }
     }
 
+    public function onDelete($param = null) 
+    { 
+        if(isset($param['delete']) && $param['delete'] == 1)
+        {
+            try
+            {
+                // get the paramseter $key
+                $key = $param['key'];
+                // open a transaction with database
+                TTransaction::open(self::$database);
+
+                // instantiates object
+                $object = new Categorias($key, FALSE); 
+
+                // deletes the object from the database
+                $object->delete();
+
+                // close the transaction
+                TTransaction::close();
+
+                // reload the listing
+                $this->onReload( $param );
+                // shows the success message
+                new TMessage('info', AdiantiCoreTranslator::translate('Record deleted'));
+            }
+            catch (Exception $e) // in case of exception
+            {
+                // shows the exception error message
+                new TMessage('error', $e->getMessage());
+                // undo all pending operations
+                TTransaction::rollback();
+            }
+        }
+        else
+        {
+            // define the delete action
+            $action = new TAction(array($this, 'onDelete'));
+            $action->setParameters($param); // pass the key paramseter ahead
+            $action->setParameter('delete', 1);
+            // shows a dialog to the user
+            new TQuestion(AdiantiCoreTranslator::translate('Do you really want to delete ?'), $action);   
+        }
+    }
+
     /**
      * Register the filter in the session
      */
@@ -186,15 +206,10 @@ class ClassificacaoList extends TPage
         TSession::setValue(__CLASS__.'_filter_data', NULL);
         TSession::setValue(__CLASS__.'_filters', NULL);
 
-        if (isset($data->ref_categoria) AND ( (is_scalar($data->ref_categoria) AND $data->ref_categoria !== '') OR (is_array($data->ref_categoria) AND (!empty($data->ref_categoria)) )) )
+        if (isset($data->descricao) AND ( (is_scalar($data->descricao) AND $data->descricao !== '') OR (is_array($data->descricao) AND (!empty($data->descricao)) )) )
         {
 
-            $filters[] = new TFilter('ref_categoria', '=', $data->ref_categoria);// create the filter 
-            
-            if (! TSession::getValue('logged') )
-            {
-                $filters[] = new TFilter('eliminado', '=', 'f');
-            }
+            $filters[] = new TFilter('descricao', 'ilike', "%{$data->descricao}%");// create the filter 
         }
 
         $param = array();
@@ -219,9 +234,10 @@ class ClassificacaoList extends TPage
         try
         {
             // open a transaction with database 'futapp'
-            TTransaction::open(self::$database);
+		
+	    TTransaction::open(self::$database);
 
-            // creates a repository for Classificacao
+            // creates a repository for categorias
             $repository = new TRepository(self::$activeRecord);
             $limit = 20;
             // creates a criteria
@@ -229,12 +245,12 @@ class ClassificacaoList extends TPage
 
             if (empty($param['order']))
             {
-                $param['order'] = 'posicao';    
+                $param['order'] = 'id';    
             }
 
             if (empty($param['direction']))
             {
-                $param['direction'] = 'asc';
+                $param['direction'] = 'desc';
             }
 
             $criteria->setProperties($param); // order, offset
@@ -247,10 +263,10 @@ class ClassificacaoList extends TPage
                     $criteria->add($filter);       
                 }
             }
-
-            // load the objects according to criteria
+          
+  	    // load the objects according to criteria	    
             $objects = $repository->load($criteria, FALSE);
-
+	    
             $this->datagrid->clear();
             if ($objects)
             {
@@ -297,17 +313,17 @@ class ClassificacaoList extends TPage
     public function show()
     {
         // check if the datagrid is already loaded
-        //if (!$this->loaded AND (!isset($_GET['method']) OR !(in_array($_GET['method'],  array('onReload', 'onSearch')))) )
-        //{
-          //  if (func_num_args() > 0)
-            //{
-              //  $this->onReload( func_get_arg(0) );
-            //}
-            //else
-            //{
-              //  $this->onReload();
-            //}
-        //}
+        if (!$this->loaded AND (!isset($_GET['method']) OR !(in_array($_GET['method'],  array('onReload', 'onSearch')))) )
+        {
+            if (func_num_args() > 0)
+            {
+                $this->onReload( func_get_arg(0) );
+            }
+            else
+            {
+                $this->onReload();
+            }
+        }
         parent::show();
     }
 

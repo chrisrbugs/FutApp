@@ -24,6 +24,7 @@ class Classificacao extends TRecord
         parent::addAttribute('derrotas');
         parent::addAttribute('pontos');
         parent::addAttribute('disciplina');
+        parent::addAttribute('eliminado');
     }
 
     /**

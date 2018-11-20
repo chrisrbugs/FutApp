@@ -34,6 +34,10 @@ class ClassificacaoForm extends TPage
         $pontos = new TEntry('pontos');
         $disciplina = new TEntry('disciplina');
 
+        $eliminado = new TRadioGroup('eliminado');
+        $options = ['t'=>'Sim','f'=>'Não'];
+        $eliminado->addItems($options);
+
         $ref_categoria->addValidation('Ref categoria', new TRequiredValidator()); 
 
         $id->setEditable(false);
@@ -59,6 +63,7 @@ class ClassificacaoForm extends TPage
         $row8 = $this->form->addFields([new TLabel('Derrotas:', null, '14px', null)],[$derrotas]);
         $row9 = $this->form->addFields([new TLabel('Pontos:', null, '14px', null)],[$pontos]);
         $row10 = $this->form->addFields([new TLabel('Disciplina:', null, '14px', null)],[$disciplina]);
+        $row11 = $this->form->addFields([new TLabel('Eliminado:', null, '14px', null)],[$eliminado]);
 
         // create the form actions
         $btn_onsave = $this->form->addAction('Salvar', new TAction([$this, 'onSave']), 'fa:floppy-o #ffffff');

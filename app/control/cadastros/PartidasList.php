@@ -53,12 +53,17 @@ class PartidasList extends TPage
         $this->datagrid->setHeight(320);
 
         $column_time_local = new TDataGridColumn('time_local', 'Time local', 'left');
+        
+        $column_resultado = new TDataGridColumn('id', 'Resultado', 'left');
+
         $column_time_visitante = new TDataGridColumn('time_visitante', 'Time visitante', 'left');
         $column_dt_jogo = new TDataGridColumn('dt_jogo', 'Dt jogo', 'left');
 
         $column_dt_jogo->setTransformer(array($this, 'formatDate'));
+        $column_resultado->setTransformer(array($this, 'formatResultado'));
 
         $this->datagrid->addColumn($column_time_local);
+        $this->datagrid->addColumn($column_resultado);
         $this->datagrid->addColumn($column_time_visitante);
         $this->datagrid->addColumn($column_dt_jogo);
       
@@ -358,6 +363,14 @@ class PartidasList extends TPage
     public function formatDate($date)
     {
         return date('d/m/Y G:i:s', strtotime($date));
+    }
+
+    public function formatResultado($id)
+    {
+        $partida = new Partidas($id);
+
+        return $partida->gols_local.' x '.$partida->gols_visitante;
+
     }
 }
 
