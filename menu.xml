@@ -11,10 +11,6 @@
         <icon>fa:circle-o fa-fw </icon>
         <action>CategoriaCampeonatoList#method=onShow</action>
       </menuitem> 
-      <menuitem label="Albuns">
-        <icon>fa:circle-o fa-fw </icon>
-        <action>AlbumList#method=onShow</action>
-      </menuitem> 
       <menuitem label="Equipes">
         <icon>fa:circle-o fa-fw </icon>
         <action>InscricaoFormView#method=onShow</action>
@@ -24,6 +20,10 @@
         <icon>fa:circle-o fa-fw </icon>
         <action>PunicoesList#method=onShow</action>
       </menuitem>
+      <menuitem label="Albuns">
+        <icon>fa:circle-o fa-fw </icon>
+        <action>AlbumList#method=onShow</action>
+      </menuitem> 
       <menuitem label="Partidas">
         <icon>fa:circle-o fa-fw </icon>
         <action>PartidasList#method=onShow</action>
