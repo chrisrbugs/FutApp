@@ -448,11 +448,11 @@ class EquipeForm extends TPage
                         ->where('ref_categoria_campeonato', '=', $data['ref_categoria'])->load();
         
         TTransaction::close();
-        $equipe = $equipe[0];
-
-        $param = array();
         if ($equipe) 
         {
+            $equipe = $equipe[0];
+
+            $param = array();
             $param['key'] = $equipe->id;
 
             $this->onEdit($param);
