@@ -3,15 +3,24 @@
   <menuitem label="Cadastros">
     <icon>fa:align-justify fa-fw </icon>
     <menu>
-      <menuitem label="Pessoas">
+      <menuitem label="Campeonatos">
         <icon>fa:circle-o fa-fw </icon>
-        <action>PessoasList#method=onShow</action>
+        <action>CampeonatoList#method=onShow</action>
       </menuitem>
-      <menuitem label="Marcações">
+      <menuitem label="Categorias">
         <icon>fa:circle-o fa-fw </icon>
-        <action>MarcacoesList#method=onShow</action>
-      </menuitem>
-      <menuitem label="Punições">
+        <action>CategoriaCampeonatoList#method=onShow</action>
+      </menuitem> 
+      <menuitem label="Albuns">
+        <icon>fa:circle-o fa-fw </icon>
+        <action>AlbumList#method=onShow</action>
+      </menuitem> 
+      <menuitem label="Equipes">
+        <icon>fa:circle-o fa-fw </icon>
+        <action>InscricaoFormView#method=onShow</action>
+      </menuitem> 
+
+      <!-- COOPEVA<menuitem label="Punições">
         <icon>fa:circle-o fa-fw </icon>
         <action>PunicoesList#method=onShow</action>
       </menuitem>
@@ -23,18 +32,24 @@
         <icon>fa:circle-o fa-fw </icon>
         <action>GoleadoresList#method=onShow</action>
       </menuitem>
-      <menuitem label="Classificação">
+     <menuitem label="Classificação">
         <icon>fa:circle-o fa-fw </icon>
         <action>ClassificacaoList#method=onShow</action>
-      </menuitem>
-      <menuitem label="Categorias">
+      </menuitem>-->
+      <!-- COOPEVA<menuitem label="Categorias">
         <icon>fa:circle-o fa-fw </icon>
         <action>CategoriasList#method=onShow</action>
-      </menuitem>
-      <menuitem label="Albuns">
+      </menuitem>-->
+
+      <!--  TRABALHO DA AULA
+       <menuitem label="Pessoas">
         <icon>fa:circle-o fa-fw </icon>
-        <action>AlbumList#method=onShow</action>
+        <action>PessoasList#method=onShow</action>
       </menuitem>
+      <menuitem label="Marcações">
+        <icon>fa:circle-o fa-fw </icon>
+        <action>MarcacoesList#method=onShow</action>
+      </menuitem>-->
     </menu>
   </menuitem>
   <menuitem label="_t{Administration}">
