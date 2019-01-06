@@ -457,7 +457,7 @@ class EquipeForm extends TPage
 
             $this->onEdit($param);
         }
-
+        
         $obj = new StdClass;
         $obj->ref_categoria = $data['ref_categoria'];
         $this->form->setData($obj);

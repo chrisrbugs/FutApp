@@ -66,13 +66,9 @@ class InscricaoFormView extends TPage
             $this->form->validate();
             $data = $this->form->getData();
             
-            if ($data->password !== $data->confirm)
-            {
-                throw new Exception('Passwords do not match');
-            }
             // store data in the session
             TSession::setValue('form_step1_data', $data);
-            
+
             // Load another page
             AdiantiCoreApplication::loadPage('EquipeForm', 'onLoadFromForm1', (array) $data);
             
