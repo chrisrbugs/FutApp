@@ -26,20 +26,24 @@ class CategoriaCampeonatoForm extends TPage
         $id             = new TEntry('id');
         $nome           = new TEntry('nome');
         $numero_vagas   = new TEntry('numero_vagas');
+        $limite_atletas   = new TEntry('limite_atletas'); 
         $ref_campeonato = new TDBCombo('ref_campeonato', 'futapp', 'Campeonato', 'id', '{nome}','id asc'  );
 
         $numero_vagas->setMask('99');
+        $limite_atletas->setMask('99');
 
         $id->setEditable(false);
         $id->setSize(100);
         $nome->setSize('70%');
         $numero_vagas->setSize('15%');
+        $limite_atletas->setSize('15%');
         $ref_campeonato->setSize('70%');
 
 
         $row1 = $this->form->addFields([new TLabel('Id:', null, '14px', null)],[$id]);
         $row2 = $this->form->addFields([new TLabel('Nome:', null, '14px', null)],[$nome]);
         $row3 = $this->form->addFields([new TLabel('Vagas:', null, '14px', null)],[$numero_vagas]);
+        $row3 = $this->form->addFields([new TLabel('Limite de jogadores por equipe:', null, '14px', null)],[$limite_atletas]);
         $row4 = $this->form->addFields([new TLabel('Cameponato:', null, '14px', null)],[$ref_campeonato]);
 
         // create the form actions

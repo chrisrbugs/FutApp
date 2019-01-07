@@ -117,5 +117,10 @@ class InscricaoFormView extends TPage
                 TTransaction::rollback();
             }
         }
+        else
+        {
+            $options = array();
+            TCombo::reload('form_inscricao', 'ref_categoria', $options);
+        }
     }
 }

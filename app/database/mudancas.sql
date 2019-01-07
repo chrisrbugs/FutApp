@@ -84,3 +84,5 @@ CREATE TABLE IF NOT EXISTS partida (
     REFERENCES equipe (id)
     )
 ;
+
+alter table categoria_campeonato add column limite_atletas int not null;

@@ -16,6 +16,7 @@ class CategoriaCampeonato extends TRecord
         parent::addAttribute('nome');
         parent::addAttribute('numero_vagas');
         parent::addAttribute('ref_campeonato');
+        parent::addAttribute('limite_atletas');
     }
 }
 ?>

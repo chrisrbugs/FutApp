@@ -77,6 +77,9 @@ class EquipeForm extends TPage
         $label_cpf->setFontColor('#FF0000');
         
         $this->form->addContent( ['<h4>Atletas</h4><hr>'] );
+        $this->form->addContent( ['Digite o Nome e CPF do atleta e clique em ADICIONAR para inserir o atleta na equipe.'] );
+        $this->form->addContent( ['Para editar os dados do atleta clique no icone do lapis azul.'] );
+        $this->form->addContent( ['Para remover o atleta clique no icone da lixeira vermelha.'] );
         $this->form->addFields( [$Label_id], [$id_atleta]);
         $this->form->addFields( [$Label_nome], [$nome_atleta]);
         $this->form->addFields( [$label_cpf], [$cpf]);
@@ -96,14 +99,14 @@ class EquipeForm extends TPage
         
         // creates two datagrid actions
         $action1 = new TDataGridAction([$this, 'onEditItemProduto']);
-        $action1->setLabel('Edit');
+        $action1->setLabel('Editar');
         $action1->setImage('fa:edit blue');
         $action1->setField('id_atleta');
         $action1->setField('nome_atleta');
         $action1->setField('cpf');
         
         $action2 = new TDataGridAction([$this, 'onDeleteItem']);
-        $action2->setLabel('Delete');
+        $action2->setLabel('Excluir');
         $action2->setImage('fa:trash red');
         $action2->setField('id_atleta');
         // $action2->setField('nome_atleta');
@@ -120,7 +123,7 @@ class EquipeForm extends TPage
         $panel->getBody()->style = 'overflow-x:auto';
         $this->form->addContent( [$panel] );
                 
-        $this->form->addAction( 'Save',  new TAction([$this, 'onSave']), 'fa:save green');
+        $this->form->addAction( 'Salvar',  new TAction([$this, 'onSave']), 'fa:save green');
         // $this->form->addAction( 'Clear', new TAction([$this, 'onClear']), 'fa:eraser red');
         
         // create the page container
@@ -381,6 +384,15 @@ class EquipeForm extends TPage
             $items = array();
             if ($atletas) 
             {
+                $numero_atletas = sizeof($atletas);
+
+                $objCategoria = new CategoriaCampeonato($data->ref_categoria);
+
+                if ($numero_atletas > $objCategoria->limite_atletas) 
+                {
+                   throw new Exception( "O limite de atletas é {$objCategoria->limite_atletas} e você cadastrou {$numero_atletas}" );
+                }
+
                 foreach ($atletas as $atleta) 
                 {
                     if (is_numeric($atleta['id_atleta']) ) 

@@ -33,18 +33,27 @@ class CampeonatoForm extends TPage
         $id        = new TEntry('id');
         $nome      = new TEntry('nome');
         $descricao = new TText('descricao');
-        $dt_inicio = new TEntry('dt_inicio');
-        $dt_fim    = new TEntry('dt_fim');
+        $dt_inicio = new TDate('dt_inicio');
+        $dt_fim    = new TDate('dt_fim');
         $logo      = new TFile('logo');
+
+        $dt_inicio->setMask('dd/mm/yyyy');
+        $dt_inicio->setDatabaseMask('yyyy-mm-dd');
+        
+        $dt_fim->setMask('dd/mm/yyyy');
+        $dt_fim->setDatabaseMask('yyyy-mm-dd');
+
+        $nome->addValidation('Nome', new TRequiredValidator);
+        $descricao->addValidation('Descrição', new TRequiredValidator);
+        $logo->addValidation('Logo', new TRequiredValidator);
+        $dt_inicio->addValidation('Dt inicio', new TRequiredValidator);
+        $dt_fim->addValidation('Dt fim', new TRequiredValidator);
 
         // allow just these extensions
         $logo->setAllowedExtensions( ['gif', 'png', 'jpg', 'jpeg'] );
         
         // enable progress bar, preview, and file remove actions
         $logo->enableFileHandling();
-
-        $dt_inicio->setMask('dd/mm/yyyy');
-        $dt_fim->setMask('dd/mm/yyyy');
 
         $id->setEditable(false);
         $id->setSize(100);

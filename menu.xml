@@ -11,9 +11,14 @@
         <icon>fa:circle-o fa-fw </icon>
         <action>CategoriaCampeonatoList#method=onShow</action>
       </menuitem> 
-      <menuitem label="Equipes">
+      <menuitem label="Inscrição">
         <icon>fa:circle-o fa-fw </icon>
         <action>InscricaoFormView#method=onShow</action>
+      </menuitem> 
+
+      <menuitem label="Equipes">
+        <icon>fa:circle-o fa-fw </icon>
+        <action>EquipeList#method=onShow</action>
       </menuitem> 
 
       <!-- COOPEVA<menuitem label="Punições">
