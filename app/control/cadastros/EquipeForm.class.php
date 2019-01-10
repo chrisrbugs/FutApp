@@ -414,7 +414,7 @@ class EquipeForm extends TPage
                     
                     if ($isAtletaOutraEquipe) 
                     {
-                       throw new Exception( " O atleta ".$atleta['nome_atleta']." ja esta na equipe ". $isAtletaOutraEquipe);
+                       throw new Exception( " O atleta ".$atleta['nome_atleta']." ja esta em outra equipe ");
                     }
 
                     $atletaEquipe->nome       = $atleta['nome_atleta'];
