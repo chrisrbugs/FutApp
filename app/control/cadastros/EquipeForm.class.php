@@ -70,7 +70,7 @@ class EquipeForm extends TPage
         $add_atleta = TButton::create('add_atleta', [$this, 'onProductAdd'], 'Adicionar', 'fa:save');
         
         $Label_id = new TLabel('');
-        $Label_nome = new TLabel('Nome (*)');
+        $Label_nome = new TLabel('Nome Completo (*)');
         $label_cpf  = new TLabel('CPF (*)');
         
         $Label_nome->setFontColor('#FF0000');
@@ -403,7 +403,20 @@ class EquipeForm extends TPage
                     {
                         $atletaEquipe = new AtletaEquipe();
                     }
+
+                    if (!strstr($atleta['nome_atleta'],' ')) 
+                    {
+                       throw new Exception( "Digite o nome completo" );
+                    }
+
+                    //verificar se o atleta ja não esta em uma equipe
+                    $isAtletaOutraEquipe = AtletaEquipe::isAtletaOutraEquipe($atleta['cpf'],$objCategoria->ref_campeonato,$equipe->id);
                     
+                    if ($isAtletaOutraEquipe) 
+                    {
+                       throw new Exception( " O atleta ".$atleta['nome_atleta']." ja esta na equipe ". $isAtletaOutraEquipe);
+                    }
+
                     $atletaEquipe->nome       = $atleta['nome_atleta'];
                     $atletaEquipe->cpf        = $atleta['cpf'];
                     $atletaEquipe->ref_equipe = $equipe->id;
