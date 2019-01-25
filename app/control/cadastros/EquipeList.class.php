@@ -9,7 +9,7 @@ class EquipeList extends TPage
     private $loaded;
     private $deleteButton;
     private static $database = 'futapp';
-    private static $activeRecord = 'Equipe';
+    private static $activeRecord = 'AtletaEquipe';
     private static $primaryKey = 'id';
     private static $formName = 'formList_Equipe';
 
@@ -32,7 +32,7 @@ class EquipeList extends TPage
         $ref_campeonato->setChangeAction(new TAction([$this,'onMudaCampeonato']));
 
 
-        $row1 = $this->form->addFields([new TLabel('Nome:', null, '14px', null)],[$nome]);
+        $row1 = $this->form->addFields([new TLabel('Nome Equipe:', null, '14px', null)],[$nome]);
         $row1 = $this->form->addFields([new TLabel('Campeonato:', null, '14px', null)],[$ref_campeonato]);
         $row1 = $this->form->addFields([new TLabel('Categoria:', null, '14px', null)],[$ref_categoria]);
 
@@ -50,27 +50,26 @@ class EquipeList extends TPage
         $this->datagrid->setHeight(320);
 
         $column_nome      = new TDataGridColumn('nome', 'Nome', 'left');
-        $column_imagem    = new TDataGridColumn('id', 'Escudo', 'left');
-        $column_categoria = new TDataGridColumn('ref_categoria_campeonato', 'Campeonato(Categoria)', 'left');
+        $column_cpf       = new TDataGridColumn('cpf', 'CPF', 'left');
+        $column_equipe    = new TDataGridColumn('ref_equipe', 'Equipe', 'left');
+        $column_categoria = new TDataGridColumn('ref_equipe', 'Campeonato(Categoria)', 'left');
 
-        $column_imagem->setTransformer( function($image) 
+        $column_equipe->setTransformer( function($ref_equipe) 
         {
             TTransaction::open('futapp');
-            $equipe = Equipe::where('id', ' = ', $image)->load();
+            $equipe = Equipe::where('id', ' = ', $ref_equipe)->load();
             TTransaction::close();
             $equipe = $equipe[0];
-            if ($equipe->escudo) 
-            {
-                $image = new TImage(str_replace('+',' ', $equipe->escudo));
-                $image->style = 'max-width: 140px';
-                return $image;
-            }
+            return $equipe->nome;
         });
 
-        $column_categoria->setTransformer( function($ref_categoria_campeonato) 
+        $column_categoria->setTransformer( function($ref_equipe) 
         {
             TTransaction::open('futapp');
-            $categoria = CategoriaCampeonato::where('id', ' = ', $ref_categoria_campeonato)->load();
+            $equipe = Equipe::where('id', ' = ', $ref_equipe)->load();
+            $equipe= $equipe[0];
+
+            $categoria = CategoriaCampeonato::where('id', ' = ', $equipe->ref_categoria_campeonato)->load();
             $categoria = $categoria[0];
 
             $campeonato = new Campeonato($categoria->ref_campeonato);
@@ -83,8 +82,11 @@ class EquipeList extends TPage
 
 
         $this->datagrid->addColumn($column_nome);
-        $this->datagrid->addColumn($column_imagem);
+        $this->datagrid->addColumn($column_cpf);
+        $this->datagrid->addColumn($column_equipe);
         $this->datagrid->addColumn($column_categoria);
+
+        $btn_onexportcsv = $this->form->addAction('Exportar como CSV', new TAction([$this, 'onExportCsv']), 'fa:file-text-o #000000');
 
         // $btn_onshow = $this->form->addAction('Cadastrar', new TAction(['CampeonatoForm', 'onShow']), 'fa:plus #69aa46');
         // $action_onShow = new TDataGridAction(array('CampeonatoForm', 'onEdit'));
@@ -140,7 +142,7 @@ class EquipeList extends TPage
                 TTransaction::open(self::$database);
 
                 // instantiates object
-                $object = new Campeonato($key, FALSE); 
+                $object = new AtletaEquipe($key, FALSE); 
 
                 // deletes the object from the database
                 $object->delete();
@@ -187,25 +189,26 @@ class EquipeList extends TPage
         if (isset($data->nome) AND ( (is_scalar($data->nome) AND $data->nome !== '') OR (is_array($data->nome) AND (!empty($data->nome)) )) )
         {
 
-            $filters[] = new TFilter('nome', 'ilike', "%{$data->nome}%");// create the filter 
+            $filters[] = new TFilter('ref_equipe', 'in', "(select id from equipe where nome ilike '%{$data->nome}%')");// create the filter 
         }
 
         if (isset($data->ref_categoria) AND ( (is_scalar($data->ref_categoria) AND $data->ref_categoria !== '') OR (is_array($data->ref_categoria) AND (!empty($data->ref_categoria)) )) and $data->ref_categoria !=0)
         {
-            var_dump($data->ref_categoria);
-            $filters[] = new TFilter('ref_categoria_campeonato', '=', "{$data->ref_categoria}");// create the filter 
+            $filters[] = new TFilter('ref_equipe', 'in', "(select id from equipe where ref_categoria_campeonato = {$data->ref_categoria} )");
         }
 
         if (isset($data->ref_campeonato) AND ( (is_scalar($data->ref_campeonato) AND $data->ref_campeonato !== '') OR (is_array($data->ref_campeonato) AND (!empty($data->ref_campeonato)) )) )
         {
-
-            $filters[] = new TFilter('ref_categoria_campeonato', 'in', "(select id from categoria_campeonato where ref_campeonato = {$data->ref_campeonato})");// create the filter 
+            $filters[] = new TFilter('ref_equipe', 'in', "(select id from equipe where ref_categoria_campeonato in (select id from categoria_campeonato where ref_campeonato = {$data->ref_campeonato}))");
         }
 
         $param = array();
         $param['offset']     = 0;
         $param['first_page'] = 1;
 
+        $array = array();
+        $array['ref_campeonato'] = $data->ref_campeonato;
+        $this->onMudaCampeonato($array);
         // fill the form with data again
         $this->form->setData($data);
 
@@ -215,9 +218,6 @@ class EquipeList extends TPage
 
         $this->onReload($param);
 
-        $array = array();
-        $array['ref_campeonato'] = $data->ref_campeonato;
-        $this->onMudaCampeonato($array);
     }
 
     /**
@@ -321,7 +321,7 @@ class EquipeList extends TPage
         parent::show();
     }
 
-        static function onMudaCampeonato( $params )
+    static function onMudaCampeonato( $params )
     {
         if( !empty($params['ref_campeonato']) )
         {
@@ -361,6 +361,66 @@ class EquipeList extends TPage
         {
             $options = array();
             TCombo::reload('formList_Equipe', 'ref_categoria', $options);
+        }
+    }
+
+        public function onExportCsv($param = null) 
+    {
+        try
+        {
+            $this->onSearch();
+
+            TTransaction::open(self::$database); // open a transaction
+            $repository = new TRepository(self::$activeRecord); // creates a repository for Customer
+            $criteria = new TCriteria; // creates a criteria
+
+            if($filters = TSession::getValue(__CLASS__.'_filters'))
+            {
+                foreach ($filters as $filter) 
+                {
+                    $criteria->add($filter);       
+                }
+            }
+
+            $records = $repository->load($criteria); // load the objects according to criteria
+            if ($records)
+            {
+                $file = 'tmp/'.uniqid().'.csv';
+                $handle = fopen($file, 'w');
+                $columns = $this->datagrid->getColumns();
+
+                $csvColumns = [];
+                foreach($columns as $column)
+                {
+                    $csvColumns[] = $column->getLabel();
+                }
+                fputcsv($handle, $csvColumns, ';');
+
+                foreach ($records as $record)
+                {
+                    $csvColumns = [];
+                    foreach($columns as $column)
+                    {
+                        $name = $column->getName();
+                        $csvColumns[] = $record->{$name};
+                    }
+                    fputcsv($handle, $csvColumns, ';');
+                }
+                fclose($handle);
+
+                TPage::openFile($file);
+            }
+            else
+            {
+                new TMessage('info', _t('No records found'));       
+            }
+
+            TTransaction::close(); // close the transaction
+        }
+        catch (Exception $e) // in case of exception
+        {
+            new TMessage('error', $e->getMessage()); // shows the exception error message
+            TTransaction::rollback(); // undo all pending operations
         }
     }
 

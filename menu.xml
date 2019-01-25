@@ -16,10 +16,14 @@
         <action>InscricaoFormView#method=onShow</action>
       </menuitem> 
 
-      <menuitem label="Equipes">
+      <menuitem label="Lista de Atletas">
         <icon>fa:circle-o fa-fw </icon>
         <action>EquipeList#method=onShow</action>
       </menuitem> 
+      <menuitem label="Partidas">
+        <icon>fa:circle-o fa-fw </icon>
+        <action>PartidaList#method=onShow</action>
+      </menuitem>
 
       <!-- COOPEVA<menuitem label="Punições">
         <icon>fa:circle-o fa-fw </icon>
