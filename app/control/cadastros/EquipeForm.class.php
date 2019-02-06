@@ -30,8 +30,9 @@ class EquipeForm extends TPage
         // master fields
         $id            = new TEntry('id');
         $nome          = new TEntry('nome');
+        $ref_campeonato = new TDBCombo('ref_campeonato', 'futapp', 'Campeonato', 'id', '{nome}','id asc'  );
+        $ref_categoria  = new TCombo('ref_categoria');
         $escudo        = new TFile('escudo');
-        $ref_categoria = new THidden('ref_categoria');
         $usuario       = new THidden('usuario');
         
         // detail fields
@@ -39,8 +40,10 @@ class EquipeForm extends TPage
         $nome_atleta = new TEntry('nome_atleta');
         $cpf         = new TEntry('cpf');
 
-        
+        $ref_campeonato->setChangeAction(new TAction([$this,'onMudaCampeonato']));
         $usuario->setValue($usuario_logado);
+
+        $ref_campeonato->setEditable(false);
         
         // adjust field properties
         $id->setEditable(false);
@@ -62,8 +65,9 @@ class EquipeForm extends TPage
         // add master form fields
         $this->form->addFields( [new TLabel('ID')], [$id]);
         $this->form->addFields( [new TLabel('Nome da Equipe')], [$nome ] );
+        $this->form->addFields( [new TLabel('Campeonato')], [$ref_campeonato ] );
+        $this->form->addFields( [new TLabel('Categoria')], [$ref_categoria ] );
         $this->form->addFields( [new TLabel('Escudo')], [$escudo] );
-        $this->form->addFields( [new TLabel('')], [$ref_categoria] );
         $this->form->addFields( [new TLabel('')], [$usuario] );
         
         
@@ -195,14 +199,45 @@ class EquipeForm extends TPage
             $data->cpf = '';
             TTransaction::close();
             $this->form->setData($data);
-            
+
+            TTransaction::open('futapp');
+            $objCategoria =  new CategoriaCampeonato($data->ref_categoria);
+
+            $obj = new stdClass;
+
+            $obj->ref_campeonato  = $objCategoria->ref_campeonato;
+            $obj->ref_categoria   = $objCategoria->id;
+            $this->fireEvents( $obj );
+            TTransaction::close();
+                
             $this->onReload( $param ); // reload the sale items
         }
         catch (Exception $e)
         {
-            $this->form->setData( $this->form->getData());
+            $data = $this->form->getData();
+
+            $this->form->setData( $data);
+            TTransaction::open('futapp');
+            $objCategoria =  new CategoriaCampeonato($data->ref_categoria);
+
+            $obj = new stdClass;
+
+            $obj->ref_campeonato  = $objCategoria->ref_campeonato;
+            $obj->ref_categoria   = $objCategoria->id;
+            $this->fireEvents( $obj );
+            TTransaction::close();
             new TMessage('error', $e->getMessage());
         }
+    }
+
+       public function fireEvents( $object )
+    {
+        $obj = new stdClass;
+
+        $obj->ref_campeonato     = $object->ref_campeonato;
+        $obj->ref_categoria    = $object->ref_categoria;
+
+        TForm::sendData('form_Equipe', $obj);
     }
     
     /**
@@ -314,6 +349,14 @@ class EquipeForm extends TPage
                 TSession::setValue('sale_items', $items);
                 
                 $this->form->setData($object); // fill the form with the active record data
+
+                $objCategoria =  new CategoriaCampeonato($object->ref_categoria);
+                $obj = new stdClass;
+
+                $obj->ref_campeonato  = $objCategoria->ref_campeonato;
+                $obj->ref_categoria   = $object->ref_categoria;
+                $this->fireEvents( $obj );
+
                 $this->onReload( $param ); // reload sale items list
                 TTransaction::close(); // close transaction
             }
@@ -348,6 +391,33 @@ class EquipeForm extends TPage
             if ($data->id) 
             {
                 $equipe = new Equipe($data->id); // create an empty object 
+
+
+                if ($equipe->ref_categoria_campeonato != $data->ref_categoria) 
+                {
+                     $partidas = Partida::where('id', 'in', "(select id 
+                                                                from partida 
+                                                                where ref_equipe_local in (select id 
+                                                                                             from equipe 
+                                                                                            where id = $equipe->id ) 
+                                                                  OR ref_equipe_visitante in (select id 
+                                                                                           from equipe
+                                                                                           where id =  $equipe->id) )")->load();
+
+
+                    if (!is_null($partidas) && ! empty($partidas)) 
+                    {
+                        throw new Exception( "A EQUIPE JA TEM PARTIDAS CADASTRADAS" );
+                    }
+
+                    $objEquipe = Equipe::where('usuario','=',$data->usuario)
+                                        ->where('ref_categoria_campeonato','=', $data->ref_categoria)->load();
+
+                    if (!is_null($objEquipe) && ! empty($objEquipe)) 
+                    {
+                        throw new Exception( "Ja existe uma equipe sua na outra categoria!" );
+                    }
+                }
             }
             else
             {
@@ -434,6 +504,14 @@ class EquipeForm extends TPage
         
 
             $this->form->setData($equipe); // keep form data
+
+            $objCategoria =  new CategoriaCampeonato($data->ref_categoria);
+
+            $obj = new stdClass;
+
+            $obj->ref_campeonato  = $objCategoria->ref_campeonato;
+            $obj->ref_categoria   = $objCategoria->id;
+            $this->fireEvents( $obj );
             TTransaction::close(); // close the transaction
             
             new TMessage('info', TAdiantiCoreTranslator::translate('Record saved'));
@@ -441,7 +519,15 @@ class EquipeForm extends TPage
         catch (Exception $e) // in case of exception
         {
             new TMessage('error', $e->getMessage());
+            $data = $this->form->getData();
             $this->form->setData( $this->form->getData() ); // keep form data
+            $objCategoria =  new CategoriaCampeonato($data->ref_categoria);
+
+            $obj = new stdClass;
+
+            $obj->ref_campeonato  = $objCategoria->ref_campeonato;
+            $obj->ref_categoria   = $objCategoria->id;
+            $this->fireEvents( $obj );
             TTransaction::rollback();
         }
     }
@@ -485,7 +571,18 @@ class EquipeForm extends TPage
         
         $obj = new StdClass;
         $obj->ref_categoria = $data['ref_categoria'];
+
+
         $this->form->setData($obj);
+        TTransaction::open('futapp');
+        $objCategoria =  new CategoriaCampeonato($obj->ref_categoria);
+
+        $obj = new stdClass;
+
+        $obj->ref_campeonato  = $objCategoria->ref_campeonato;
+        $obj->ref_categoria   = $objCategoria->id;
+        $this->fireEvents( $obj );
+        TTransaction::close();
     }
     
     /**
@@ -511,6 +608,31 @@ class EquipeForm extends TPage
             $form1_data = TSession::getValue('form_step1_data');
             $data->password = $form1_data->password;
             new TMessage('info', str_replace(',', '<br>', json_encode($data)));
+        }
+        catch (Exception $e)
+        {
+            new TMessage('error', $e->getMessage());
+        }
+    }
+
+        static function onMudaCampeonato( $param )
+    {
+        try
+        {
+            TTransaction::open('futapp');
+            if (!empty($param['ref_campeonato']))
+            {
+                $criteria = TCriteria::create( ['ref_campeonato' => $param['ref_campeonato'] ] );
+                
+                // formname, field, database, model, key, value, ordercolumn = NULL, criteria = NULL, startEmpty = FALSE
+                TDBCombo::reloadFromModel('form_Equipe', 'ref_categoria', 'futapp', 'CategoriaCampeonato', 'id', '{nome} ({id})', 'id', $criteria, false);
+            }
+            else
+            {
+                TCombo::clearField('form_Equipe', 'ref_categoria');
+            }
+            
+            TTransaction::close();
         }
         catch (Exception $e)
         {

@@ -297,7 +297,6 @@ class PartidaList extends TPage
 
         $obj->ref_campeonato   = $object->ref_campeonato;
         $obj->ref_categoria    = $object->ref_categoria;
-        $obj->ref_equipe_local = $object->ref_equipe_local;
         $obj->ref_equipe       = $object->ref_equipe;
         TForm::sendData('formList_Partida', $obj);
     }
