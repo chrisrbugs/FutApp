@@ -24,15 +24,16 @@
         <icon>fa:circle-o fa-fw </icon>
         <action>PartidaList#method=onShow</action>
       </menuitem>
+      <menuitem label="Albuns">
+        <icon>fa:circle-o fa-fw </icon>
+        <action>AlbumList#method=onShow</action>
+      </menuitem> 
 
       <!-- COOPEVA<menuitem label="Punições">
         <icon>fa:circle-o fa-fw </icon>
         <action>PunicoesList#method=onShow</action>
       </menuitem>
-      <menuitem label="Albuns">
-        <icon>fa:circle-o fa-fw </icon>
-        <action>AlbumList#method=onShow</action>
-      </menuitem> 
+      
       <menuitem label="Partidas">
         <icon>fa:circle-o fa-fw </icon>
         <action>PartidasList#method=onShow</action>

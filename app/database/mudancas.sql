@@ -86,3 +86,34 @@ CREATE TABLE IF NOT EXISTS partida (
 ;
 
 alter table categoria_campeonato add column limite_atletas int not null;
+
+-- 11/01/2019
+alter table partida drop column ref_categoria_campeonato ;
+
+CREATE TABLE punicao (
+  id INT NOT NULL,
+  ref_equipe INT NOT NULL,
+  pontos VARCHAR(45) NULL,
+  descricao VARCHAR(45) NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT fk_punições_equipe1
+    FOREIGN KEY (ref_equipe)
+    REFERENCES equipe (id));
+
+
+-- 05/02/2019 não esta em produção
+Drop table punicao;
+
+CREATE TABLE punicao (
+  id serial NOT NULL,
+  ref_equipe INT NOT NULL,
+  pontos VARCHAR(45) NULL,
+  descricao VARCHAR(45) NULL,
+  ref_partida INT NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT fk_punições_equipe1
+    FOREIGN KEY (ref_equipe)
+    REFERENCES equipe (id),
+  CONSTRAINT fk_punicao_partida1
+    FOREIGN KEY (ref_partida)
+    REFERENCES partida (id));

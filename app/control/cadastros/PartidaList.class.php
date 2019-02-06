@@ -1,6 +1,6 @@
 <?php
 
-class AlbumList extends TPage
+class PartidaList extends TPage
 {
     private $form; // form
     private $datagrid; // listing
@@ -9,9 +9,9 @@ class AlbumList extends TPage
     private $loaded;
     private $deleteButton;
     private static $database = 'futapp';
-    private static $activeRecord = 'Album';
+    private static $activeRecord = 'Partida';
     private static $primaryKey = 'id';
-    private static $formName = 'formList_Album';
+    private static $formName = 'formList_Partida';
 
     /**
      * Class constructor
@@ -24,20 +24,33 @@ class AlbumList extends TPage
         $this->form = new BootstrapFormBuilder(self::$formName);
 
         // define the form title
-        $this->form->setFormTitle('Albuns');
+        $this->form->setFormTitle('Partidas');
 
-        $descricao = new TEntry('descricao');
 
-        $descricao->setSize('70%');
+        $ref_campeonato    = new TDBCombo('ref_campeonato', 'futapp', 'Campeonato', 'id', '{nome}','id asc'  );
+        $ref_categoria     = new TCombo('ref_categoria');
+        $ref_equipe        = new TCombo('ref_equipe');
+        $dt_partida        = new TDateTime('dt_partida');
 
-        $row1 = $this->form->addFields([new TLabel('Descrição:', null, '14px', null)],[$descricao]);
+        $ref_campeonato->setChangeAction(new TAction([$this,'onMudaCampeonato']));
+        $ref_categoria->setChangeAction(new TAction([$this,'onMudaCategoria']));
+
+        $dt_partida->setMask('dd/mm/yyyy hh:ii');
+        $dt_partida->setDatabaseMask('yyyy-mm-dd hh:ii');
+        $dt_partida->setSize(150);
+        $ref_categoria->setSize('70%');
+
+        $row0 = $this->form->addFields([new TLabel('Campeonato:', null, '14px', null)],[$ref_campeonato]);
+        $row1 = $this->form->addFields([new TLabel('Categoria:', null, '14px', null)],[$ref_categoria]);
+        $row1 = $this->form->addFields([new TLabel('Equipe:', null, '14px', null)],[$ref_equipe]);
+        $row2 = $this->form->addFields([new TLabel('Data jogo:', null, '14px', null)],[$dt_partida]);
 
         // keep the form filled during navigation with session data
         $this->form->setData( TSession::getValue(__CLASS__.'_filter_data') );
 
         $btn_onsearch = $this->form->addAction('Buscar', new TAction([$this, 'onSearch']), 'fa:search #ffffff');
         $btn_onsearch->addStyleClass('btn-primary'); 
-        
+      
         // creates a Datagrid
         $this->datagrid = new TDataGrid;
         $this->datagrid = new BootstrapDatagridWrapper($this->datagrid);
@@ -45,59 +58,49 @@ class AlbumList extends TPage
         $this->datagrid->style = 'width: 100%';
         $this->datagrid->setHeight(320);
 
-        $column_descricao = new TDataGridColumn('descricao', 'Descricao', 'left');
-        $column_imagem    = new TDataGridColumn('id', 'imagem', 'left');
+        $column_time_local = new TDataGridColumn('ref_equipe_local', 'Time local', 'left');
+        
+        $column_resultado = new TDataGridColumn('id', 'Resultado', 'left');
 
-        $column_imagem->setTransformer( function($image) 
-        {
-            TTransaction::open('futapp');
-            $fotosAlbum = FotosAlbum::where('ref_album', ' = ', $image)->load();
-            TTransaction::close();
-            $fotosAlbum = $fotosAlbum[0];
-            $image = new TImage($fotosAlbum->caminho_foto);
-            $image->style = 'max-width: 140px';
-            return $image;
-        });
+        $column_time_visitante = new TDataGridColumn('ref_equipe_visitante', 'Time visitante', 'left');
+        $column_dt_partida = new TDataGridColumn('dt_partida', 'Dt jogo', 'left');
 
-        $this->datagrid->addColumn($column_descricao);
-        $this->datagrid->addColumn($column_imagem);
+        $column_dt_partida->setTransformer(array($this, 'formatDate'));
+        $column_resultado->setTransformer(array($this, 'formatResultado'));
+        $column_time_visitante->setTransformer(array($this, 'formatNome'));
+        $column_time_local->setTransformer(array($this, 'formatNome'));
 
-        $action_onShow = new TDataGridAction(array($this, 'onAlbum'));
-        $action_onShow->setUseButton(false);
-        $action_onShow->setButtonClass('btn btn-default btn-sm');
-        $action_onShow->setLabel('Visualizar');
-        $action_onShow->setImage('fa:eye #478fca');
-        $action_onShow->setField(self::$primaryKey);
-
-        $this->datagrid->addAction($action_onShow);
+        $this->datagrid->addColumn($column_time_local);
+        $this->datagrid->addColumn($column_resultado);
+        $this->datagrid->addColumn($column_time_visitante);
+        $this->datagrid->addColumn($column_dt_partida);
       
-        if ( TSession::getValue('logged') && TSession::getValue('login') == 'J30EVENTOS' )
+        if ( TSession::getValue('logged') )
         {
-            $btn_onshow = $this->form->addAction('Cadastrar', new TAction(['AlbumForm', 'onShow']), 'fa:plus #69aa46');
-          //$btn_onexportcsv = $this->form->addAction('Exportar como CSV', new TAction([$this, 'onExportCsv']), 'fa:file-text-o #000000');
+          $btn_onexportcsv = $this->form->addAction('Exportar como CSV', new TAction([$this, 'onExportCsv']), 'fa:file-text-o #000000');
 
-            $action_onShow = new TDataGridAction(array('AlbumForm', 'onEdit'));
-            $action_onShow->setUseButton(false);
-            $action_onShow->setButtonClass('btn btn-default btn-sm');
-            $action_onShow->setLabel('Editar');
-            $action_onShow->setImage('fa:pencil-square-o #478fca');
-            $action_onShow->setField(self::$primaryKey);
+          $btn_onshow = $this->form->addAction('Cadastrar', new TAction(['PartidaForm', 'onShow']), 'fa:plus #69aa46');
+          $action_onShow = new TDataGridAction(array('PartidaForm', 'onEdit'));
+          $action_onShow->setUseButton(false);
+          $action_onShow->setButtonClass('btn btn-default btn-sm');
+          $action_onShow->setLabel('Editar');
+          $action_onShow->setImage('fa:pencil-square-o #478fca');
+          $action_onShow->setField(self::$primaryKey);
 
-            $this->datagrid->addAction($action_onShow);
+          $this->datagrid->addAction($action_onShow);
 
-            $action_onDelete = new TDataGridAction(array('AlbumList', 'onDelete'));
-            $action_onDelete->setUseButton(false);
-            $action_onDelete->setButtonClass('btn btn-default btn-sm');
-            $action_onDelete->setLabel('Excluir');
-            $action_onDelete->setImage('fa:trash-o #dd5a43');
-            $action_onDelete->setField(self::$primaryKey);
+          $action_onDelete = new TDataGridAction(array('PartidaList', 'onDelete'));
+          $action_onDelete->setUseButton(false);
+          $action_onDelete->setButtonClass('btn btn-default btn-sm');
+          $action_onDelete->setLabel('Excluir');
+          $action_onDelete->setImage('fa:trash-o #dd5a43');
+          $action_onDelete->setField(self::$primaryKey);
 
-            $this->datagrid->addAction($action_onDelete);
+          $this->datagrid->addAction($action_onDelete);
         }
-      
+
         // create the datagrid model
         $this->datagrid->createModel();
-	
 
         // creates the page navigation
         $this->pageNavigation = new TPageNavigation;
@@ -105,14 +108,13 @@ class AlbumList extends TPage
         $this->pageNavigation->setWidth($this->datagrid->getWidth());
 
         $panel = new TPanelGroup;
-        $panel->add($this->datagrid);
-
+        $panel->add($this->datagrid)->style = 'overflow-x:auto';
         $panel->addFooter($this->pageNavigation);
 
         // vertical box container
         $container = new TVBox;
         $container->style = 'width: 100%';
-        $container->add(TBreadCrumb::create(['Cadastros','Punições']));
+        $container->add(TBreadCrumb::create(['Cadastros','Partidas']));
         $container->add($this->form);
         $container->add($panel);
 
@@ -192,9 +194,7 @@ class AlbumList extends TPage
                 TTransaction::open(self::$database);
 
                 // instantiates object
-                $fotosAlbum = FotosAlbum::where('ref_album', '=' ,$key)->delete();
-
-                $object = new Album($key, FALSE); 
+                $object = new Partidas($key, FALSE); 
 
                 // deletes the object from the database
                 $object->delete();
@@ -238,10 +238,32 @@ class AlbumList extends TPage
         TSession::setValue(__CLASS__.'_filter_data', NULL);
         TSession::setValue(__CLASS__.'_filters', NULL);
 
-        if (isset($data->descricao) AND ( (is_scalar($data->descricao) AND $data->descricao !== '') OR (is_array($data->descricao) AND (!empty($data->descricao)) )) )
+        if (isset($data->ref_campeonato) AND ( (is_scalar($data->ref_campeonato) AND $data->ref_campeonato !== '') OR (is_array($data->ref_campeonato) AND (!empty($data->ref_campeonato)) )) )
         {
 
-            $filters[] = new TFilter('descricao', ' ilike ', '%'.$data->descricao.'%');// create the filter 
+            $filters[] = new TFilter('id', 'in', "(select id from partida where ref_equipe_local in (select id from equipe where ref_categoria_campeonato in (select id from categoria_campeonato where ref_campeonato = {$data->ref_campeonato})) OR ref_equipe_visitante in (select id from equipe where ref_categoria_campeonato in (select id from categoria_campeonato where ref_campeonato = {$data->ref_campeonato})) )");
+        }
+
+        if (isset($data->ref_categoria) AND ( (is_scalar($data->ref_categoria) AND $data->ref_categoria !== '') OR (is_array($data->ref_categoria) AND (!empty($data->ref_categoria)) )) )
+        {
+
+             $filters[] = new TFilter('id', 'in', "(select id from partida where ref_equipe_local in (select id from equipe where ref_categoria_campeonato = $data->ref_categoria ) OR ref_equipe_visitante in (select id from equipe where ref_categoria_campeonato =  $data->ref_categoria) )");
+        }
+
+        if (isset($data->ref_equipe) AND ( (is_scalar($data->ref_equipe) AND $data->ref_equipe !== '') OR (is_array($data->ref_equipe) AND (!empty($data->ref_equipe)) )) )
+        {
+
+             $filters[] = new TFilter('id', 'in', "(select id from partida where ref_equipe_local in (select id from equipe where id = $data->ref_equipe ) OR ref_equipe_visitante in (select id from equipe where id =  $data->ref_equipe) )");
+        }
+
+
+        if (isset($data->dt_partida) AND ( (is_scalar($data->dt_partida) AND $data->dt_partida !== '') OR (is_array($data->dt_partida) AND (!empty($data->dt_partida)) )) )
+        {
+
+            $dt = str_replace('/', '-', $data->dt_partida);
+            $dt_usa = date('Y-m-d', strtotime($dt));
+
+            $filters[] = new TFilter('dt_partida::date', '=', $dt_usa);// create the filter 
         }
 
         $param = array();
@@ -251,12 +273,35 @@ class AlbumList extends TPage
         // fill the form with data again
         $this->form->setData($data);
 
+        $obj = new stdClass;
+        $obj->ref_campeonato = $data->ref_campeonato;
+        $obj->ref_categoria  = $data->ref_categoria;
+        $obj->ref_equipe     = $data->ref_equipe;
+
+        $this->fireEvents( $obj );
+
         // keep the search data in the session
         TSession::setValue(__CLASS__.'_filter_data', $data);
         TSession::setValue(__CLASS__.'_filters', $filters);
 
         $this->onReload($param);
     }
+
+        /**
+     * Fire form events
+     * @param $param Request
+     */
+    public function fireEvents( $object )
+    {
+        $obj = new stdClass;
+
+        $obj->ref_campeonato   = $object->ref_campeonato;
+        $obj->ref_categoria    = $object->ref_categoria;
+        $obj->ref_equipe_local = $object->ref_equipe_local;
+        $obj->ref_equipe       = $object->ref_equipe;
+        TForm::sendData('formList_Partida', $obj);
+    }
+
 
     /**
      * Load the datagrid with data
@@ -266,10 +311,9 @@ class AlbumList extends TPage
         try
         {
             // open a transaction with database 'futapp'
-		
-	    TTransaction::open(self::$database);
+            TTransaction::open(self::$database);
 
-            // creates a repository for Punicoes
+            // creates a repository for Partidas
             $repository = new TRepository(self::$activeRecord);
             $limit = 20;
             // creates a criteria
@@ -277,7 +321,7 @@ class AlbumList extends TPage
 
             if (empty($param['order']))
             {
-                $param['order'] = 'dt_album';    
+                $param['order'] = 'dt_partida';    
             }
 
             if (empty($param['direction']))
@@ -295,10 +339,10 @@ class AlbumList extends TPage
                     $criteria->add($filter);       
                 }
             }
-          
-  	    // load the objects according to criteria	    
+
+            // load the objects according to criteria
             $objects = $repository->load($criteria, FALSE);
-	    
+
             $this->datagrid->clear();
             if ($objects)
             {
@@ -323,6 +367,7 @@ class AlbumList extends TPage
             // close the transaction
             TTransaction::close();
             $this->loaded = true;
+
         }
         catch (Exception $e) // in case of exception
         {
@@ -336,11 +381,6 @@ class AlbumList extends TPage
     public function onShow($param = null)
     {
 
-    }
-
-      public function onAlbum($param = null)
-    {
-       AdiantiCoreApplication::gotoPage('GaleriaFotosView', 'onShow', $param);  
     }
 
     /**
@@ -364,5 +404,81 @@ class AlbumList extends TPage
         parent::show();
     }
 
-}
+    public function formatDate($date)
+    {
+        return date('d/m/Y G:i:s', strtotime($date));
+    }
 
+    public function formatResultado($id)
+    {
+        $partida = new Partida($id);
+
+        return $partida->numero_gols_local.' x '.$partida->numero_gols_visitante;
+
+    }
+
+    public function formatNome($id)
+    {
+        $equipe = new Equipe($id);
+
+        return $equipe->nome;
+
+    }
+
+         /**
+     * On muda campeonato
+     */
+     
+    static function onMudaCampeonato( $param )
+    {
+        try
+        {
+            TTransaction::open('futapp');
+            if (!empty($param['ref_campeonato']))
+            {
+                $criteria = TCriteria::create( ['ref_campeonato' => $param['ref_campeonato'] ] );
+                
+                // formname, field, database, model, key, value, ordercolumn = NULL, criteria = NULL, startEmpty = FALSE
+                TDBCombo::reloadFromModel('formList_Partida', 'ref_categoria', 'futapp', 'CategoriaCampeonato', 'id', '{nome} ({id})', 'id', $criteria, TRUE);
+            }
+            else
+            {
+                TCombo::clearField('formList_Partida', 'ref_categoria');
+            }
+            
+            TTransaction::close();
+        }
+        catch (Exception $e)
+        {
+            new TMessage('error', $e->getMessage());
+        }
+    }
+
+         /**
+     * On muda campeonato
+     */
+    static function onMudaCategoria( $param )
+    {
+        try
+        {
+            TTransaction::open('futapp');
+            if (!empty($param['ref_categoria']))
+            {
+                $criteria = TCriteria::create( ['ref_categoria_campeonato' => $param['ref_categoria'] ] );
+                
+                // formname, field, database, model, key, value, ordercolumn = NULL, criteria = NULL, startEmpty = FALSE
+                TDBCombo::reloadFromModel('formList_Partida', 'ref_equipe', 'futapp', 'Equipe', 'id', '{nome} ({id})', 'ref_categoria_campeonato', $criteria, TRUE);
+            }
+            else
+            {
+                TCombo::clearField('formList_Partida', 'ref_equipe');
+            }
+            
+            TTransaction::close();
+        }
+        catch (Exception $e)
+        {
+            new TMessage('error', $e->getMessage());
+        }
+    }
+}
