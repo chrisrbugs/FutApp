@@ -388,6 +388,14 @@ class EquipeForm extends TPage
 
             $this->form->validate(); // form validation
 
+            $objEquipe = Equipe::where('usuario','=',$data->usuario)
+                                        ->where('ref_categoria_campeonato','=', $data->ref_categoria)->load();
+
+            if ((!is_null($objEquipe) && ! empty($objEquipe)) && (TSession::getValue('login') != 'J30EVENTOS' && TSession::getValue('login') != 'admin') ) 
+            {
+                throw new Exception( "Ja existe uma equipe sua na outra categoria!" );
+            }
+
             if ($data->id) 
             {
                 $equipe = new Equipe($data->id); // create an empty object 
@@ -410,22 +418,16 @@ class EquipeForm extends TPage
                         throw new Exception( "A EQUIPE JA TEM PARTIDAS CADASTRADAS" );
                     }
 
-                    $objEquipe = Equipe::where('usuario','=',$data->usuario)
-                                        ->where('ref_categoria_campeonato','=', $data->ref_categoria)->load();
-
-                    if (!is_null($objEquipe) && ! empty($objEquipe)) 
-                    {
-                        throw new Exception( "Ja existe uma equipe sua na outra categoria!" );
-                    }
+                   
                 }
             }
             else
             {
                 $equipe = new Equipe();
+                $equipe->usuario = $data->usuario;
             }
 
             $equipe->nome = $data->nome;
-            $equipe->usuario = $data->usuario;
             $equipe->ref_categoria_campeonato = $data->ref_categoria;
 
             $equipe->store(); // save the object
@@ -503,16 +505,21 @@ class EquipeForm extends TPage
             }
         
 
+            TTransaction::close(); // close the transaction
             $this->form->setData($equipe); // keep form data
 
-            $objCategoria =  new CategoriaCampeonato($data->ref_categoria);
+            TTransaction::open('futapp');
+            $equipe = new Equipe($equipe->id);
+
+            $objCategoria =  new CategoriaCampeonato($equipe->ref_categoria_campeonato);
+            TTransaction::close();
 
             $obj = new stdClass;
 
             $obj->ref_campeonato  = $objCategoria->ref_campeonato;
             $obj->ref_categoria   = $objCategoria->id;
+
             $this->fireEvents( $obj );
-            TTransaction::close(); // close the transaction
             
             new TMessage('info', TAdiantiCoreTranslator::translate('Record saved'));
         }
@@ -551,22 +558,41 @@ class EquipeForm extends TPage
      */
     public function onLoadFromForm1($data)
     {
-        TTransaction::open('futapp');
-        
-        $usuario_logado = TSession::getValue('login');
 
-        $equipe = Equipe::where('usuario', '=', $usuario_logado)
-                        ->where('ref_categoria_campeonato', '=', $data['ref_categoria'])->load();
-        
-        TTransaction::close();
-        if ($equipe) 
+        if(isset($data['id']))
         {
-            $equipe = $equipe[0];
+            TTransaction::open('futapp');
+            
+            $equipe = new Equipe($data['id']);
+
+            $data['ref_categoria'] = $equipe->ref_categoria_campeonato;
 
             $param = array();
             $param['key'] = $equipe->id;
 
             $this->onEdit($param);
+            
+            TTransaction::close();
+        }
+        else
+        {    
+            TTransaction::open('futapp');
+            
+            $usuario_logado = TSession::getValue('login');
+
+            $equipe = Equipe::where('usuario', '=', $usuario_logado)
+                            ->where('ref_categoria_campeonato', '=', $data['ref_categoria'])->load();
+            
+            TTransaction::close();
+            if ($equipe && (TSession::getValue('login') != 'J30EVENTOS' && TSession::getValue('login') != 'admin')) 
+            {
+                $equipe = $equipe[0];
+
+                $param = array();
+                $param['key'] = $equipe->id;
+
+                $this->onEdit($param);
+            }
         }
         
         $obj = new StdClass;
