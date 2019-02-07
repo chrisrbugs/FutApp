@@ -28,13 +28,13 @@ class AdminEquipeList extends TPage
 
         //define the form title
         $this->form->setFormTitle('Equipes');
-        $ref_campeonato = new TEntry('ref_campeonato');
-        $ref_categoria  = new TEntry('ref_categoria');
+        $ref_campeonato = new THidden('ref_campeonato');
+        $ref_categoria  = new THidden('ref_categoria');
 
 
         // $row1 = $this->form->addFields([new TLabel('Nome Equipe:', null, '14px', null)],[$nome]);
-        $row2 = $this->form->addFields([new TLabel('Ndsde:', null, '14px', null)],[$ref_campeonato]);
-        $row3 = $this->form->addFields([new TLabel('Nosdas:', null, '14px', null)],[$ref_categoria]);
+        $row2 = $this->form->addFields([new TLabel(' ', null, '14px', null)],[$ref_campeonato]);
+        $row3 = $this->form->addFields([new TLabel(' ', null, '14px', null)],[$ref_categoria]);
         // keep the form filled during navigation with session data
         // $this->form->setData( TSession::getValue(__CLASS__.'_filter_data') );
 
