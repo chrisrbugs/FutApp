@@ -16,6 +16,7 @@ class AtletaEquipe extends TRecord
         parent::addAttribute('nome');
         parent::addAttribute('cpf');
         parent::addAttribute('ref_equipe');
+        parent::addAttribute('ja_jogou');
     }
 
     /**

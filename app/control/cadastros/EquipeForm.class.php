@@ -40,6 +40,20 @@ class EquipeForm extends TPage
         $nome_atleta = new TEntry('nome_atleta');
         $cpf         = new TEntry('cpf');
 
+        if(TSession::getValue('login') == 'J30EVENTOS' || TSession::getValue('login') == 'admin')
+        {
+            $ja_jogou = new TCombo('ja_jogou');
+
+            $ja_jogou->addItems( [ 't' => 'Sim', 'f' => 'Não' ] );   
+            $label_ja  = new TLabel('Já Jogou ?');         
+        }
+        else
+        {
+            $ja_jogou = new THidden('ja_jogou');
+            $label_ja  = new TLabel(' ');
+        }
+
+
         $ref_campeonato->setChangeAction(new TAction([$this,'onMudaCampeonato']));
         $usuario->setValue($usuario_logado);
 
@@ -76,7 +90,7 @@ class EquipeForm extends TPage
         $Label_id = new TLabel('');
         $Label_nome = new TLabel('Nome Completo (*)');
         $label_cpf  = new TLabel('CPF (*)');
-        
+
         $Label_nome->setFontColor('#FF0000');
         $label_cpf->setFontColor('#FF0000');
         
@@ -87,6 +101,7 @@ class EquipeForm extends TPage
         $this->form->addFields( [$Label_id], [$id_atleta]);
         $this->form->addFields( [$Label_nome], [$nome_atleta]);
         $this->form->addFields( [$label_cpf], [$cpf]);
+        $this->form->addFields( [$label_ja], [$ja_jogou]);
         $this->form->addFields( [], [$add_atleta] )->style = 'background: whitesmoke; padding: 5px; margin: 1px;';
         
         $this->product_list = new BootstrapDatagridWrapper(new TDataGrid);
@@ -96,10 +111,24 @@ class EquipeForm extends TPage
         $col_id   = new TDataGridColumn( 'id_atleta', 'ID', 'left', '10%');
         $col_nome = new TDataGridColumn( 'nome_atleta', 'Nome', 'left', '45%');
         $col_cpf  = new TDataGridColumn( 'cpf', 'CPF', 'left', '45%');
+        $col_jogou  = new TDataGridColumn( 'ja_jogou', 'Já Jogou?', 'left', '45%');
         
         $this->product_list->addColumn($col_id);
         $this->product_list->addColumn($col_nome);
         $this->product_list->addColumn($col_cpf);
+        $this->product_list->addColumn($col_jogou);
+
+        $col_jogou->setTransformer( function($ja_jogou) 
+        {
+            if ($ja_jogou == 't') 
+            {
+                return 'Sim';
+            }
+            else
+            {
+                return 'Não';
+            }
+        });
         
         // creates two datagrid actions
         $action1 = new TDataGridAction([$this, 'onEditItemProduto']);
@@ -108,6 +137,7 @@ class EquipeForm extends TPage
         $action1->setField('id_atleta');
         $action1->setField('nome_atleta');
         $action1->setField('cpf');
+        $action1->setField('ja_jogou');
         
         $action2 = new TDataGridAction([$this, 'onDeleteItem']);
         $action2->setLabel('Excluir');
@@ -189,7 +219,8 @@ class EquipeForm extends TPage
 
             $sale_items[ $key ] = ['id_atleta'   => $key,
                                    'nome_atleta' => $data->nome_atleta,
-                                   'cpf'         => $data->cpf];
+                                   'cpf'         => $data->cpf,
+                                   'ja_jogou'    => $data->ja_jogou];
             
             TSession::setValue('sale_items', $sale_items);
             
@@ -197,6 +228,7 @@ class EquipeForm extends TPage
             $data->id_atleta = '';
             $data->nome_atleta = '';
             $data->cpf = '';
+            $data->ja_jogou = '';
             TTransaction::close();
             $this->form->setData($data);
 
@@ -251,10 +283,24 @@ class EquipeForm extends TPage
         
         // get the session item
         $sale_item = $sale_items[$param['id_atleta'] ];
+
+        if (is_numeric($param['id_atleta'])) 
+        {
+            TTransaction::open('futapp');
+            $atleta = new AtletaEquipe($param['id_atleta']);
+            TTransaction::close();
+
+            if (isset($atleta->ja_jogou) &&  $atleta->ja_jogou == 't' && (TSession::getValue('login') != 'J30EVENTOS' && TSession::getValue('login') != 'admin') )
+            {
+                new TMessage('error','atleta ja jogou');
+                return;
+            }
+        }
         
         $data = new stdClass;
         $data->id_atleta   = $param['id_atleta'];
         $data->nome_atleta = $param['nome_atleta'];
+        $data->ja_jogou    = $param['ja_jogou'];
         $data->cpf         = $param['cpf'];
         
         // fill product fields
@@ -271,6 +317,7 @@ class EquipeForm extends TPage
         $data->nome_atleta = '';
         $data->cpf = '';
         $data->id_atleta = '';
+        $data->ja_jogou = '';
         
         // clear form data
         TForm::sendData('form_Equipe', $data );
@@ -280,6 +327,19 @@ class EquipeForm extends TPage
         $excluidos = array();
         
         $id_atleta = $param['id_atleta'];
+
+        if (is_numeric($id_atleta)) 
+        {
+            TTransaction::open('futapp');
+            $atleta = new AtletaEquipe($id_atleta);
+            TTransaction::close();
+
+            if (isset($atleta->ja_jogou) &&  $atleta->ja_jogou == 't')
+            {
+                new TMessage('error','atleta ja jogou');
+                return;
+            }
+        }
 
         $excluidos[] = $id_atleta;
 
@@ -345,6 +405,7 @@ class EquipeForm extends TPage
                     $items[$atleta->id]['id_atleta']   = $atleta->id;
                     $items[$atleta->id]['nome_atleta'] = $atleta->nome;
                     $items[$atleta->id]['cpf']         = $atleta->cpf;
+                    $items[$atleta->id]['ja_jogou']    = $atleta->ja_jogou;
                 }
                 TSession::setValue('sale_items', $items);
                 
@@ -388,34 +449,37 @@ class EquipeForm extends TPage
 
             $this->form->validate(); // form validation
 
-            $objEquipe = Equipe::where('usuario','=',$data->usuario)
-                                        ->where('ref_categoria_campeonato','=', $data->ref_categoria)->load();
-
-            if ((!is_null($objEquipe) && ! empty($objEquipe)) && (TSession::getValue('login') != 'J30EVENTOS' && TSession::getValue('login') != 'admin') ) 
-            {
-                throw new Exception( "Ja existe uma equipe sua na outra categoria!" );
-            }
+            
 
             if ($data->id) 
             {
                 $equipe = new Equipe($data->id); // create an empty object 
 
+                $partidas = Partida::where('id', 'in', "(select id 
+                                                        from partida 
+                                                        where ref_equipe_local in (select id 
+                                                                                     from equipe 
+                                                                                    where id = $equipe->id ) 
+                                                          OR ref_equipe_visitante in (select id 
+                                                                                   from equipe
+                                                                                   where id =  $equipe->id) )")->load();
+
+
+                if (!is_null($partidas) && ! empty($partidas)) 
+                {
+                    throw new Exception( "A EQUIPE JA TEM PARTIDAS CADASTRADAS" );
+                }
+
 
                 if ($equipe->ref_categoria_campeonato != $data->ref_categoria) 
                 {
-                     $partidas = Partida::where('id', 'in', "(select id 
-                                                                from partida 
-                                                                where ref_equipe_local in (select id 
-                                                                                             from equipe 
-                                                                                            where id = $equipe->id ) 
-                                                                  OR ref_equipe_visitante in (select id 
-                                                                                           from equipe
-                                                                                           where id =  $equipe->id) )")->load();
 
+                    $objEquipe = Equipe::where('usuario','=',$data->usuario)
+                                        ->where('ref_categoria_campeonato','=', $data->ref_categoria)->load();
 
-                    if (!is_null($partidas) && ! empty($partidas)) 
+                    if ((!is_null($objEquipe) && ! empty($objEquipe)) && (TSession::getValue('login') != 'J30EVENTOS' && TSession::getValue('login') != 'admin') ) 
                     {
-                        throw new Exception( "A EQUIPE JA TEM PARTIDAS CADASTRADAS" );
+                        throw new Exception( "Ja existe uma equipe sua na categoria!" );
                     }
 
                    
@@ -423,6 +487,13 @@ class EquipeForm extends TPage
             }
             else
             {
+                $objEquipe = Equipe::where('usuario','=',$data->usuario)
+                                        ->where('ref_categoria_campeonato','=', $data->ref_categoria)->load();
+
+                if ((!is_null($objEquipe) && ! empty($objEquipe)) && (TSession::getValue('login') != 'J30EVENTOS' && TSession::getValue('login') != 'admin') ) 
+                {
+                    throw new Exception( "Ja existe uma equipe sua na categoria!" );
+                }
                 $equipe = new Equipe();
                 $equipe->usuario = $data->usuario;
             }
@@ -489,15 +560,21 @@ class EquipeForm extends TPage
                        throw new Exception( " O atleta ".$atleta['nome_atleta']." ja esta em outra equipe ");
                     }
 
+                    if (is_null($atleta['ja_jogou']) || !isset($atleta['ja_jogou']) || $atleta['ja_jogou'] == '') 
+                    {
+                        $atleta['ja_jogou'] = 'f';
+                    }
+
                     $atletaEquipe->nome       = $atleta['nome_atleta'];
                     $atletaEquipe->cpf        = $atleta['cpf'];
+                    $atletaEquipe->ja_jogou   = $atleta['ja_jogou'];
                     $atletaEquipe->ref_equipe = $equipe->id;
 
-                    
                     $atletaEquipe->store(); // save the object
 
                     $items[$atletaEquipe->id]['id_atleta']   = $atletaEquipe->id;
                     $items[$atletaEquipe->id]['nome_atleta'] = $atletaEquipe->nome;
+                    $items[$atletaEquipe->id]['ja_jogou']    = $atletaEquipe->ja_jogou;
                     $items[$atletaEquipe->id]['cpf']         = $atletaEquipe->cpf;
                 }
 

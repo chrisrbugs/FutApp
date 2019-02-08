@@ -101,7 +101,7 @@ CREATE TABLE punicao (
     REFERENCES equipe (id));
 
 
--- 05/02/2019 não esta em produção
+-- 05/02/2019
 Drop table punicao;
 
 CREATE TABLE punicao (
@@ -117,3 +117,6 @@ CREATE TABLE punicao (
   CONSTRAINT fk_punicao_partida1
     FOREIGN KEY (ref_partida)
     REFERENCES partida (id));
+
+-- 07/02/2019
+alter table atleta_equipe add column ja_jogou boolean not null default false;
