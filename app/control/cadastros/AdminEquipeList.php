@@ -134,9 +134,15 @@ class AdminEquipeList extends TPage
                 $param['direction'] = 'desc';
             }
 
-            if ($param['ref_categoria']) 
+            if (!empty($param['ref_categoria'])) 
             {
+              TSession::setValue('filtro_categoria',$param['ref_categoria']);
               $criteria->add(new TFilter('ref_categoria_campeonato','=', $param['ref_categoria']));
+            }
+            else
+            {
+                $param['ref_categoria'] = TSession::getValue('filtro_categoria');
+                $criteria->add(new TFilter('ref_categoria_campeonato','=', $param['ref_categoria']));
             }
             
             $criteria->setProperties($param); // order, offset
