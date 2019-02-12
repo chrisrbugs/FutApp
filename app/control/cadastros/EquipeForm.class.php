@@ -463,16 +463,13 @@ class EquipeForm extends TPage
                                                           OR ref_equipe_visitante in (select id 
                                                                                    from equipe
                                                                                    where id =  $equipe->id) )")->load();
-
-
-                if (!is_null($partidas) && ! empty($partidas)) 
-                {
-                    throw new Exception( "A EQUIPE JA TEM PARTIDAS CADASTRADAS" );
-                }
-
-
                 if ($equipe->ref_categoria_campeonato != $data->ref_categoria) 
                 {
+                    if (!is_null($partidas) && ! empty($partidas)) 
+                    {
+                        throw new Exception( "A EQUIPE JA TEM PARTIDAS CADASTRADAS" );
+                    }
+
 
                     $objEquipe = Equipe::where('usuario','=',$data->usuario)
                                         ->where('ref_categoria_campeonato','=', $data->ref_categoria)->load();

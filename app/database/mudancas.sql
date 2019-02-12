@@ -120,3 +120,8 @@ CREATE TABLE punicao (
 
 -- 07/02/2019
 alter table atleta_equipe add column ja_jogou boolean not null default false;
+
+--11/02/2019
+alter table punicao add column ref_atleta int;
+
+ALTER TABLE punicao ADD CONSTRAINT ref_atleta_fk FOREIGN KEY (ref_atleta) REFERENCES atleta_equipe(id);

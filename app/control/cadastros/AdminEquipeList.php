@@ -134,6 +134,11 @@ class AdminEquipeList extends TPage
                 $param['direction'] = 'desc';
             }
 
+            if ($param['ref_categoria']) 
+            {
+              $criteria->add(new TFilter('ref_categoria_campeonato','=', $param['ref_categoria']));
+            }
+            
             $criteria->setProperties($param); // order, offset
             $criteria->setProperty('limit', $limit);
 
@@ -145,10 +150,6 @@ class AdminEquipeList extends TPage
                 }
             }
           
-            if ($param['ref_categoria']) 
-            {
-              $criteria->add(new TFilter('ref_categoria_campeonato','=', $param['ref_categoria']));
-            }
 
         // load the objects according to criteria       
             $objects = $repository->load($criteria, FALSE);

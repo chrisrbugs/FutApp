@@ -15,6 +15,7 @@ class Punicao extends TRecord
         parent::__construct($id, $callObjectLoad);
         parent::addAttribute('ref_equipe');
         parent::addAttribute('pontos');
+        parent::addAttribute('ref_atleta');
         parent::addAttribute('descricao');
         parent::addAttribute('ref_partida');
     }
