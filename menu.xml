@@ -29,10 +29,12 @@
         <action>AlbumList#method=onShow</action>
       </menuitem> 
 
-      <!-- COOPEVA<menuitem label="Punições">
+      <menuitem label="Punições">
         <icon>fa:circle-o fa-fw </icon>
-        <action>PunicoesList#method=onShow</action>
+        <action>PunicaoList#method=onShow</action>
       </menuitem>
+
+      <!-- COOPEVA
       
       <menuitem label="Partidas">
         <icon>fa:circle-o fa-fw </icon>
