@@ -57,23 +57,19 @@ class PartidaForm extends TPage
 	    $row7 = $this->form->addFields([new TLabel('Gols Visitante:', null, '14px', null)],[$numero_gols_visitante]);
         $row8 = $this->form->addFields([new TLabel('Data do jogo:', null, '14px', null)],[$dt_partida]);
 
-        // $this->form->addContent( ['<h4>Punições equipe local</h4><hr>'] );
+        $this->form->addContent( ['<h4>Punições equipe local</h4><hr>'] );
         $pts_punicao_local       = new TEntry('pts_punicao_local');
-        $descricao_punicao_local = new TText('descricao_punicao_local');
 
         $pts_punicao_local->setMask('999');
 
-        // $row9 = $this->form->addFields([new TLabel('Pontos:', '#ff0000', '14px', null)],[$pts_punicao_local]);
-        // $row10 = $this->form->addFields([new TLabel('Descrição:', '#ff0000', '14px', null)],[$descricao_punicao_local]);
+        $row9 = $this->form->addFields([new TLabel('Pontos:', '#ff0000', '14px', null)],[$pts_punicao_local]);
 
-        // $this->form->addContent( ['<h4>Punições equipe visitante</h4><hr>'] );
+        $this->form->addContent( ['<h4>Punições equipe visitante</h4><hr>'] );
         $pts_punicao_visitante       = new TEntry('pts_punicao_visitante');
-        $descricao_punicao_visitante = new TText('descricao_punicao_visitante');
 
         $pts_punicao_visitante->setMask('999');
 
-        // $row9 = $this->form->addFields([new TLabel('Pontos:', '#ff0000', '14px', null)],[$pts_punicao_visitante]);
-        // $row10 = $this->form->addFields([new TLabel('Descrição:', '#ff0000', '14px', null)],[$descricao_punicao_visitante]);
+        $row9 = $this->form->addFields([new TLabel('Pontos:', '#ff0000', '14px', null)],[$pts_punicao_visitante]);
 
      
         // create the form actions
@@ -120,49 +116,45 @@ class PartidaForm extends TPage
 
             $ObjPartida->store(); 
 
-            // $ObjPunicaoLocal = Punicao::where('ref_partida', '=',$ObjPartida->id)
-            //                           ->where('ref_equipe','=',$ObjPartida->ref_equipe_local)
-            //                           ->load();
+            $ObjDisciplinaLocal = Disciplina::where('ref_partida', '=',$ObjPartida->id)
+                                      ->where('ref_equipe','=',$ObjPartida->ref_equipe_local)
+                                      ->load();
             
-            // if ($ObjPunicaoLocal) 
-            // {
-            //     $punicaoLocal = new Punicao($ObjPunicaoLocal[0]->id);
-            //     $punicaoLocal->descricao = $data->descricao_punicao_local;
-            //     $punicaoLocal->pontos = $data->pts_punicao_local;
-            //     $punicaoLocal->store();
+            if ($ObjDisciplinaLocal) 
+            {
+                $disciplinaLocal = new Disciplina($ObjDisciplinaLocal[0]->id);
+                $disciplinaLocal->pontos = $data->pts_punicao_local;
+                $disciplinaLocal->store();
 
-            // }
-            // else
-            // {
-            //     $punicaoLocal = new Punicao();
-            //     $punicaoLocal->ref_equipe = $data->ref_equipe_local;
-            //     $punicaoLocal->ref_partida = $ObjPartida->id;
-            //     $punicaoLocal->descricao = $data->descricao_punicao_local;
-            //     $punicaoLocal->pontos = $data->pts_punicao_local;
-            //     $punicaoLocal->store();
-            // }
+            }
+            else
+            {
+                $disciplinaLocal = new Disciplina();
+                $disciplinaLocal->ref_equipe = $data->ref_equipe_local;
+                $disciplinaLocal->ref_partida = $ObjPartida->id;
+                $disciplinaLocal->pontos = $data->pts_punicao_local;
+                $disciplinaLocal->store();
+            }
 
-            // $ObjPunicaoVisitante = Punicao::where('ref_partida', '=',$ObjPartida->id)
-            //                               ->where('ref_equipe','=',$ObjPartida->ref_equipe_visitante)
-            //                           ->load();
+            $ObjDisciplinaVisitante = Disciplina::where('ref_partida', '=',$ObjPartida->id)
+                                          ->where('ref_equipe','=',$ObjPartida->ref_equipe_visitante)
+                                      ->load();
             
-            // if ($ObjPunicaoVisitante) 
-            // {
-            //     $punicaoVisitante = new Punicao($ObjPunicaoVisitante[0]->id);
-            //     $punicaoVisitante->descricao = $data->descricao_punicao_visitante;
-            //     $punicaoVisitante->pontos = $data->pts_punicao_visitante;
-            //     $punicaoVisitante->store();
+            if ($ObjDisciplinaVisitante) 
+            {
+                $disciplinaVisitante = new Disciplina($ObjDisciplinaVisitante[0]->id);
+                $disciplinaVisitante->pontos = $data->pts_punicao_visitante;
+                $disciplinaVisitante->store();
 
-            // }
-            // else
-            // {
-            //     $punicaoVisitante = new Punicao();
-            //     $punicaoVisitante->ref_equipe = $data->ref_equipe_visitante;
-            //     $punicaoVisitante->ref_partida = $ObjPartida->id;
-            //     $punicaoVisitante->descricao = $data->descricao_punicao_visitante;
-            //     $punicaoVisitante->pontos = $data->pts_punicao_visitante;
-            //     $punicaoVisitante->store();
-            // }
+            }
+            else
+            {
+                $disciplinaVisitante = new Disciplina();
+                $disciplinaVisitante->ref_equipe = $data->ref_equipe_visitante;
+                $disciplinaVisitante->ref_partida = $ObjPartida->id;
+                $disciplinaVisitante->pontos = $data->pts_punicao_visitante;
+                $disciplinaVisitante->store();
+            }
 
             // get the generated {PRIMARY_KEY}
             $data->id = $ObjPartida->id; 
@@ -220,24 +212,22 @@ class PartidaForm extends TPage
 
                 $objCategoria =  new CategoriaCampeonato($objEquipeLocal->ref_categoria_campeonato);
 
-                $ObjPunicaoLocal = Punicao::where('ref_partida', '=',$objPartida->id)
+                $ObjPunicaoLocal = Disciplina::where('ref_partida', '=',$objPartida->id)
                                       ->where('ref_equipe','=',$objPartida->ref_equipe_local)
                                       ->load();
 
-                $ObjPunicaoVisitante = Punicao::where('ref_partida', '=',$objPartida->id)
+                $ObjPunicaoVisitante = Disciplina::where('ref_partida', '=',$objPartida->id)
                                       ->where('ref_equipe','=',$objPartida->ref_equipe_visitante)
                                       ->load();
 
                 if ($ObjPunicaoLocal) 
                 {
                     $objPartida->pts_punicao_local = $ObjPunicaoLocal[0]->pontos;
-                    $objPartida->descricao_punicao_local = $ObjPunicaoLocal[0]->descricao;
                 }
 
                 if ($ObjPunicaoVisitante) 
                 {
                     $objPartida->pts_punicao_visitante = $ObjPunicaoVisitante[0]->pontos;
-                    $objPartida->descricao_punicao_visitante = $ObjPunicaoVisitante[0]->descricao;
                 }
 
                 

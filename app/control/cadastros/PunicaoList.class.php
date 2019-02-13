@@ -55,7 +55,6 @@ class PunicaoList extends TPage
 
         $column_time = new TDataGridColumn('ref_equipe', 'Time', 'left');
         $column_nome_jogador = new TDataGridColumn('ref_atleta', 'Nome jogador', 'left');
-        $column_pontos = new TDataGridColumn('pontos', 'Pontos', 'left');
         $column_descricao = new TDataGridColumn('descricao', 'Descricao', 'left');
       
         $formata_equipe = function($value)
@@ -75,7 +74,6 @@ class PunicaoList extends TPage
 
         $this->datagrid->addColumn($column_time);
         $this->datagrid->addColumn($column_nome_jogador);
-        $this->datagrid->addColumn($column_pontos);
         $this->datagrid->addColumn($column_descricao);
       
         if ( TSession::getValue('logged') )

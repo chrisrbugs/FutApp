@@ -1,7 +1,7 @@
 <?php
-class Punicao extends TRecord
+class Disciplina extends TRecord
 {
-    const TABLENAME  = 'punicao';
+    const TABLENAME  = 'disciplina';
     const PRIMARYKEY = 'id';
     const IDPOLICY   =  'serial'; // {max, serial}
     
@@ -13,10 +13,8 @@ class Punicao extends TRecord
     public function __construct($id = NULL, $callObjectLoad = TRUE)
     {
         parent::__construct($id, $callObjectLoad);
+        parent::addAttribute('pontos');
         parent::addAttribute('ref_equipe');
-        // parent::addAttribute('pontos');
-        parent::addAttribute('ref_atleta');
-        parent::addAttribute('descricao');
         parent::addAttribute('ref_partida');
     }
 }

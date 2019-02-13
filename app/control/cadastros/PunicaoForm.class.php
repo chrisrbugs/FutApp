@@ -28,7 +28,6 @@ class PunicaoForm extends TPage
         $ref_categoria  = new TCombo('ref_categoria');
         $ref_equipe  = new TCombo('ref_equipe');
         $ref_atleta = new TCombo('ref_atleta');
-        $pontos = new TEntry('pontos');
         $descricao = new TEntry('descricao');
 
         $ref_categoria->addValidation('Ref categoria', new TRequiredValidator()); 
@@ -39,7 +38,6 @@ class PunicaoForm extends TPage
         $ref_atleta->setSize('70%');
         $ref_categoria->setSize('70%');
 
-        $pontos->setMask('999');
 
         $ref_campeonato->setChangeAction(new TAction([$this,'onMudaCampeonato']));
         $ref_categoria->setChangeAction(new TAction([$this,'onMudaCategoria']));
@@ -50,8 +48,7 @@ class PunicaoForm extends TPage
         $row2 = $this->form->addFields([new TLabel('Campeonato:', '#ff0000', '14px', null)],[$ref_campeonato]);
         $row3 = $this->form->addFields([new TLabel('Categoria:', '#ff0000', '14px', null)],[$ref_categoria]);
         $row4 = $this->form->addFields([new TLabel('Equipe:', '#ff0000', '14px', null)],[$ref_equipe]);
-        $row5 = $this->form->addFields([new TLabel('Nome jogador:', null, '14px', null)],[$ref_atleta]);        
-        $row6 = $this->form->addFields([new TLabel('Pontos:', null, '14px', null)],[$pontos]);
+        $row5 = $this->form->addFields([new TLabel('Nome jogador:', null, '14px', null)],[$ref_atleta]);
         $row6 = $this->form->addFields([new TLabel('Descricao:', null, '14px', null)],[$descricao]);
 
 
