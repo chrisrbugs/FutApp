@@ -143,3 +143,13 @@ CREATE TABLE disciplina (
     REFERENCES partida (id));
 
 alter table punicao drop COLUMN pontos ;
+
+-- 17-02-2019
+CREATE TABLE goleador (
+  id serial NOT NULL,
+  numero_gols int NULL,
+  ref_atleta int NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT ref_atleta_fk
+    FOREIGN KEY (ref_atleta)
+    REFERENCES atleta_equipe (id));

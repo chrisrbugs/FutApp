@@ -1,6 +1,6 @@
 <?php
 
-class PartidaList extends TPage
+class PartidaPublicList extends TPage
 {
     private $form; // form
     private $datagrid; // listing
@@ -74,30 +74,6 @@ class PartidaList extends TPage
         $this->datagrid->addColumn($column_resultado);
         $this->datagrid->addColumn($column_time_visitante);
         $this->datagrid->addColumn($column_dt_partida);
-      
-        if ( TSession::getValue('logged') )
-        {
-          $btn_onexportcsv = $this->form->addAction('Exportar como CSV', new TAction([$this, 'onExportCsv']), 'fa:file-text-o #000000');
-
-          $btn_onshow = $this->form->addAction('Cadastrar', new TAction(['PartidaForm', 'onShow']), 'fa:plus #69aa46');
-          $action_onShow = new TDataGridAction(array('PartidaForm', 'onEdit'));
-          $action_onShow->setUseButton(false);
-          $action_onShow->setButtonClass('btn btn-default btn-sm');
-          $action_onShow->setLabel('Editar');
-          $action_onShow->setImage('fa:pencil-square-o #478fca');
-          $action_onShow->setField(self::$primaryKey);
-
-          $this->datagrid->addAction($action_onShow);
-
-          $action_onDelete = new TDataGridAction(array('PartidaList', 'onDelete'));
-          $action_onDelete->setUseButton(false);
-          $action_onDelete->setButtonClass('btn btn-default btn-sm');
-          $action_onDelete->setLabel('Excluir');
-          $action_onDelete->setImage('fa:trash-o #dd5a43');
-          $action_onDelete->setField(self::$primaryKey);
-
-          $this->datagrid->addAction($action_onDelete);
-        }
 
         // create the datagrid model
         $this->datagrid->createModel();
@@ -120,110 +96,6 @@ class PartidaList extends TPage
 
         parent::add($container);
 
-    }
-
-    public function onExportCsv($param = null) 
-    {
-        try
-        {
-            $this->onSearch();
-
-            TTransaction::open(self::$database); // open a transaction
-            $repository = new TRepository(self::$activeRecord); // creates a repository for Customer
-            $criteria = new TCriteria; // creates a criteria
-
-            if($filters = TSession::getValue(__CLASS__.'_filters'))
-            {
-                foreach ($filters as $filter) 
-                {
-                    $criteria->add($filter);       
-                }
-            }
-
-            $records = $repository->load($criteria); // load the objects according to criteria
-            if ($records)
-            {
-                $file = 'tmp/'.uniqid().'.csv';
-                $handle = fopen($file, 'w');
-                $columns = $this->datagrid->getColumns();
-
-                $csvColumns = [];
-                foreach($columns as $column)
-                {
-                    $csvColumns[] = $column->getLabel();
-                }
-                fputcsv($handle, $csvColumns, ';');
-
-                foreach ($records as $record)
-                {
-                    $csvColumns = [];
-                    foreach($columns as $column)
-                    {
-                        $name = $column->getName();
-                        $csvColumns[] = $record->{$name};
-                    }
-                    fputcsv($handle, $csvColumns, ';');
-                }
-                fclose($handle);
-
-                TPage::openFile($file);
-            }
-            else
-            {
-                new TMessage('info', _t('No records found'));       
-            }
-
-            TTransaction::close(); // close the transaction
-        }
-        catch (Exception $e) // in case of exception
-        {
-            new TMessage('error', $e->getMessage()); // shows the exception error message
-            TTransaction::rollback(); // undo all pending operations
-        }
-    }
-
-    public function onDelete($param = null) 
-    { 
-        if(isset($param['delete']) && $param['delete'] == 1)
-        {
-            try
-            {
-                // get the paramseter $key
-                $key = $param['key'];
-                // open a transaction with database
-                TTransaction::open(self::$database);
-
-                // instantiates object
-                $object = new Partidas($key, FALSE); 
-
-                // deletes the object from the database
-                $object->delete();
-
-                // close the transaction
-                TTransaction::close();
-
-                // reload the listing
-                $this->onReload( $param );
-                // shows the success message
-                new TMessage('info', AdiantiCoreTranslator::translate('Record deleted'));
-            }
-            catch (Exception $e) // in case of exception
-            {
-                // shows the exception error message
-                new TMessage('error', $e->getMessage());
-                // undo all pending operations
-                TTransaction::rollback();
-            }
-        }
-        else
-        {
-            // define the delete action
-            $action = new TAction(array($this, 'onDelete'));
-            $action->setParameters($param); // pass the key paramseter ahead
-            $action->setParameter('delete', 1);
-            // shows a dialog to the user
-            new TQuestion(AdiantiCoreTranslator::translate('Do you really want to delete ?'), $action);   
-        }
     }
 
     /**

@@ -24,14 +24,23 @@
         <icon>fa:circle-o fa-fw </icon>
         <action>PartidaList#method=onShow</action>
       </menuitem>
+      <menuitem label="Punições">
+        <icon>fa:circle-o fa-fw </icon>
+        <action>PunicaoList#method=onShow</action>
+      </menuitem>
       <menuitem label="Albuns">
         <icon>fa:circle-o fa-fw </icon>
         <action>AlbumList#method=onShow</action>
       </menuitem> 
 
-      <menuitem label="Punições">
+      <menuitem label="Goleadores">
         <icon>fa:circle-o fa-fw </icon>
-        <action>PunicaoList#method=onShow</action>
+        <action>GoleadorList#method=onShow</action>
+      </menuitem>
+
+      <menuitem label="Classificação">
+        <icon>fa:circle-o fa-fw </icon>
+        <action>ClassificacaoList#method=onShow</action>
       </menuitem>
 
       <!-- COOPEVA
@@ -40,10 +49,7 @@
         <icon>fa:circle-o fa-fw </icon>
         <action>PartidasList#method=onShow</action>
       </menuitem>
-      <menuitem label="Goleadores">
-        <icon>fa:circle-o fa-fw </icon>
-        <action>GoleadoresList#method=onShow</action>
-      </menuitem>
+      
      <menuitem label="Classificação">
         <icon>fa:circle-o fa-fw </icon>
         <action>ClassificacaoList#method=onShow</action>
@@ -102,6 +108,28 @@
       <menuitem label="_t{Preferences}">
         <icon>fa:cog fa-fw</icon>
         <action>SystemPreferenceForm#method=onEdit</action>
+      </menuitem>
+    </menu>
+  </menuitem>
+
+  <menuitem label="Listas Publicas">
+    <icon>fa:university fa-fw</icon>
+    <menu>
+      <menuitem label="Visual">
+        <icon>fa:circle-o fa-fw </icon>
+        <action>CampeonatosFormView#method=onShow</action>
+      </menuitem>
+      <menuitem label="Partidas">
+        <icon>fa:circle-o fa-fw </icon>
+        <action>PartidaPublicList#method=onShow</action>
+      </menuitem>
+      <menuitem label="Goleadores">
+        <icon>fa:circle-o fa-fw </icon>
+        <action>GoleadorPublicList#method=onShow</action>
+      </menuitem>
+      <menuitem label="Punições">
+        <icon>fa:circle-o fa-fw </icon>
+        <action>PunicaoPublicList#method=onShow</action>
       </menuitem>
     </menu>
   </menuitem>
