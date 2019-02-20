@@ -251,7 +251,7 @@ class GoleadorList extends TPage
 
             if (empty($param['order']))
             {
-                $param['order'] = 'id';    
+                $param['order'] = 'numero_gols';    
             }
 
             if (empty($param['direction']))

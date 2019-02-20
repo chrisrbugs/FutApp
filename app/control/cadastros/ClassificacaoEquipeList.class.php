@@ -1,6 +1,6 @@
 <?php
 
-class GoleadorPublicList extends TPage
+class ClassificacaoEquipeList extends TPage
 {
     private $form; // form
     private $datagrid; // listing
@@ -9,9 +9,9 @@ class GoleadorPublicList extends TPage
     private $loaded;
     private $deleteButton;
     private static $database = 'futapp';
-    private static $activeRecord = 'Goleador';
+    private static $activeRecord = 'ClassificacaoEquipe';
     private static $primaryKey = 'id';
-    private static $formName = 'formList_Goleador';
+    private static $formName = 'formList_Classificacao';
 
     /**
      * Class constructor
@@ -24,22 +24,17 @@ class GoleadorPublicList extends TPage
         $this->form = new BootstrapFormBuilder(self::$formName);
 
         // define the form title
-        $this->form->setFormTitle('Goleadores');
+        $this->form->setFormTitle('Classificação');
 
 
         $ref_campeonato = new TDBCombo('ref_campeonato', 'futapp', 'Campeonato', 'id', '{nome}','id asc'  );
         $ref_categoria  = new TCombo('ref_categoria');
-        $ref_equipe  = new TCombo('ref_equipe');
-        $ref_atleta = new TCombo('ref_atleta');
 
         $ref_campeonato->setChangeAction(new TAction([$this,'onMudaCampeonato']));
-        $ref_categoria->setChangeAction(new TAction([$this,'onMudaCategoria']));
-        $ref_equipe->setChangeAction(new TAction([$this,'onMudaEquipe']));
 
         $row1 = $this->form->addFields([new TLabel('Campeonato:', null, '14px', null)],[$ref_campeonato]);
         $row2 = $this->form->addFields([new TLabel('Categoria:', null, '14px', null)],[$ref_categoria]);
-        $row3 = $this->form->addFields([new TLabel('Equipe:', null, '14px', null)],[$ref_equipe]);
-        $row4 = $this->form->addFields([new TLabel('Atleta:', null, '14px', null)],[$ref_atleta]);
+
         // keep the form filled during navigation with session data
         $this->form->setData( TSession::getValue(__CLASS__.'_filter_data') );
 
@@ -53,29 +48,55 @@ class GoleadorPublicList extends TPage
         $this->datagrid->style = 'width: 100%';
         $this->datagrid->setHeight(320);
 
-        $column_time = new TDataGridColumn('ref_atleta', 'Time', 'left');
-        $column_atleta = new TDataGridColumn('ref_atleta', 'Nome jogador', 'left');
-        $column_gols = new TDataGridColumn('numero_gols', 'Gols', 'left');
-      
-        $formata_time = function($value)
+        $column_posicao = new TDataGridColumn('posicao', 'Posicao', 'left');
+        $column_time = new TDataGridColumn('ref_equipe', 'Time', 'left');
+        $column_pontos = new TDataGridColumn('pontos', 'Pontos', 'left');
+        $column_jogos = new TDataGridColumn('jogos', 'Jogos', 'left');
+        $column_vitorias = new TDataGridColumn('vitorias', 'Vitorias', 'left');
+        $column_empates = new TDataGridColumn('empates', 'Empates', 'left');
+        $column_derrotas = new TDataGridColumn('derrotas', 'Derrotas', 'left');
+        $column_disciplina = new TDataGridColumn('disciplina', 'Disciplina', 'left');
+
+        $formata_equipe = function($value)
         {
-           $objAtleta = new AtletaEquipe($value);
-           $objEquipe = new Equipe($objAtleta->ref_equipe);
+           $objEquipe = new Equipe($value);
 	          return $objEquipe->nome;    
         };
 
-        $formata_jogador = function($value)
-        {
-           $objAtleta = new AtletaEquipe($value);
-              return $objAtleta->nome;    
-        };
+        $column_time->setTransformer( $formata_equipe );
 
-        $column_time->setTransformer( $formata_time );
-        $column_atleta->setTransformer( $formata_jogador );
-
+        $this->datagrid->addColumn($column_posicao);
         $this->datagrid->addColumn($column_time);
-        $this->datagrid->addColumn($column_atleta);
-        $this->datagrid->addColumn($column_gols);
+        $this->datagrid->addColumn($column_pontos);
+        $this->datagrid->addColumn($column_jogos);
+        $this->datagrid->addColumn($column_vitorias);
+        $this->datagrid->addColumn($column_empates);
+        $this->datagrid->addColumn($column_derrotas);
+        $this->datagrid->addColumn($column_disciplina);
+      
+        if ( TSession::getValue('logged') )
+        {
+          // $btn_onexportcsv = $this->form->addAction('Exportar como CSV', new TAction([$this, 'onExportCsv']), 'fa:file-text-o #000000');
+
+          $btn_onshow = $this->form->addAction('Cadastrar', new TAction(['ClassificacaoEquipeForm', 'onShow']), 'fa:plus #69aa46');
+          $action_onShow = new TDataGridAction(array('ClassificacaoEquipeForm', 'onEdit'));
+          $action_onShow->setUseButton(false);
+          $action_onShow->setButtonClass('btn btn-default btn-sm');
+          $action_onShow->setLabel('Editar');
+          $action_onShow->setImage('fa:pencil-square-o #478fca');
+          $action_onShow->setField(self::$primaryKey);
+
+          $this->datagrid->addAction($action_onShow);
+
+          $action_onDelete = new TDataGridAction(array('ClassificacaoEquipeList', 'onDelete'));
+          $action_onDelete->setUseButton(false);
+          $action_onDelete->setButtonClass('btn btn-default btn-sm');
+          $action_onDelete->setLabel('Excluir');
+          $action_onDelete->setImage('fa:trash-o #dd5a43');
+          $action_onDelete->setField(self::$primaryKey);
+
+          $this->datagrid->addAction($action_onDelete);
+        }
       
         // create the datagrid model
         $this->datagrid->createModel();
@@ -92,7 +113,7 @@ class GoleadorPublicList extends TPage
         // vertical box container
         $container = new TVBox;
         $container->style = 'width: 100%';
-        // $container->add(TBreadCrumb::create(['Cadastros','Goleadores']));
+        $container->add(TBreadCrumb::create(['Cadastros','Classificação']));
         $container->add($this->form);
         $container->add($panel);
 
@@ -100,6 +121,49 @@ class GoleadorPublicList extends TPage
 
     }
 
+    public function onDelete($param = null) 
+    { 
+        if(isset($param['delete']) && $param['delete'] == 1)
+        {
+            try
+            {
+                // get the paramseter $key
+                $key = $param['key'];
+                // open a transaction with database
+                TTransaction::open(self::$database);
+
+                // instantiates object
+                $object = new ClassificacaoEquipe($key, FALSE); 
+
+                // deletes the object from the database
+                $object->delete();
+
+                // close the transaction
+                TTransaction::close();
+
+                // reload the listing
+                $this->onReload( $param );
+                // shows the success message
+                new TMessage('info', AdiantiCoreTranslator::translate('Record deleted'));
+            }
+            catch (Exception $e) // in case of exception
+            {
+                // shows the exception error message
+                new TMessage('error', $e->getMessage());
+                // undo all pending operations
+                TTransaction::rollback();
+            }
+        }
+        else
+        {
+            // define the delete action
+            $action = new TAction(array($this, 'onDelete'));
+            $action->setParameters($param); // pass the key paramseter ahead
+            $action->setParameter('delete', 1);
+            // shows a dialog to the user
+            new TQuestion(AdiantiCoreTranslator::translate('Do you really want to delete ?'), $action);   
+        }
+    }
 
     /**
      * Register the filter in the session
@@ -115,36 +179,18 @@ class GoleadorPublicList extends TPage
 
         if (isset($data->ref_campeonato) AND ( (is_scalar($data->ref_campeonato) AND $data->ref_campeonato !== '') OR (is_array($data->ref_campeonato) AND (!empty($data->ref_campeonato)) )) )
         {
-            
-            $filters[] = new TFilter('ref_atleta', 'in', "(select id 
-                                                           from atleta_equipe 
-                                                           where ref_equipe in 
-                                                                 (select id 
-                                                                    from equipe 
-                                                                   where ref_categoria_campeonato in (select id 
-                                                                                                        from categoria_campeonato
-                                                                                                        where ref_campeonato =  {$data->ref_campeonato})))");// create the filter 
+            $filters[] = new TFilter('ref_equipe', 'in', "(select id 
+                                                                from equipe 
+                                                               where ref_categoria_campeonato in (select id 
+                                                                                                    from categoria_campeonato
+                                                                                                   where ref_campeonato =  {$data->ref_campeonato}))");// create the filter 
         }
 
         if (isset($data->ref_categoria) AND ( (is_scalar($data->ref_categoria) AND $data->ref_categoria !== '') OR (is_array($data->ref_categoria) AND (!empty($data->ref_categoria)) )) )
         {
-            $filters[] = new TFilter('ref_atleta', 'in', "(select id from atleta_equipe where ref_equipe in 
-                                                                 (select id 
-                                                                    from equipe 
-                                                                   where ref_categoria_campeonato in ({$data->ref_categoria})))");// create the filter 
-        }
-
-        if (isset($data->ref_equipe) AND ( (is_scalar($data->ref_equipe) AND $data->ref_equipe !== '') OR (is_array($data->ref_equipe) AND (!empty($data->ref_equipe)) )) )
-        {
-           $filters[] = new TFilter('ref_atleta', 'in', "(select id from atleta_equipe where ref_equipe in 
-                                                                 (select id 
-                                                                    from equipe 
-                                                                   where id = {$data->ref_equipe}))");// create the filter 
-        }
-
-        if (isset($data->ref_atleta) AND ( (is_scalar($data->ref_atleta) AND $data->ref_atleta !== '') OR (is_array($data->ref_atleta) AND (!empty($data->ref_atleta)) )) )
-        {
-            $filters[] = new TFilter('ref_atleta', '=',  $data->ref_atleta);// create the filter 
+            $filters[] = new TFilter('ref_equipe', 'in', "(select id 
+                                                                from equipe 
+                                                               where ref_categoria_campeonato = {$data->ref_categoria})");// create the filter 
         }
 
 
@@ -184,12 +230,12 @@ class GoleadorPublicList extends TPage
 
             if (empty($param['order']))
             {
-                $param['order'] = 'numero_gols';    
+                $param['order'] = 'posicao';    
             }
 
             if (empty($param['direction']))
             {
-                $param['direction'] = 'desc';
+                $param['direction'] = 'asc';
             }
 
             $criteria->setProperties($param); // order, offset
@@ -276,65 +322,11 @@ class GoleadorPublicList extends TPage
                 $criteria = TCriteria::create( ['ref_campeonato' => $param['ref_campeonato'] ] );
                 
                 // formname, field, database, model, key, value, ordercolumn = NULL, criteria = NULL, startEmpty = FALSE
-                TDBCombo::reloadFromModel('formList_Goleador', 'ref_categoria', 'futapp', 'CategoriaCampeonato', 'id', '{nome} ({id})', 'id', $criteria, TRUE);
+                TDBCombo::reloadFromModel('formList_Classificacao', 'ref_categoria', 'futapp', 'CategoriaCampeonato', 'id', '{nome} ({id})', 'id', $criteria, TRUE);
             }
             else
             {
-                TCombo::clearField('formList_Goleador', 'ref_categoria');
-            }
-            
-            TTransaction::close();
-        }
-        catch (Exception $e)
-        {
-            new TMessage('error', $e->getMessage());
-        }
-    }
-
-         /**
-     * On muda campeonato
-     */
-    static function onMudaCategoria( $param )
-    {
-        try
-        {
-            TTransaction::open('futapp');
-            if (!empty($param['ref_categoria']))
-            {
-                $criteria = TCriteria::create( ['ref_categoria_campeonato' => $param['ref_categoria'] ] );
-                
-                // formname, field, database, model, key, value, ordercolumn = NULL, criteria = NULL, startEmpty = FALSE
-                TDBCombo::reloadFromModel('formList_Goleador', 'ref_equipe', 'futapp', 'Equipe', 'id', '{nome} ({id})', 'ref_categoria_campeonato', $criteria, TRUE);
-            }
-            else
-            {
-                TCombo::clearField('formList_Goleador', 'ref_equipe');
-            }
-            
-            TTransaction::close();
-        }
-        catch (Exception $e)
-        {
-            new TMessage('error', $e->getMessage());
-        }
-    }
-
-
-    static function onMudaEquipe( $param )
-    {
-        try
-        {
-            TTransaction::open('futapp');
-            if (!empty($param['ref_equipe']))
-            {
-                $criteria = TCriteria::create( ['ref_equipe' => $param['ref_equipe'] ] );
-                
-                // formname, field, database, model, key, value, ordercolumn = NULL, criteria = NULL, startEmpty = FALSE
-                TDBCombo::reloadFromModel('formList_Goleador', 'ref_atleta', 'futapp', 'AtletaEquipe', 'id', '{nome} ({id})', 'ref_equipe', $criteria, TRUE);
-            }
-            else
-            {
-                TCombo::clearField('formList_Goleador', 'ref_atleta');
+                TCombo::clearField('formList_Classificacao', 'ref_categoria');
             }
             
             TTransaction::close();
@@ -354,9 +346,7 @@ class GoleadorPublicList extends TPage
         $obj = new stdClass;
         $obj->ref_campeonato = $object->ref_campeonato;
         $obj->ref_categoria  = $object->ref_categoria;
-        $obj->ref_equipe     = $object->ref_equipe;
-        $obj->ref_atleta     = $object->ref_atleta;
-        TForm::sendData('formList_Goleador', $obj);
+        TForm::sendData('formList_Classificacao', $obj);
     }
 
 }

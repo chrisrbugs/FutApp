@@ -36,7 +36,7 @@ class CampeonatosFormView extends TPage
         $this->form->addAction('JOGOS', new TAction(array('PartidaPublicList', 'onSearch')), 'fa:chevron-circle-right green');
         $this->form->addAction('GOLEADORES', new TAction(array('GoleadorPublicList', 'onSearch')), 'fa:chevron-circle-right green');
         $this->form->addAction('PUNIÇÕES', new TAction(array('PunicaoPublicList', 'onSearch')), 'fa:chevron-circle-right green');
-        // $this->form->addAction('CLASSIFICAÇÃO', new TAction(array($this, 'onNextForm')), 'fa:chevron-circle-right green');
+        $this->form->addAction('CLASSIFICAÇÃO', new TAction(array('ClassificacaoEquipePublicList', 'onSearch')), 'fa:chevron-circle-right green');
         
         $vbox = new TVBox;
         $vbox->style = 'width: 100%';

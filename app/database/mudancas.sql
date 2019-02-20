@@ -153,3 +153,20 @@ CREATE TABLE goleador (
   CONSTRAINT ref_atleta_fk
     FOREIGN KEY (ref_atleta)
     REFERENCES atleta_equipe (id));
+
+
+-- 19-02-2019
+CREATE TABLE classificacao_equipe (
+  id serial NOT NULL,
+  ref_equipe INT NOT NULL,
+  posicao int not  NULL,
+  jogos int not  NULL,
+  vitorias int not  NULL,
+  empates int not  NULL,
+  derrotas int not  NULL,
+  pontos int not  NULL,
+  disciplina int not  NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT fk_classificacao_equipe1
+    FOREIGN KEY (ref_equipe)
+    REFERENCES equipe (id));

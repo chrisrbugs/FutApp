@@ -40,7 +40,7 @@
 
       <menuitem label="Classificação">
         <icon>fa:circle-o fa-fw </icon>
-        <action>ClassificacaoList#method=onShow</action>
+        <action>ClassificacaoEquipeList#method=onShow</action>
       </menuitem>
 
       <!-- COOPEVA
