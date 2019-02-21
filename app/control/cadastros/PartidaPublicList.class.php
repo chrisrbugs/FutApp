@@ -50,6 +50,11 @@ class PartidaPublicList extends TPage
 
         $btn_onsearch = $this->form->addAction('Buscar', new TAction([$this, 'onSearch']), 'fa:search #ffffff');
         $btn_onsearch->addStyleClass('btn-primary'); 
+
+        $this->form->addAction('JOGOS', new TAction(array('PartidaPublicList', 'onSearch')), 'fa:chevron-circle-right green');
+        $this->form->addAction('GOLEADORES', new TAction(array('GoleadorPublicList', 'onSearch')), 'fa:chevron-circle-right green');
+        $this->form->addAction('PUNIÇÕES', new TAction(array('PunicaoPublicList', 'onSearch')), 'fa:chevron-circle-right green');
+        $this->form->addAction('CLASSIFICAÇÃO', new TAction(array('ClassificacaoEquipePublicList', 'onSearch')), 'fa:chevron-circle-right green');
       
         // creates a Datagrid
         $this->datagrid = new TDataGrid;
@@ -90,8 +95,20 @@ class PartidaPublicList extends TPage
         // vertical box container
         $container = new TVBox;
         $container->style = 'width: 100%';
-        // $container->add(TBreadCrumb::create(['Cadastros','Partidas']));
+        
         $container->add($this->form);
+
+        if(isset($_POST['ref_campeonato']))
+        {
+            TTransaction::open('futapp');
+            $Campeonato = new Campeonato($_POST['ref_campeonato']);
+            TTransaction::close();
+
+            $c = new THyperLink('Regulamento', $Campeonato->regulamento, 'red', 12, 'biu');
+            $d = new THyperLink('Partidas(PDF)', $Campeonato->jogos, 'red', 12, 'biu');
+            $container->add($c);
+            $container->add($d);
+        }  
         $container->add($panel);
 
         parent::add($container);

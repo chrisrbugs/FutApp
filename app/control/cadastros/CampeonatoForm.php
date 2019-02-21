@@ -30,12 +30,14 @@ class CampeonatoForm extends TPage
         $this->form->setFormTitle('Campeonato');
 
 
-        $id        = new TEntry('id');
-        $nome      = new TEntry('nome');
-        $descricao = new TText('descricao');
-        $dt_inicio = new TDate('dt_inicio');
-        $dt_fim    = new TDate('dt_fim');
-        $logo      = new TFile('logo');
+        $id          = new TEntry('id');
+        $nome        = new TEntry('nome');
+        $descricao   = new TText('descricao');
+        $dt_inicio   = new TDate('dt_inicio');
+        $dt_fim      = new TDate('dt_fim');
+        $logo        = new TFile('logo');
+        $regulamento = new TFile('regulamento');
+        $jogos       = new TFile('jogos');
 
         $dt_inicio->setMask('dd/mm/yyyy');
         $dt_inicio->setDatabaseMask('yyyy-mm-dd');
@@ -51,9 +53,13 @@ class CampeonatoForm extends TPage
 
         // allow just these extensions
         $logo->setAllowedExtensions( ['gif', 'png', 'jpg', 'jpeg'] );
+        $jogos->setAllowedExtensions( ['pdf'] );
+        $regulamento->setAllowedExtensions( ['pdf'] );
         
         // enable progress bar, preview, and file remove actions
         $logo->enableFileHandling();
+        $regulamento->enableFileHandling();
+        $jogos->enableFileHandling();
 
         $id->setEditable(false);
         $id->setSize(100);
@@ -68,6 +74,8 @@ class CampeonatoForm extends TPage
         $row4 = $this->form->addFields([new TLabel('Data de Inicio:', null, '14px', null)],[$dt_inicio]);
         $row5 = $this->form->addFields([new TLabel('Data de Fim:', null, '14px', null)],[$dt_fim]);
         $row6 = $this->form->addFields([new TLabel('Logo:', null, '14px', null)],[$logo]);
+        $row7 = $this->form->addFields([new TLabel('Regulamento:', null, '14px', null)],[$regulamento]);
+        $row8 = $this->form->addFields([new TLabel('Jogos:', null, '14px', null)],[$jogos]);
 
         // create the form actions
         $btn_onsave = $this->form->addAction('Salvar', new TAction([$this, 'onSave']), 'fa:floppy-o #ffffff');
@@ -114,6 +122,8 @@ class CampeonatoForm extends TPage
 
             // copy file to target folder
             $this->saveFile($object, $data, 'logo', 'campeonatos');
+            $this->saveFile($object, $data, 'jogos', 'campeonatos');
+            $this->saveFile($object, $data, 'regulamento', 'campeonatos');
 
 
             // get the generated {PRIMARY_KEY}

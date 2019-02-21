@@ -170,3 +170,10 @@ CREATE TABLE classificacao_equipe (
   CONSTRAINT fk_classificacao_equipe1
     FOREIGN KEY (ref_equipe)
     REFERENCES equipe (id));
+
+alter table campeonato add column regulamento text;
+alter table campeonato add column jogos text;
+
+alter table classificacao_equipe add column gols_pro int;
+alter table classificacao_equipe add column gols_contra int;
+alter table classificacao_equipe add column saldo_gols int;

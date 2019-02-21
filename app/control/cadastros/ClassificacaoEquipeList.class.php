@@ -55,6 +55,9 @@ class ClassificacaoEquipeList extends TPage
         $column_vitorias = new TDataGridColumn('vitorias', 'Vitorias', 'left');
         $column_empates = new TDataGridColumn('empates', 'Empates', 'left');
         $column_derrotas = new TDataGridColumn('derrotas', 'Derrotas', 'left');
+        $column_gp = new TDataGridColumn('gols_pro', 'Gols Pro', 'left');
+        $column_gc = new TDataGridColumn('gols_contra', 'Gols Contra', 'left');
+        $column_sg = new TDataGridColumn('saldo_gols', 'Saldo de Gols', 'left');
         $column_disciplina = new TDataGridColumn('disciplina', 'Disciplina', 'left');
 
         $formata_equipe = function($value)
@@ -72,6 +75,9 @@ class ClassificacaoEquipeList extends TPage
         $this->datagrid->addColumn($column_vitorias);
         $this->datagrid->addColumn($column_empates);
         $this->datagrid->addColumn($column_derrotas);
+        $this->datagrid->addColumn($column_gp);
+        $this->datagrid->addColumn($column_gc);
+        $this->datagrid->addColumn($column_sg);
         $this->datagrid->addColumn($column_disciplina);
       
         if ( TSession::getValue('logged') )

@@ -29,10 +29,14 @@ class ClassificacaoEquipeForm extends TPage
         $ref_equipe  = new TCombo('ref_equipe');
         $posicao = new TEntry('posicao');
         $jogos = new TEntry('jogos');
+        $pontos = new TEntry('pontos');
         $vitorias = new TEntry('vitorias');
         $empates = new TEntry('empates');
         $derrotas = new TEntry('derrotas');
-        $pontos = new TEntry('pontos');
+        $gols_pro = new TEntry('gols_pro');
+        $gols_contra = new TEntry('gols_contra');
+        $saldo_gols = new TEntry('saldo_gols');
+
         $disciplina = new TEntry('disciplina');
 
 
@@ -49,6 +53,9 @@ class ClassificacaoEquipeForm extends TPage
         $derrotas->setMask('999');
         $pontos->setMask('999');
         $disciplina->setMask('999');
+        $gols_pro->setMask('999');
+        $gols_contra->setMask('999');
+        $saldo_gols->setMask('999');
 
         $ref_campeonato->setChangeAction(new TAction([$this,'onMudaCampeonato']));
         $ref_categoria->setChangeAction(new TAction([$this,'onMudaCategoria']));
@@ -58,11 +65,14 @@ class ClassificacaoEquipeForm extends TPage
         $row3 = $this->form->addFields([new TLabel('Categoria:', '#ff0000', '14px', null)],[$ref_categoria]);
         $row5 = $this->form->addFields([new TLabel('Equipe:', '#ff0000', '14px', null)],[$ref_equipe]);
         $row6 = $this->form->addFields([new TLabel('Posicao:', null, '14px', null)],[$posicao]);
+        $row11 = $this->form->addFields([new TLabel('Pontos:', null, '14px', null)],[$pontos]);
         $row7 = $this->form->addFields([new TLabel('Jogos:', null, '14px', null)],[$jogos]);
         $row8 = $this->form->addFields([new TLabel('Vitorias:', null, '14px', null)],[$vitorias]);
         $row9 = $this->form->addFields([new TLabel('Empates:', null, '14px', null)],[$empates]);
         $row10 = $this->form->addFields([new TLabel('Derrotas:', null, '14px', null)],[$derrotas]);
-        $row11 = $this->form->addFields([new TLabel('Pontos:', null, '14px', null)],[$pontos]);
+        $row12 = $this->form->addFields([new TLabel('Gols Pro:', null, '14px', null)],[$gols_pro]);
+        $row13 = $this->form->addFields([new TLabel('Gols Contra:', null, '14px', null)],[$gols_contra]);
+        $row14 = $this->form->addFields([new TLabel('Saldo de gols:', null, '14px', null)],[$saldo_gols]);
         $row11 = $this->form->addFields([new TLabel('Disciplina:', null, '14px', null)],[$disciplina]);
 
 

@@ -41,6 +41,11 @@ class ClassificacaoEquipePublicList extends TPage
         $btn_onsearch = $this->form->addAction('Buscar', new TAction([$this, 'onSearch']), 'fa:search #ffffff');
         $btn_onsearch->addStyleClass('btn-primary'); 
         
+        $this->form->addAction('JOGOS', new TAction(array('PartidaPublicList', 'onSearch')), 'fa:chevron-circle-right green');
+        $this->form->addAction('GOLEADORES', new TAction(array('GoleadorPublicList', 'onSearch')), 'fa:chevron-circle-right green');
+        $this->form->addAction('PUNIÇÕES', new TAction(array('PunicaoPublicList', 'onSearch')), 'fa:chevron-circle-right green');
+        $this->form->addAction('CLASSIFICAÇÃO', new TAction(array('ClassificacaoEquipePublicList', 'onSearch')), 'fa:chevron-circle-right green');
+
         // creates a Datagrid
         $this->datagrid = new TDataGrid;
         $this->datagrid = new BootstrapDatagridWrapper($this->datagrid);
@@ -56,6 +61,9 @@ class ClassificacaoEquipePublicList extends TPage
         $column_empates = new TDataGridColumn('empates', 'Empates', 'left');
         $column_derrotas = new TDataGridColumn('derrotas', 'Derrotas', 'left');
         $column_disciplina = new TDataGridColumn('disciplina', 'Disciplina', 'left');
+        $column_gp = new TDataGridColumn('gols_pro', 'Gols Pro', 'left');
+        $column_gc = new TDataGridColumn('gols_contra', 'Gols Contra', 'left');
+        $column_sg = new TDataGridColumn('saldo_gols', 'Saldo de Gols', 'left');
 
         $formata_equipe = function($value)
         {
@@ -72,6 +80,9 @@ class ClassificacaoEquipePublicList extends TPage
         $this->datagrid->addColumn($column_vitorias);
         $this->datagrid->addColumn($column_empates);
         $this->datagrid->addColumn($column_derrotas);
+        $this->datagrid->addColumn($column_gp);
+        $this->datagrid->addColumn($column_gc);
+        $this->datagrid->addColumn($column_sg);
         $this->datagrid->addColumn($column_disciplina);
       
         // create the datagrid model
@@ -89,8 +100,19 @@ class ClassificacaoEquipePublicList extends TPage
         // vertical box container
         $container = new TVBox;
         $container->style = 'width: 100%';
-        $container->add(TBreadCrumb::create(['Cadastros','Classificação']));
+        // $container->add(TBreadCrumb::create(['Cadastros','Classificação']));
         $container->add($this->form);
+        if(isset($_POST['ref_campeonato']))
+        {
+            TTransaction::open('futapp');
+            $Campeonato = new Campeonato($_POST['ref_campeonato']);
+            TTransaction::close();
+
+            $c = new THyperLink('Regulamento', $Campeonato->regulamento, 'red', 12, 'biu');
+            $d = new THyperLink('Partidas(PDF)', $Campeonato->jogos, 'red', 12, 'biu');
+            $container->add($c);
+            $container->add($d);
+        } 
         $container->add($panel);
 
         parent::add($container);

@@ -23,6 +23,9 @@ class ClassificacaoEquipe extends TRecord
         parent::addAttribute('derrotas');
         parent::addAttribute('pontos');
         parent::addAttribute('disciplina');
+        parent::addAttribute('gols_pro');
+        parent::addAttribute('gols_contra');
+        parent::addAttribute('saldo_gols');
     }
     
 }
