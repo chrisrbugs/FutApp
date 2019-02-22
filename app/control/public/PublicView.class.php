@@ -24,7 +24,7 @@ class PublicView extends TPage
         $this->datagrid = new TDataGrid;
         $this->datagrid = new BootstrapDatagridWrapper($this->datagrid);
 
-        $this->datagrid->style = 'width: 75%';
+        $this->datagrid->style = 'width: 100%';
         $this->datagrid->setHeight(320);
 
         // $column_time_local = new TDataGridColumn('ref_equipe_local', 'Time local', 'right');
@@ -178,7 +178,14 @@ class PublicView extends TPage
         TTransaction::close();
         $Equipe = $Equipe[0];
 
-        $image = new TImage($Equipe->escudo);
+        if ($Equipe->escudo) 
+        {
+            $image = new TImage($Equipe->escudo);
+        }
+        else
+        {
+            $image = new TImage('equipes/padrao.png');
+        }
         $image->style = 'max-width: 50px';
         
         return $Equipe->nome.' '. $image;
@@ -190,8 +197,14 @@ class PublicView extends TPage
         $Equipe = Equipe::where('id', ' = ', $id)->load();
         TTransaction::close();
         $Equipe = $Equipe[0];
-
-        $image = new TImage($Equipe->escudo);
+        if ($Equipe->escudo) 
+        {
+            $image = new TImage($Equipe->escudo);
+        }
+        else
+        {
+            $image = new TImage('equipes/padrao.png');
+        }
         $image->style = 'max-width: 50px';
 
         return $image.' '.$Equipe->nome;         
