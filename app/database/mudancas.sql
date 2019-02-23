@@ -177,3 +177,6 @@ alter table campeonato add column jogos text;
 alter table classificacao_equipe add column gols_pro int;
 alter table classificacao_equipe add column gols_contra int;
 alter table classificacao_equipe add column saldo_gols int;
+
+-- 23-02-2019
+alter table  classificacao_equipe alter COLUMN saldo_gols type text;

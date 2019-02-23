@@ -55,7 +55,7 @@ class ClassificacaoEquipeForm extends TPage
         $disciplina->setMask('999');
         $gols_pro->setMask('999');
         $gols_contra->setMask('999');
-        $saldo_gols->setMask('999');
+        // $saldo_gols->setMask('999');
 
         $ref_campeonato->setChangeAction(new TAction([$this,'onMudaCampeonato']));
         $ref_categoria->setChangeAction(new TAction([$this,'onMudaCategoria']));
