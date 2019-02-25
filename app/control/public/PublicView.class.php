@@ -83,8 +83,8 @@ class PublicView extends TPage
             $criteria->setProperties($param); // order, offset
             $criteria->setProperty('limit', $limit);
 
-            // $hoje = date('Y-m-d');
-            // $criteria->add(new TFilter('dt_partida::date','=', $hoje));     
+            $hoje = date('Y-m-d');
+            $criteria->add(new TFilter('dt_partida::date','=', $hoje));     
                 
 
             // load the objects according to criteria
