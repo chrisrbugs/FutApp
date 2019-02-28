@@ -420,20 +420,20 @@ class GoleadorList extends TPage
     public function fireEvents( $object )
     {
         $obj = new stdClass;
-        if ($object->ref_campeonato) 
+        if (isset($object->ref_campeonato)) 
         {
             $obj->ref_campeonato = $object->ref_campeonato;
         }
         
-        if ($object->ref_categoria) 
+        if (isset($object->ref_categoria))
         {
             $obj->ref_categoria  = $object->ref_categoria;
         }
-        if ($object->ref_equipe) 
+        if (isset($object->ref_equipe))
         {
             $obj->ref_equipe  = $object->ref_equipe;
         }
-        if ($object->ref_atleta) 
+        if (isset($object->ref_atleta) )
         {
             $obj->ref_atleta     = $object->ref_atleta;
         }
