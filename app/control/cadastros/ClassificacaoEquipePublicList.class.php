@@ -37,6 +37,7 @@ class ClassificacaoEquipePublicList extends TPage
 
         // keep the form filled during navigation with session data
         $this->form->setData( TSession::getValue(__CLASS__.'_filter_data') );
+        $this->fireEvents(TSession::getValue(__CLASS__.'_filter_data'));
 
         $btn_onsearch = $this->form->addAction('Buscar', new TAction([$this, 'onSearch']), 'fa:search #ffffff');
         $btn_onsearch->addStyleClass('btn-primary'); 
@@ -298,8 +299,16 @@ class ClassificacaoEquipePublicList extends TPage
     public function fireEvents( $object )
     {
         $obj = new stdClass;
-        $obj->ref_campeonato = $object->ref_campeonato;
-        $obj->ref_categoria  = $object->ref_categoria;
+        if (isset($object->ref_campeonato)) 
+        {
+            $obj->ref_campeonato = $object->ref_campeonato;
+        }
+        
+        if (isset($object->ref_categoria))
+        {
+            $obj->ref_categoria  = $object->ref_categoria;
+        }
+
         TForm::sendData('formList_Classificacao', $obj);
     }
 

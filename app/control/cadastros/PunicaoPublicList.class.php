@@ -43,6 +43,8 @@ class PunicaoPublicList extends TPage
         // keep the form filled during navigation with session data
         $this->form->setData( TSession::getValue(__CLASS__.'_filter_data') );
 
+        $this->fireEvents(TSession::getValue(__CLASS__.'_filter_data'));
+
         $btn_onsearch = $this->form->addAction('Buscar', new TAction([$this, 'onSearch']), 'fa:search #ffffff');
         $btn_onsearch->addStyleClass('btn-primary'); 
 
@@ -358,10 +360,23 @@ class PunicaoPublicList extends TPage
     public function fireEvents( $object )
     {
         $obj = new stdClass;
-        $obj->ref_campeonato = $object->ref_campeonato;
-        $obj->ref_categoria  = $object->ref_categoria;
-        $obj->ref_equipe     = $object->ref_equipe;
-        $obj->ref_atleta     = $object->ref_atleta;
+        if (isset($object->ref_campeonato)) 
+        {
+            $obj->ref_campeonato = $object->ref_campeonato;
+        }
+        
+        if (isset($object->ref_categoria))
+        {
+            $obj->ref_categoria  = $object->ref_categoria;
+        }
+        if (isset($object->ref_equipe))
+        {
+            $obj->ref_equipe  = $object->ref_equipe;
+        }
+        if (isset($object->ref_atleta) )
+        {
+            $obj->ref_atleta     = $object->ref_atleta;
+        }
         TForm::sendData('formList_Punicao', $obj);
     }
 
