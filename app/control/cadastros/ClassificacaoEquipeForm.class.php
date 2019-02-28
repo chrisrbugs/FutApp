@@ -81,6 +81,7 @@ class ClassificacaoEquipeForm extends TPage
         $btn_onsave->addStyleClass('btn-primary'); 
 
         $btn_onclear = $this->form->addAction('Limpar formulário', new TAction([$this, 'onClear']), 'fa:eraser #dd5a43');
+        $this->form->addAction(_t('Back'),new TAction(array('ClassificacaoEquipeList','onReload')),'fa:arrow-circle-o-left blue');
 
         // vertical box container
         $container = new TVBox;

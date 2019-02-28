@@ -59,6 +59,8 @@ class GoleadorForm extends TPage
 
         $btn_onclear = $this->form->addAction('Limpar formulário', new TAction([$this, 'onClear']), 'fa:eraser #dd5a43');
 
+        $this->form->addAction(_t('Back'),new TAction(array('GoleadorList','onReload')),'fa:arrow-circle-o-left blue');
+
         // vertical box container
         $container = new TVBox;
         $container->style = 'width: 100%';
