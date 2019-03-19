@@ -27,7 +27,7 @@ class GoleadoresList extends TPage
         $this->form->setFormTitle('Goleadores');
 
 
-        $ref_categoria = new TDBCombo('ref_categoria', 'futapp', 'Categorias', 'id', '{descricao}','id asc'  );
+        $ref_categoria = new TDBCombo('ref_categoria', 'futapp', 'Categorias', 'id', '{descricao}','descricao asc'  );
         $nome = new TEntry('nome');
 
         $ref_categoria->setSize('70%');

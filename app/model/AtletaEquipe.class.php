@@ -33,7 +33,8 @@ class AtletaEquipe extends TRecord
                   from equipe a, 
                        atleta_equipe b 
                   where a.id = b.ref_equipe 
-                    and b.cpf = '{$cpf}' 
+		    and b.cpf = '{$cpf}'
+                     and b.cpf != '11111111111' 
                     and ref_categoria_campeonato in (select id from categoria_campeonato where ref_campeonato ={$ref_campeonato})
                     and ref_equipe != {$ref_equipe}";
         

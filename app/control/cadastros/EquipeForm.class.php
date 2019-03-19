@@ -524,7 +524,7 @@ class EquipeForm extends TPage
             $items = array();
             if ($atletas) 
             {
-                $numero_atletas = sizeof($atletas);
+                $numero_atletas = sizeof($atletas) - 2 ;
 
                 $objCategoria = new CategoriaCampeonato($data->ref_categoria);
 
@@ -544,7 +544,7 @@ class EquipeForm extends TPage
                         $atletaEquipe = new AtletaEquipe();
                     }
 
-                    if (!strstr($atleta['nome_atleta'],' ')) 
+                    if (!strstr($atleta['nome_atleta'],' ') && $atleta['cpf'] != '11111111111') 
                     {
                        throw new Exception( "Digite o nome completo" );
                     }

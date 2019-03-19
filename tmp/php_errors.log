@@ -3002,3 +3002,530 @@ Stack trace:
 #1 /var/www/html/FutApp/index.php(11): AdiantiMenuBuilder::parse('menu.xml', 'theme4')
 #2 {main}
   thrown in /var/www/html/FutApp/app/lib/menu/AdiantiMenuBuilder.php on line 41
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d3fff9): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d4021f): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d40431): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d4064f): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d40888): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d40a87): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d40c7e): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d40e71): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d41056): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d41929): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d41b0d): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d41cf8): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d41ee2): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d420bd): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d4229e): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d42821): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d42a03): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d42bdc): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d42dbf): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d4387d): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d43a6a): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d43c5f): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d43e4f): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d44035): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d44217): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d44404): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d4460c): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d457d8): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d459bf): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d45ba8): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d45ed4): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d46125): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d46316): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d4651d): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d46742): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d46930): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d46b16): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d46cff): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d46ef4): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d470e1): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[21-Nov-2018 16:01:17 America/Sao_Paulo] PHP Warning:  rename(,album/110/5bf59d6d476e6): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/1.jpg,album/111/5bfab960890631.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/2.jpg,album/111/5bfab960897012.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/3.jpg,album/111/5bfab9608a3193.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/4.jpg,album/111/5bfab9608aadd4.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/5.jpg,album/111/5bfab9608ad0c5.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/6.jpg,album/111/5bfab9608af2c6.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/7.jpg,album/111/5bfab9608b1627.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/8.jpg,album/111/5bfab9608bc108.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/9.jpg,album/111/5bfab9608bde79.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/10.jpg,album/111/5bfab9608bfb510.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/11.jpg,album/111/5bfab9608c18d11.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/12.jpg,album/111/5bfab9608c35b12.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/13.jpg,album/111/5bfab9608c52613.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/14.jpg,album/111/5bfab9608c70314.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/15.jpg,album/111/5bfab9608c8cd15.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/16.jpg,album/111/5bfab9608cb8a16.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/17.jpg,album/111/5bfab9608db2f17.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/18.jpg,album/111/5bfab9608dd0618.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/19.jpg,album/111/5bfab9608e0d919.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/20.jpg,album/111/5bfab9608e2d220.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/21.jpg,album/111/5bfab9608e4c221.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/22.jpg,album/111/5bfab9608e6ae22.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/23.jpg,album/111/5bfab9608e8c923.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/24.jpg,album/111/5bfab9608eaf624.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/25.jpg,album/111/5bfab9608ed3925.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/26.jpg,album/111/5bfab9608ef4226.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/27.jpg,album/111/5bfab9608f12227.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/28.jpg,album/111/5bfab9608fa0e28.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/29.jpg,album/111/5bfab9608fc0929.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/30.jpg,album/111/5bfab9608fe2330.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/31.jpg,album/111/5bfab9609000231.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/32.jpg,album/111/5bfab9609021132.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/33.jpg,album/111/5bfab9609040133.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/34.jpg,album/111/5bfab960905fc34.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/35.jpg,album/111/5bfab96090a1135.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/36.jpg,album/111/5bfab96090c0236.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/37.jpg,album/111/5bfab960916a937.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/38.jpg,album/111/5bfab960918e938.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/39.jpg,album/111/5bfab96091ad939.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/40.jpg,album/111/5bfab96091ca840.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/41.jpg,album/111/5bfab96091e7241.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/42.jpg,album/111/5bfab960921e842.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/43.jpg,album/111/5bfab960923bd43.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/44.jpg,album/111/5bfab9609258844.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/45.jpg,album/111/5bfab9609278245.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/46.jpg,album/111/5bfab9609349846.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/47.jpg,album/111/5bfab960936a747.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/48.jpg,album/111/5bfab960938b148.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/49.jpg,album/111/5bfab96093c2549.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/50.jpg,album/111/5bfab96093e0b50.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/51.jpg,album/111/5bfab96093fe151.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/52.jpg,album/111/5bfab960941b652.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/53.jpg,album/111/5bfab9609438853.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/54.jpg,album/111/5bfab9609455854.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/55.jpg,album/111/5bfab9609477455.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/56.jpg,album/111/5bfab9609533056.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/57.jpg,album/111/5bfab9609552357.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/58.jpg,album/111/5bfab9609571758.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/59.jpg,album/111/5bfab960959bf59.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/60.jpg,album/111/5bfab96095b9260.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/61.jpg,album/111/5bfab96095d5d61.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/62.jpg,album/111/5bfab96095f2762.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/63.jpg,album/111/5bfab960960f363.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/64.jpg,album/111/5bfab9609676d64.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/65.jpg,album/111/5bfab9609694f65.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/66.jpg,album/111/5bfab96096b2866.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/67.jpg,album/111/5bfab96096cfd67.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/68.jpg,album/111/5bfab96096ede68.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:01:52 America/Sao_Paulo] PHP Warning:  rename(tmp/69.jpg,album/111/5bfab9609786669.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/1.jpg,album/112/5bfabccfb665f1.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/2.jpg,album/112/5bfabccfb6a112.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/3.jpg,album/112/5bfabccfb72d73.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/4.jpg,album/112/5bfabccfb74f14.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/5.jpg,album/112/5bfabccfb770b5.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/6.jpg,album/112/5bfabccfb78ef6.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/7.jpg,album/112/5bfabccfb7b2f7.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/8.jpg,album/112/5bfabccfb7d058.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/9.jpg,album/112/5bfabccfb7f039.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/10.jpg,album/112/5bfabccfb80cf10.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/11.jpg,album/112/5bfabccfb829411.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/12.jpg,album/112/5bfabccfb8b6f12.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/13.jpg,album/112/5bfabccfb8d2613.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/14.jpg,album/112/5bfabccfb8ed414.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/15.jpg,album/112/5bfabccfb9a3d15.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/16.jpg,album/112/5bfabccfb9bf516.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/17.jpg,album/112/5bfabccfb9da617.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/18.jpg,album/112/5bfabccfb9f6218.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/19.jpg,album/112/5bfabccfba11919.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/20.jpg,album/112/5bfabccfba2d520.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/21.jpg,album/112/5bfabccfba49121.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/22.jpg,album/112/5bfabccfba64a22.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/23.jpg,album/112/5bfabccfba80323.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/24.jpg,album/112/5bfabccfba9df24.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/25.jpg,album/112/5bfabccfbacd425.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/26.jpg,album/112/5bfabccfbba0126.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/27.jpg,album/112/5bfabccfbbbb727.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/28.jpg,album/112/5bfabccfbbd6528.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/29.jpg,album/112/5bfabccfbbf2d29.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/30.jpg,album/112/5bfabccfbc0ec30.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/31.jpg,album/112/5bfabccfbc61c31.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Nov-2018 13:16:31 America/Sao_Paulo] PHP Warning:  rename(tmp/32.jpg,album/112/5bfabccfbc7d032.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[11-Dec-2018 09:19:53 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to undefined method ClassificacaoForm::onReload() in /var/www/html/FutApp/app/control/cadastros/ClassificacaoForm.php:195
+Stack trace:
+#0 [internal function]: ClassificacaoForm->onDelete(Array)
+#1 /var/www/html/FutApp/lib/adianti/control/TPage.php(51): call_user_func(Array, Array)
+#2 /var/www/html/FutApp/lib/adianti/control/TPage.php(205): Adianti\Control\TPage->run()
+#3 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(62): Adianti\Control\TPage->show(Array)
+#4 /var/www/html/FutApp/engine.php(23): Adianti\Core\AdiantiCoreApplication::run(true)
+#5 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#6 {main}
+  thrown in /var/www/html/FutApp/app/control/cadastros/ClassificacaoForm.php on line 195
+[06-Jan-2019 17:32:56 America/Sao_Paulo] PHP Warning:  mkdir(): Permission denied in /var/www/html/FutApp/lib/adianti/base/AdiantiFileSaveTrait.php on line 68
+[06-Jan-2019 17:35:07 America/Sao_Paulo] PHP Warning:  mkdir(): Permission denied in /var/www/html/FutApp/lib/adianti/base/AdiantiFileSaveTrait.php on line 68
+[06-Jan-2019 17:35:31 America/Sao_Paulo] PHP Warning:  mkdir(): Permission denied in /var/www/html/FutApp/lib/adianti/base/AdiantiFileSaveTrait.php on line 68
+[06-Jan-2019 17:36:05 America/Sao_Paulo] PHP Warning:  mkdir(): Permission denied in /var/www/html/FutApp/lib/adianti/base/AdiantiFileSaveTrait.php on line 68
+[06-Jan-2019 17:38:53 America/Sao_Paulo] PHP Notice:  Undefined property: stdClass::$password in /var/www/html/FutApp/app/control/cadastros/InscricaoFormView.class.php on line 69
+[06-Jan-2019 17:38:53 America/Sao_Paulo] PHP Notice:  Undefined property: stdClass::$confirm in /var/www/html/FutApp/app/control/cadastros/InscricaoFormView.class.php on line 69
+[06-Jan-2019 17:38:53 America/Sao_Paulo] PHP Notice:  Undefined offset: 0 in /var/www/html/FutApp/app/control/cadastros/EquipeForm.class.php on line 451
+[06-Jan-2019 17:40:50 America/Sao_Paulo] PHP Notice:  Undefined property: stdClass::$password in /var/www/html/FutApp/app/control/cadastros/InscricaoFormView.class.php on line 69
+[06-Jan-2019 17:40:50 America/Sao_Paulo] PHP Notice:  Undefined property: stdClass::$confirm in /var/www/html/FutApp/app/control/cadastros/InscricaoFormView.class.php on line 69
+[06-Jan-2019 17:40:57 America/Sao_Paulo] PHP Notice:  Undefined property: stdClass::$password in /var/www/html/FutApp/app/control/cadastros/InscricaoFormView.class.php on line 69
+[06-Jan-2019 17:40:57 America/Sao_Paulo] PHP Notice:  Undefined property: stdClass::$confirm in /var/www/html/FutApp/app/control/cadastros/InscricaoFormView.class.php on line 69
+[06-Jan-2019 17:41:43 America/Sao_Paulo] PHP Notice:  Undefined property: stdClass::$password in /var/www/html/FutApp/app/control/cadastros/InscricaoFormView.class.php on line 69
+[06-Jan-2019 17:41:43 America/Sao_Paulo] PHP Notice:  Undefined property: stdClass::$confirm in /var/www/html/FutApp/app/control/cadastros/InscricaoFormView.class.php on line 69
+[06-Jan-2019 17:41:53 America/Sao_Paulo] PHP Notice:  Undefined property: stdClass::$password in /var/www/html/FutApp/app/control/cadastros/InscricaoFormView.class.php on line 69
+[06-Jan-2019 17:41:53 America/Sao_Paulo] PHP Notice:  Undefined property: stdClass::$confirm in /var/www/html/FutApp/app/control/cadastros/InscricaoFormView.class.php on line 69
+[06-Jan-2019 17:42:02 America/Sao_Paulo] PHP Notice:  Undefined property: stdClass::$password in /var/www/html/FutApp/app/control/cadastros/InscricaoFormView.class.php on line 69
+[06-Jan-2019 17:42:02 America/Sao_Paulo] PHP Notice:  Undefined property: stdClass::$confirm in /var/www/html/FutApp/app/control/cadastros/InscricaoFormView.class.php on line 69
+[06-Jan-2019 17:42:12 America/Sao_Paulo] PHP Notice:  Undefined property: stdClass::$password in /var/www/html/FutApp/app/control/cadastros/InscricaoFormView.class.php on line 69
+[06-Jan-2019 17:42:12 America/Sao_Paulo] PHP Notice:  Undefined property: stdClass::$confirm in /var/www/html/FutApp/app/control/cadastros/InscricaoFormView.class.php on line 69
+[06-Jan-2019 17:42:21 America/Sao_Paulo] PHP Notice:  Undefined property: stdClass::$password in /var/www/html/FutApp/app/control/cadastros/InscricaoFormView.class.php on line 69
+[06-Jan-2019 17:42:21 America/Sao_Paulo] PHP Notice:  Undefined property: stdClass::$confirm in /var/www/html/FutApp/app/control/cadastros/InscricaoFormView.class.php on line 69
+[10-Jan-2019 13:06:33 America/Sao_Paulo] PHP Warning:  rename(tmp/matilha.png,equipes/4/matilha.png): Permission denied in /var/www/html/FutApp/lib/adianti/base/AdiantiFileSaveTrait.php on line 78
+[16-Jan-2019 09:35:49 America/Sao_Paulo] PHP Notice:  Undefined index: 5c3f13048859e in /var/www/html/FutApp/app/control/cadastros/EquipeForm.class.php on line 218
+[25-Jan-2019 10:28:49 America/Sao_Paulo] PHP Notice:  Undefined index: 5c4b0061b8ba6 in /var/www/html/FutApp/app/control/cadastros/EquipeForm.class.php on line 218
+[04-Feb-2019 15:13:26 America/Sao_Paulo] PHP Notice:  Undefined index: 5c587296c0b98 in /var/www/html/FutApp/app/control/cadastros/EquipeForm.class.php on line 218
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/1.jpg,album/119/5c5af00115fd11.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/2.jpg,album/119/5c5af001165252.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/3.jpg,album/119/5c5af001168ab3.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/4.jpg,album/119/5c5af00116aac4.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/5.jpg,album/119/5c5af00116cb95.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/6.jpg,album/119/5c5af00116ec56.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/7.jpg,album/119/5c5af001178917.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/8.jpg,album/119/5c5af00117a588.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/9.jpg,album/119/5c5af00117c0a9.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/10.jpg,album/119/5c5af00117db910.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/11.jpg,album/119/5c5af00117f6411.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/12.jpg,album/119/5c5af0011811012.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/13.jpg,album/119/5c5af001182da13.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/14.jpg,album/119/5c5af001184ad14.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/15.jpg,album/119/5c5af0011889e15.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/16.jpg,album/119/5c5af00118a9d16.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/17.jpg,album/119/5c5af001192a217.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/18.jpg,album/119/5c5af001194c818.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/19.jpg,album/119/5c5af0011968019.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/20.jpg,album/119/5c5af0011986020.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/21.jpg,album/119/5c5af00119a1521.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/22.jpg,album/119/5c5af00119bc422.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/23.jpg,album/119/5c5af0011a86f23.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/24.jpg,album/119/5c5af0011aa2624.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/25.jpg,album/119/5c5af0011abd525.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/26.jpg,album/119/5c5af0011adb926.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/27.jpg,album/119/5c5af0011af8c27.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/28.jpg,album/119/5c5af0011b14a28.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/29.jpg,album/119/5c5af0011b2f829.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/30.jpg,album/119/5c5af0011b4ac30.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/31.jpg,album/119/5c5af0011b67a31.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/32.jpg,album/119/5c5af0011b82e32.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/33.jpg,album/119/5c5af0011c12833.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/34.jpg,album/119/5c5af0011c2e534.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/35.jpg,album/119/5c5af0011c49435.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/36.jpg,album/119/5c5af0011c66836.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/37.jpg,album/119/5c5af0011c81b37.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/38.jpg,album/119/5c5af0011c9c838.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/39.jpg,album/119/5c5af0011cb7839.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/40.jpg,album/119/5c5af0011cd7440.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/41.jpg,album/119/5c5af0011d75841.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/42.jpg,album/119/5c5af0011d92342.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/43.jpg,album/119/5c5af0011dad843.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/44.jpg,album/119/5c5af0011dc8a44.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/45.jpg,album/119/5c5af0011de3945.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/46.jpg,album/119/5c5af0011e00346.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/47.jpg,album/119/5c5af0011e1b847.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/48.jpg,album/119/5c5af0011e57a48.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/49.jpg,album/119/5c5af0011e72f49.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/50.jpg,album/119/5c5af0011f51850.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/51.jpg,album/119/5c5af0011f6da51.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/52.jpg,album/119/5c5af0011f89b52.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/53.jpg,album/119/5c5af0011fa7653.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/54.jpg,album/119/5c5af0011fc3054.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/55.jpg,album/119/5c5af0011fdeb55.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/56.jpg,album/119/5c5af0011ffac56.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/57.jpg,album/119/5c5af0012015c57.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/58.jpg,album/119/5c5af0012030758.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/59.jpg,album/119/5c5af001204df59.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/60.jpg,album/119/5c5af0012069160.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/61.jpg,album/119/5c5af0012089961.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/62.jpg,album/119/5c5af00120a6662.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/63.jpg,album/119/5c5af0012155563.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/64.jpg,album/119/5c5af0012172d64.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/65.jpg,album/119/5c5af001218e265.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/66.jpg,album/119/5c5af00121aad66.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/67.jpg,album/119/5c5af00121c6d67.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/68.jpg,album/119/5c5af00121e2568.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/69.jpg,album/119/5c5af0012200369.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/70.jpg,album/119/5c5af001221cb70.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/71.jpg,album/119/5c5af001223bf71.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/72.jpg,album/119/5c5af00122c7972.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/73.jpg,album/119/5c5af00122e4873.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/74.jpg,album/119/5c5af0012301c74.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/75.jpg,album/119/5c5af001231eb75.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/76.jpg,album/119/5c5af001233cb76.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/77.jpg,album/119/5c5af0012357c77.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/78.jpg,album/119/5c5af0012373478.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/79.jpg,album/119/5c5af00123ef079.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/80.jpg,album/119/5c5af001240b580.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/81.jpg,album/119/5c5af0012429881.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/82.jpg,album/119/5c5af001244a582.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/83.jpg,album/119/5c5af0012465783.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/84.jpg,album/119/5c5af0012535884.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/85.jpg,album/119/5c5af0012552485.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/86.jpg,album/119/5c5af0012570c86.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/87.jpg,album/119/5c5af001258eb87.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/88.jpg,album/119/5c5af00125ab388.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/89.jpg,album/119/5c5af00125c6389.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/90.jpg,album/119/5c5af00125e3390.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/91.jpg,album/119/5c5af00125fe491.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/92.jpg,album/119/5c5af0012619292.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/93.jpg,album/119/5c5af0012637593.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/94.jpg,album/119/5c5af0012653a94.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/95.jpg,album/119/5c5af0012715995.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/96.jpg,album/119/5c5af0012736296.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/97.jpg,album/119/5c5af0012751a97.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/98.jpg,album/119/5c5af001276cb98.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/99.jpg,album/119/5c5af0012787b99.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/100.jpg,album/119/5c5af00127a4b100.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/101.jpg,album/119/5c5af00127c09101.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/102.jpg,album/119/5c5af00127dcc102.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/103.jpg,album/119/5c5af00127f7a103.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/104.jpg,album/119/5c5af00128133104.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/105.jpg,album/119/5c5af00128ffc105.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/106.jpg,album/119/5c5af001291fa106.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/107.jpg,album/119/5c5af001293ba107.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/108.jpg,album/119/5c5af00129570108.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[06-Feb-2019 12:32:33 America/Sao_Paulo] PHP Warning:  rename(tmp/109.jpg,album/119/5c5af0012971f109.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[11-Feb-2019 13:10:46 America/Sao_Paulo] PHP Fatal error:  Uncaught ReflectionException: Method LoginForm::() does not exist in /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php:46
+Stack trace:
+#0 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(46): ReflectionMethod->__construct('LoginForm', '')
+#1 /var/www/html/FutApp/engine.php(32): Adianti\Core\AdiantiCoreApplication::run(true)
+#2 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#3 {main}
+  thrown in /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php on line 46
+[11-Feb-2019 16:25:00 America/Sao_Paulo] PHP Notice:  Undefined index: ref_categoria in /var/www/html/FutApp/app/control/cadastros/AdminEquipeList.php on line 148
+[11-Feb-2019 16:25:00 America/Sao_Paulo] PHP Notice:  Undefined index: ref_categoria in /var/www/html/FutApp/app/control/cadastros/AdminEquipeList.php on line 177
+[11-Feb-2019 16:25:22 America/Sao_Paulo] PHP Notice:  Undefined index: ref_categoria in /var/www/html/FutApp/app/control/cadastros/AdminEquipeList.php on line 148
+[11-Feb-2019 16:25:22 America/Sao_Paulo] PHP Notice:  Undefined index: ref_categoria in /var/www/html/FutApp/app/control/cadastros/AdminEquipeList.php on line 177
+[11-Feb-2019 16:25:30 America/Sao_Paulo] PHP Notice:  Undefined index: ref_categoria in /var/www/html/FutApp/app/control/cadastros/AdminEquipeList.php on line 148
+[11-Feb-2019 16:25:30 America/Sao_Paulo] PHP Notice:  Undefined index: ref_categoria in /var/www/html/FutApp/app/control/cadastros/AdminEquipeList.php on line 177
+[11-Feb-2019 16:43:01 America/Sao_Paulo] PHP Notice:  Undefined index: ref_categoria in /var/www/html/FutApp/app/control/cadastros/AdminEquipeList.php on line 148
+[11-Feb-2019 16:43:01 America/Sao_Paulo] PHP Notice:  Undefined index: ref_categoria in /var/www/html/FutApp/app/control/cadastros/AdminEquipeList.php on line 177
+[11-Feb-2019 16:43:03 America/Sao_Paulo] PHP Notice:  Undefined index: ref_categoria in /var/www/html/FutApp/app/control/cadastros/AdminEquipeList.php on line 148
+[11-Feb-2019 16:43:03 America/Sao_Paulo] PHP Notice:  Undefined index: ref_categoria in /var/www/html/FutApp/app/control/cadastros/AdminEquipeList.php on line 177
+[12-Feb-2019 14:08:39 America/Sao_Paulo] PHP Notice:  Undefined index: 5c62ef7a02e43 in /var/www/html/FutApp/app/control/cadastros/EquipeForm.class.php on line 285
+[12-Feb-2019 19:22:40 America/Sao_Paulo] PHP Notice:  Undefined index: ref_categoria in /var/www/html/FutApp/app/control/cadastros/AdminEquipeList.php on line 148
+[12-Feb-2019 19:22:40 America/Sao_Paulo] PHP Notice:  Undefined index: ref_categoria in /var/www/html/FutApp/app/control/cadastros/AdminEquipeList.php on line 177
+[12-Feb-2019 19:25:06 America/Sao_Paulo] PHP Notice:  Undefined index: ref_categoria in /var/www/html/FutApp/app/control/cadastros/AdminEquipeList.php on line 148
+[12-Feb-2019 19:25:06 America/Sao_Paulo] PHP Notice:  Undefined index: ref_categoria in /var/www/html/FutApp/app/control/cadastros/AdminEquipeList.php on line 177
+[12-Feb-2019 19:25:13 America/Sao_Paulo] PHP Notice:  Undefined index: ref_categoria in /var/www/html/FutApp/app/control/cadastros/AdminEquipeList.php on line 148
+[12-Feb-2019 19:25:13 America/Sao_Paulo] PHP Notice:  Undefined index: ref_categoria in /var/www/html/FutApp/app/control/cadastros/AdminEquipeList.php on line 177
+[12-Feb-2019 19:25:22 America/Sao_Paulo] PHP Notice:  Undefined index: ref_categoria in /var/www/html/FutApp/app/control/cadastros/AdminEquipeList.php on line 148
+[12-Feb-2019 19:25:22 America/Sao_Paulo] PHP Notice:  Undefined index: ref_categoria in /var/www/html/FutApp/app/control/cadastros/AdminEquipeList.php on line 177
+[12-Feb-2019 19:25:32 America/Sao_Paulo] PHP Notice:  Undefined index: ref_categoria in /var/www/html/FutApp/app/control/cadastros/AdminEquipeList.php on line 148
+[12-Feb-2019 19:25:32 America/Sao_Paulo] PHP Notice:  Undefined index: ref_categoria in /var/www/html/FutApp/app/control/cadastros/AdminEquipeList.php on line 177
+[12-Feb-2019 20:38:22 America/Sao_Paulo] PHP Notice:  Undefined index: ref_categoria in /var/www/html/FutApp/app/control/cadastros/AdminEquipeList.php on line 148
+[12-Feb-2019 20:38:22 America/Sao_Paulo] PHP Notice:  Undefined index: ref_categoria in /var/www/html/FutApp/app/control/cadastros/AdminEquipeList.php on line 177
+[12-Feb-2019 21:03:39 America/Sao_Paulo] PHP Notice:  Undefined index: ref_categoria in /var/www/html/FutApp/app/control/cadastros/AdminEquipeList.php on line 137
+[12-Feb-2019 21:03:39 America/Sao_Paulo] PHP Notice:  Undefined index: ref_categoria in /var/www/html/FutApp/app/control/cadastros/AdminEquipeList.php on line 178
+[14-Feb-2019 08:28:13 America/Sao_Paulo] PHP Notice:  Undefined index: 5c65422c085f4 in /var/www/html/FutApp/app/control/cadastros/EquipeForm.class.php on line 285
+[14-Feb-2019 08:28:15 America/Sao_Paulo] PHP Notice:  Undefined index: 5c65422c085f4 in /var/www/html/FutApp/app/control/cadastros/EquipeForm.class.php on line 285
+[14-Feb-2019 09:05:31 America/Sao_Paulo] PHP Notice:  Undefined index: 5c654b7133d7d in /var/www/html/FutApp/app/control/cadastros/EquipeForm.class.php on line 285
+[14-Feb-2019 14:12:06 America/Sao_Paulo] PHP Fatal error:  Uncaught ReflectionException: Method LoginForm::() does not exist in /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php:46
+Stack trace:
+#0 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(46): ReflectionMethod->__construct('LoginForm', '')
+#1 /var/www/html/FutApp/engine.php(32): Adianti\Core\AdiantiCoreApplication::run(true)
+#2 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#3 {main}
+  thrown in /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php on line 46
+[19-Feb-2019 16:07:22 America/Sao_Paulo] PHP Notice:  Undefined index: 5c6c53ba28f77 in /var/www/html/FutApp/app/control/cadastros/EquipeForm.class.php on line 285
+[22-Feb-2019 14:34:57 America/Sao_Paulo] PHP Notice:  Undefined offset: 769 in /var/www/html/FutApp/app/control/cadastros/EquipeForm.class.php on line 285
+[22-Feb-2019 15:34:51 America/Sao_Paulo] PHP Notice:  Undefined index: 5c7040845c3f7 in /var/www/html/FutApp/app/control/cadastros/EquipeForm.class.php on line 285
+[25-Feb-2019 13:04:22 America/Sao_Paulo] PHP Warning:  rename(tmp/1.jpg,album/128/5c741206c177d1.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[25-Feb-2019 13:04:22 America/Sao_Paulo] PHP Warning:  rename(tmp/1.jpg,album/128/5c741206cb5d61.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[27-Feb-2019 19:06:26 America/Sao_Paulo] PHP Notice:  Undefined index: id in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 30
+[27-Feb-2019 21:32:26 America/Sao_Paulo] PHP Notice:  Trying to get property 'ref_campeonato' of non-object in /var/www/html/FutApp/app/control/cadastros/ClassificacaoEquipeList.class.php on line 354
+[27-Feb-2019 21:32:26 America/Sao_Paulo] PHP Notice:  Trying to get property 'ref_categoria' of non-object in /var/www/html/FutApp/app/control/cadastros/ClassificacaoEquipeList.class.php on line 355
+[27-Feb-2019 21:34:19 America/Sao_Paulo] PHP Notice:  Trying to get property 'ref_campeonato' of non-object in /var/www/html/FutApp/app/control/cadastros/GoleadorList.class.php on line 423
+[27-Feb-2019 21:34:19 America/Sao_Paulo] PHP Notice:  Trying to get property 'ref_categoria' of non-object in /var/www/html/FutApp/app/control/cadastros/GoleadorList.class.php on line 428
+[27-Feb-2019 21:34:19 America/Sao_Paulo] PHP Notice:  Trying to get property 'ref_equipe' of non-object in /var/www/html/FutApp/app/control/cadastros/GoleadorList.class.php on line 432
+[27-Feb-2019 21:34:19 America/Sao_Paulo] PHP Notice:  Trying to get property 'ref_atleta' of non-object in /var/www/html/FutApp/app/control/cadastros/GoleadorList.class.php on line 436
+[27-Feb-2019 21:34:29 America/Sao_Paulo] PHP Notice:  Trying to get property 'ref_campeonato' of non-object in /var/www/html/FutApp/app/control/cadastros/GoleadorList.class.php on line 423
+[27-Feb-2019 21:34:29 America/Sao_Paulo] PHP Notice:  Trying to get property 'ref_categoria' of non-object in /var/www/html/FutApp/app/control/cadastros/GoleadorList.class.php on line 428
+[27-Feb-2019 21:34:29 America/Sao_Paulo] PHP Notice:  Trying to get property 'ref_equipe' of non-object in /var/www/html/FutApp/app/control/cadastros/GoleadorList.class.php on line 432
+[27-Feb-2019 21:34:29 America/Sao_Paulo] PHP Notice:  Trying to get property 'ref_atleta' of non-object in /var/www/html/FutApp/app/control/cadastros/GoleadorList.class.php on line 436
+[28-Feb-2019 19:04:56 America/Sao_Paulo] PHP Notice:  Undefined index: id in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 30
+[01-Mar-2019 15:22:13 America/Sao_Paulo] PHP Fatal error:  Uncaught ReflectionException: Method LoginForm::() does not exist in /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php:46
+Stack trace:
+#0 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(46): ReflectionMethod->__construct('LoginForm', '')
+#1 /var/www/html/FutApp/engine.php(32): Adianti\Core\AdiantiCoreApplication::run(true)
+#2 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#3 {main}
+  thrown in /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php on line 46
+[01-Mar-2019 19:04:48 America/Sao_Paulo] PHP Notice:  Undefined index: id in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 30
+[06-Mar-2019 19:04:14 America/Sao_Paulo] PHP Notice:  Undefined index: id in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 30
+[07-Mar-2019 16:22:04 America/Sao_Paulo] PHP Fatal error:  Uncaught ReflectionException: Method LoginForm::() does not exist in /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php:46
+Stack trace:
+#0 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(46): ReflectionMethod->__construct('LoginForm', '')
+#1 /var/www/html/FutApp/engine.php(32): Adianti\Core\AdiantiCoreApplication::run(true)
+#2 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#3 {main}
+  thrown in /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php on line 46
+[07-Mar-2019 19:03:34 America/Sao_Paulo] PHP Notice:  Undefined index: id in /var/www/html/FutApp/app/control/cadastros/GaleriaFotosView.class.php on line 30
+[08-Mar-2019 15:41:52 America/Sao_Paulo] PHP Fatal error:  Uncaught ReflectionException: Method LoginForm::() does not exist in /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php:46
+Stack trace:
+#0 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(46): ReflectionMethod->__construct('LoginForm', '')
+#1 /var/www/html/FutApp/engine.php(32): Adianti\Core\AdiantiCoreApplication::run(true)
+#2 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#3 {main}
+  thrown in /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php on line 46
+[08-Mar-2019 15:41:52 America/Sao_Paulo] PHP Fatal error:  Uncaught ReflectionException: Method LoginForm::() does not exist in /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php:46
+Stack trace:
+#0 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(46): ReflectionMethod->__construct('LoginForm', '')
+#1 /var/www/html/FutApp/engine.php(32): Adianti\Core\AdiantiCoreApplication::run(true)
+#2 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#3 {main}
+  thrown in /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php on line 46
+[08-Mar-2019 15:45:03 America/Sao_Paulo] PHP Fatal error:  Uncaught ReflectionException: Method LoginForm::() does not exist in /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php:46
+Stack trace:
+#0 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(46): ReflectionMethod->__construct('LoginForm', '')
+#1 /var/www/html/FutApp/engine.php(32): Adianti\Core\AdiantiCoreApplication::run(true)
+#2 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#3 {main}
+  thrown in /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php on line 46
+[08-Mar-2019 15:53:07 America/Sao_Paulo] PHP Notice:  Undefined index: 5c82a38e7580d in /var/www/html/FutApp/app/control/cadastros/EquipeForm.class.php on line 285
+[08-Mar-2019 15:53:07 America/Sao_Paulo] PHP Notice:  Undefined index: 5c82a38e7580d in /var/www/html/FutApp/app/control/cadastros/EquipeForm.class.php on line 285
+[10-Mar-2019 11:48:05 America/Sao_Paulo] PHP Warning:  rename(tmp/276.jpg,album/132/5c8523a5c311a276.jpg): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[11-Mar-2019 14:14:23 America/Sao_Paulo] PHP Fatal error:  Uncaught ReflectionException: Method LoginForm::() does not exist in /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php:46
+Stack trace:
+#0 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(46): ReflectionMethod->__construct('LoginForm', '')
+#1 /var/www/html/FutApp/engine.php(32): Adianti\Core\AdiantiCoreApplication::run(true)
+#2 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#3 {main}
+  thrown in /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php on line 46
+[11-Mar-2019 14:14:23 America/Sao_Paulo] PHP Fatal error:  Uncaught ReflectionException: Method LoginForm::() does not exist in /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php:46
+Stack trace:
+#0 /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php(46): ReflectionMethod->__construct('LoginForm', '')
+#1 /var/www/html/FutApp/engine.php(32): Adianti\Core\AdiantiCoreApplication::run(true)
+#2 /var/www/html/FutApp/engine.php(64): TApplication::run(true)
+#3 {main}
+  thrown in /var/www/html/FutApp/lib/adianti/core/AdiantiCoreApplication.php on line 46
+[17-Mar-2019 22:45:58 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[17-Mar-2019 22:45:58 America/Sao_Paulo] PHP Notice:  Undefined offset: 1 in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 103
+[17-Mar-2019 22:45:58 America/Sao_Paulo] PHP Notice:  Trying to get property 'fileName' of non-object in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115
+[17-Mar-2019 22:45:58 America/Sao_Paulo] PHP Warning:  rename(,album/135/5c8ef856580ae): No such file or directory in /var/www/html/FutApp/app/control/cadastros/AlbumForm.class.php on line 115

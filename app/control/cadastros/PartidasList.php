@@ -27,7 +27,7 @@ class PartidasList extends TPage
         $this->form->setFormTitle('Partidas');
 
 
-        $ref_categoria = new TDBCombo('ref_categoria', 'futapp', 'Categorias', 'id', '{descricao}','id asc'  );
+        $ref_categoria = new TDBCombo('ref_categoria', 'futapp', 'Categorias', 'id', '{descricao}','descricao asc'  );
         $dt_jogo = new TDateTime('dt_jogo');
 
         $dt_jogo->setMask('dd/mm/yyyy hh:ii');

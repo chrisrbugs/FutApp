@@ -27,7 +27,7 @@ class PunicoesList extends TPage
         $this->form->setFormTitle('Punições');
 
 
-        $ref_categoria = new TDBCombo('ref_categoria', 'futapp', 'Categorias', 'id', '{descricao}','id asc'  );
+        $ref_categoria = new TDBCombo('ref_categoria', 'futapp', 'Categorias', 'id', '{descricao}','descricao asc'  );
         $nome_jogador = new TEntry('nome_jogador');
         $time = new TEntry('time');
 

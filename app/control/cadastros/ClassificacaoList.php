@@ -27,7 +27,7 @@ class ClassificacaoList extends TPage
         $this->form->setFormTitle('Classificação');
 
 
-        $ref_categoria = new TDBCombo('ref_categoria', 'futapp', 'Categorias', 'id', '{descricao}','id asc'  );
+        $ref_categoria = new TDBCombo('ref_categoria', 'futapp', 'Categorias', 'id', '{descricao}','descricao asc'  );
 
         $ref_categoria->setSize('70%');
 
