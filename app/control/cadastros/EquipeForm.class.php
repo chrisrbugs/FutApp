@@ -40,7 +40,7 @@ class EquipeForm extends TPage
         $nome_atleta = new TEntry('nome_atleta');
         $cpf         = new TEntry('cpf');
 
-        if(TSession::getValue('login') == 'J30EVENTOS' || TSession::getValue('login') == 'admin')
+        if(TSession::getValue('login') == 'J30EVENTOS' || TSession::getValue('login') == 'admin' || TSession::getValue('login') == 'Roni')
         {
             $ja_jogou = new TCombo('ja_jogou');
 
@@ -290,7 +290,7 @@ class EquipeForm extends TPage
             $atleta = new AtletaEquipe($param['id_atleta']);
             TTransaction::close();
 
-            if (isset($atleta->ja_jogou) &&  $atleta->ja_jogou == 't' && (TSession::getValue('login') != 'J30EVENTOS' && TSession::getValue('login') != 'admin') )
+            if (isset($atleta->ja_jogou) &&  $atleta->ja_jogou == 't' && (TSession::getValue('login') != 'J30EVENTOS' && TSession::getValue('login') != 'admin' && TSession::getValue('login') != 'Roni') )
             {
                 new TMessage('error','atleta ja jogou');
                 return;
@@ -474,7 +474,7 @@ class EquipeForm extends TPage
                     $objEquipe = Equipe::where('usuario','=',$data->usuario)
                                         ->where('ref_categoria_campeonato','=', $data->ref_categoria)->load();
 
-                    if ((!is_null($objEquipe) && ! empty($objEquipe)) && (TSession::getValue('login') != 'J30EVENTOS' && TSession::getValue('login') != 'admin') ) 
+                    if ((!is_null($objEquipe) && ! empty($objEquipe)) && (TSession::getValue('login') != 'J30EVENTOS' && TSession::getValue('login') != 'admin' && TSession::getValue('login') != 'Roni') ) 
                     {
                         throw new Exception( "Ja existe uma equipe sua na categoria!" );
                     }
@@ -487,7 +487,7 @@ class EquipeForm extends TPage
                 $objEquipe = Equipe::where('usuario','=',$data->usuario)
                                         ->where('ref_categoria_campeonato','=', $data->ref_categoria)->load();
 
-                if ((!is_null($objEquipe) && ! empty($objEquipe)) && (TSession::getValue('login') != 'J30EVENTOS' && TSession::getValue('login') != 'admin') ) 
+                if ((!is_null($objEquipe) && ! empty($objEquipe)) && (TSession::getValue('login') != 'J30EVENTOS' && TSession::getValue('login') != 'admin' && TSession::getValue('login') != 'Roni') ) 
                 {
                     throw new Exception( "Ja existe uma equipe sua na categoria!" );
                 }
@@ -658,7 +658,7 @@ class EquipeForm extends TPage
                             ->where('ref_categoria_campeonato', '=', $data['ref_categoria'])->load();
             
             TTransaction::close();
-            if ($equipe && (TSession::getValue('login') != 'J30EVENTOS' && TSession::getValue('login') != 'admin')) 
+            if ($equipe && (TSession::getValue('login') != 'J30EVENTOS' && TSession::getValue('login') != 'admin' && TSession::getValue('login') != 'Roni')) 
             {
                 $equipe = $equipe[0];
 

@@ -70,7 +70,7 @@ class InscricaoFormView extends TPage
             TSession::setValue('form_step1_data', $data);
 
             // Load another page
-            if (TSession::getValue('login') == 'J30EVENTOS' || TSession::getValue('login') == 'admin')
+            if (TSession::getValue('login') == 'J30EVENTOS' || TSession::getValue('login') == 'admin' || && TSession::getValue('login') == 'Roni')
             {
                 AdiantiCoreApplication::loadPage('AdminEquipeList', 'onShow', (array) $data);
             }
