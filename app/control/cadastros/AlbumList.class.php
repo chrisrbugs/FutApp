@@ -71,7 +71,7 @@ class AlbumList extends TPage
 
         $this->datagrid->addAction($action_onShow);
       
-        if ( TSession::getValue('logged') && TSession::getValue('login') == 'J30EVENTOS' )
+        if ( TSession::getValue('logged') && (TSession::getValue('login') == 'J30EVENTOS' || TSession::getValue('login') == 'Roni') )
         {
             $btn_onshow = $this->form->addAction('Cadastrar', new TAction(['AlbumForm', 'onShow']), 'fa:plus #69aa46');
           //$btn_onexportcsv = $this->form->addAction('Exportar como CSV', new TAction([$this, 'onExportCsv']), 'fa:file-text-o #000000');
