@@ -450,7 +450,7 @@ class EquipeForm extends TPage
             $this->form->validate(); // form validation
 
             
-
+            throw new Exception('O periodo de inscricoes acabou');      
             if ($data->id) 
             {
                 $equipe = new Equipe($data->id); // create an empty object 
