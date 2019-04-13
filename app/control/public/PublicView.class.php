@@ -33,6 +33,7 @@ class PublicView extends TPage
         $column_img_visitante = new TDataGridColumn('ref_equipe_visitante', 'Time Visitante', 'left');
         $column_categoria = new TDataGridColumn('ref_equipe_local', 'Campeonato(Categoria)', 'left');
         $column_dt_partida = new TDataGridColumn('dt_partida', 'Data jogo', 'left');
+        $column_etapa = new TDataGridColumn('etapa', 'Etapa', 'left');
 
 
         $column_resultado->setTransformer(array($this, 'formatResultado'));
@@ -41,11 +42,13 @@ class PublicView extends TPage
         $column_categoria->setTransformer(array($this, 'formatCampeonato'));
         $column_dt_partida->setTransformer(array($this, 'formatDate'));
 
+
         // $this->datagrid->addColumn($column_time_local);
         $this->datagrid->addColumn($column_img_local);
         $this->datagrid->addColumn($column_resultado);
         $this->datagrid->addColumn($column_img_visitante);
         $this->datagrid->addColumn($column_categoria);
+        $this->datagrid->addColumn($column_etapa);
         $this->datagrid->addColumn($column_dt_partida);
 
         $this->datagrid->createModel();

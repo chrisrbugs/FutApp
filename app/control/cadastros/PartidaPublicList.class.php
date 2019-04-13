@@ -70,6 +70,7 @@ class PartidaPublicList extends TPage
 
         $column_time_visitante = new TDataGridColumn('ref_equipe_visitante', 'Time visitante', 'left');
         $column_dt_partida = new TDataGridColumn('dt_partida', 'Dt jogo', 'left');
+        $column_etapa = new TDataGridColumn('etapa', 'Etapa', 'left');
 
         $column_dt_partida->setTransformer(array($this, 'formatDate'));
         $column_resultado->setTransformer(array($this, 'formatResultado'));
@@ -80,6 +81,8 @@ class PartidaPublicList extends TPage
         $this->datagrid->addColumn($column_resultado);
         $this->datagrid->addColumn($column_time_visitante);
         $this->datagrid->addColumn($column_dt_partida);
+        $this->datagrid->addColumn($column_etapa);
+
 
         // create the datagrid model
         $this->datagrid->createModel();

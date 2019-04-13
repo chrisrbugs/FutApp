@@ -64,6 +64,7 @@ class PartidaList extends TPage
         $column_resultado = new TDataGridColumn('id', 'Resultado', 'left');
 
         $column_time_visitante = new TDataGridColumn('ref_equipe_visitante', 'Time visitante', 'left');
+        $column_etapa = new TDataGridColumn('etapa', 'Etapa', 'left');
         $column_dt_partida = new TDataGridColumn('dt_partida', 'Dt jogo', 'left');
 
         $column_dt_partida->setTransformer(array($this, 'formatDate'));
@@ -74,6 +75,7 @@ class PartidaList extends TPage
         $this->datagrid->addColumn($column_time_local);
         $this->datagrid->addColumn($column_resultado);
         $this->datagrid->addColumn($column_time_visitante);
+        $this->datagrid->addColumn($column_etapa);
         $this->datagrid->addColumn($column_dt_partida);
       
         if ( TSession::getValue('logged') )

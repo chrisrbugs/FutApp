@@ -18,6 +18,7 @@ class Partida extends TRecord
         parent::addAttribute('dt_partida');
         parent::addAttribute('numero_gols_local');
         parent::addAttribute('numero_gols_visitante');
+        parent::addAttribute('etapa');
     }
 }
 ?>

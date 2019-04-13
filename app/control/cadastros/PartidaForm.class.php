@@ -31,10 +31,12 @@ class PartidaForm extends TPage
 	    $dt_partida        = new TDateTime('dt_partida');
 	    $numero_gols_visitante = new TEntry('numero_gols_visitante');
 	    $numero_gols_local     = new TEntry('numero_gols_local'); 
+        $etapa     = new TEntry('etapa'); 
 
         $ref_categoria->addValidation('Categoria', new TRequiredValidator()); 
         $ref_equipe_visitante->addValidation('Time local', new TRequiredValidator()); 
         $ref_equipe_local->addValidation('Time visitante', new TRequiredValidator()); 
+        $etapa->addValidation('Etapa', new TRequiredValidator()); 
 
         $id->setEditable(false);
         $dt_partida->setMask('dd/mm/yyyy hh:ii');
@@ -51,6 +53,7 @@ class PartidaForm extends TPage
         $row1 = $this->form->addFields([new TLabel('Id:', null, '14px', null)],[$id]);
         $row2 = $this->form->addFields([new TLabel('Campeonato:', '#ff0000', '14px', null)],[$ref_campeonato]);
         $row3 = $this->form->addFields([new TLabel('Categoria:', '#ff0000', '14px', null)],[$ref_categoria]);
+        $row9 = $this->form->addFields([new TLabel('Etapa:', '#ff0000', '14px', null)],[$etapa]);
 	    $row4 = $this->form->addFields([new TLabel('Time local:', null, '14px', null)],[$ref_equipe_local]);
 	    $row5 = $this->form->addFields([new TLabel('Gols Local:', null, '14px', null)],[$numero_gols_local]);
 	    $row6 = $this->form->addFields([new TLabel('Time visitante:', null, '14px', null)],[$ref_equipe_visitante]);
@@ -114,6 +117,7 @@ class PartidaForm extends TPage
             $ObjPartida->dt_partida = $data->dt_partida;
             $ObjPartida->numero_gols_local = $data->numero_gols_local;
             $ObjPartida->numero_gols_visitante = $data->numero_gols_visitante;
+            $ObjPartida->etapa = $data->etapa;
 
             $ObjPartida->store(); 
 
