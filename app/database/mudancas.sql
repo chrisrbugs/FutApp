@@ -180,3 +180,18 @@ alter table classificacao_equipe add column saldo_gols int;
 
 -- 23-02-2019
 alter table  classificacao_equipe alter COLUMN saldo_gols type text;
+
+CREATE TABLE IF NOT EXISTS fase_categoria (
+  id SERIAL NOT NULL,
+  descricao VARCHAR(45) NOT NULL,
+  ref_categoria_campeonato INT NOT NULL,
+  PRIMARY KEY (id),
+   CONSTRAINT fk_fase_categoria_categoria_campeonato1
+    FOREIGN KEY (ref_categoria_campeonato)
+    REFERENCES categoria_campeonato (id)
+    )
+;
+
+alter table classificacao_equipe add column ref_fase int;
+
+ALTER TABLE classificacao_equipe ADD CONSTRAINT ref_fase_fk FOREIGN KEY (ref_fase) REFERENCES fase_categoria(id);

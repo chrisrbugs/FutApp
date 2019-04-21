@@ -29,11 +29,14 @@ class ClassificacaoEquipeList extends TPage
 
         $ref_campeonato = new TDBCombo('ref_campeonato', 'futapp', 'Campeonato', 'id', '{nome}','id asc'  );
         $ref_categoria  = new TCombo('ref_categoria');
+        $ref_fase       = new TCombo('ref_fase');
 
         $ref_campeonato->setChangeAction(new TAction([$this,'onMudaCampeonato']));
+        $ref_categoria->setChangeAction(new TAction([$this,'onMudaCategoria']));
 
         $row1 = $this->form->addFields([new TLabel('Campeonato:', null, '14px', null)],[$ref_campeonato]);
         $row2 = $this->form->addFields([new TLabel('Categoria:', null, '14px', null)],[$ref_categoria]);
+        $row3 = $this->form->addFields([new TLabel('Fase:', null, '14px', null)],[$ref_fase]);
 
         // keep the form filled during navigation with session data
         $this->form->setData( TSession::getValue(__CLASS__.'_filter_data') );
@@ -59,6 +62,7 @@ class ClassificacaoEquipeList extends TPage
         $column_gc = new TDataGridColumn('gols_contra', 'Gols Contra', 'left');
         $column_sg = new TDataGridColumn('saldo_gols', 'Saldo de Gols', 'left');
         $column_disciplina = new TDataGridColumn('disciplina', 'Disciplina', 'left');
+        $column_fase = new TDataGridColumn('ref_fase', 'Fase', 'left');
 
         $formata_equipe = function($value)
         {
@@ -66,7 +70,14 @@ class ClassificacaoEquipeList extends TPage
 	          return $objEquipe->nome;    
         };
 
+        $formata_fase = function($value)
+        {
+           $objFase = new FaseCategoria($value);
+              return $objFase->descricao;    
+        };
+
         $column_time->setTransformer( $formata_equipe );
+        $column_fase->setTransformer( $formata_fase );
 
         $this->datagrid->addColumn($column_posicao);
         $this->datagrid->addColumn($column_time);
@@ -199,6 +210,11 @@ class ClassificacaoEquipeList extends TPage
                                                                where ref_categoria_campeonato = {$data->ref_categoria})");// create the filter 
         }
 
+        if (isset($data->ref_fase) AND ( (is_scalar($data->ref_fase) AND $data->ref_fase !== '') OR (is_array($data->ref_fase) AND (!empty($data->ref_fase)) )) )
+        {
+            $filters[] = new TFilter('ref_fase', '=', $data->ref_fase);// create the filter 
+        }
+
 
         $param = array();
         $param['offset']     = 0;
@@ -318,7 +334,7 @@ class ClassificacaoEquipeList extends TPage
         parent::show();
     }
 
-        static function onMudaCampeonato( $param )
+    static function onMudaCampeonato( $param )
     {
         try
         {
@@ -333,6 +349,31 @@ class ClassificacaoEquipeList extends TPage
             else
             {
                 TCombo::clearField('formList_Classificacao', 'ref_categoria');
+            }
+            
+            TTransaction::close();
+        }
+        catch (Exception $e)
+        {
+            new TMessage('error', $e->getMessage());
+        }
+    }
+
+        static function onMudaCategoria( $param )
+    {
+        try
+        {
+            TTransaction::open('futapp');
+            if (!empty($param['ref_categoria']))
+            {
+                $criteria = TCriteria::create( ['ref_categoria_campeonato' => $param['ref_categoria'] ] );
+                
+                // formname, field, database, model, key, value, ordercolumn = NULL, criteria = NULL, startEmpty = FALSE
+                TDBCombo::reloadFromModel('formList_Classificacao', 'ref_fase', 'futapp', 'FaseCategoria', 'id', '{descricao} ({id})', 'ref_categoria_campeonato', $criteria, TRUE);
+            }
+            else
+            {
+                TCombo::clearField('formList_Classificacao', 'ref_fase');
             }
             
             TTransaction::close();
@@ -359,6 +400,12 @@ class ClassificacaoEquipeList extends TPage
         {
             $obj->ref_categoria  = $object->ref_categoria;
         }
+
+        if (isset($object->ref_fase)) 
+        {
+            $obj->ref_fase  = $object->ref_fase;
+        }
+
         TForm::sendData('formList_Classificacao', $obj);
     }
 

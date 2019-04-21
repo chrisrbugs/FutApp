@@ -16,6 +16,7 @@ class ClassificacaoEquipe extends TRecord
     {
         parent::__construct($id, $callObjectLoad);
         parent::addAttribute('ref_equipe');
+        parent::addAttribute('ref_fase');
         parent::addAttribute('posicao');
         parent::addAttribute('jogos');
         parent::addAttribute('vitorias');

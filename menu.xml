@@ -11,6 +11,10 @@
         <icon>fa:circle-o fa-fw </icon>
         <action>CategoriaCampeonatoList#method=onShow</action>
       </menuitem> 
+      <menuitem label="Fases">
+        <icon>fa:circle-o fa-fw </icon>
+        <action>FaseCategoriaList#method=onShow</action>
+      </menuitem> 
       <menuitem label="Inscrição">
         <icon>fa:circle-o fa-fw </icon>
         <action>InscricaoFormView#method=onShow</action>

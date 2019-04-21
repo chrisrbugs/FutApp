@@ -1,13 +1,13 @@
 <?php
 
-class ClassificacaoEquipeForm extends TPage
+class FaseCategoriaForm extends TPage
 {
     protected $form;
     private $formFields = [];
     private static $database = 'futapp';
-    private static $activeRecord = 'ClassificacaoEquipe';
+    private static $activeRecord = 'FaseCategoria';
     private static $primaryKey = 'id';
-    private static $formName = 'form_Classificacao';
+    private static $formName = 'form_FaseCategoria';
 
     /**
      * Form constructor
@@ -20,63 +20,28 @@ class ClassificacaoEquipeForm extends TPage
         // creates the form
         $this->form = new BootstrapFormBuilder(self::$formName);
         // define the form title
-        $this->form->setFormTitle('Classificação');
+        $this->form->setFormTitle('Fase');
 
 
         $id = new TEntry('id');
         $ref_campeonato = new TDBCombo('ref_campeonato', 'futapp', 'Campeonato', 'id', '{nome}','id asc'  );
-        $ref_categoria  = new TCombo('ref_categoria');
-        $ref_fase  = new TCombo('ref_fase');
-        $ref_equipe  = new TCombo('ref_equipe');
-        $posicao = new TEntry('posicao');
-        $jogos = new TEntry('jogos');
-        $pontos = new TEntry('pontos');
-        $vitorias = new TEntry('vitorias');
-        $empates = new TEntry('empates');
-        $derrotas = new TEntry('derrotas');
-        $gols_pro = new TEntry('gols_pro');
-        $gols_contra = new TEntry('gols_contra');
-        $saldo_gols = new TEntry('saldo_gols');
+        $ref_categoria_campeonato  = new TCombo('ref_categoria_campeonato');
+        $descricao = new TEntry('descricao');
 
-        $disciplina = new TEntry('disciplina');
-
-
-        $ref_categoria->addValidation('Ref categoria', new TRequiredValidator()); 
-        $ref_fase->addValidation('Fase', new TRequiredValidator()); 
+        $ref_categoria_campeonato->addValidation('categoria', new TRequiredValidator());
+        $descricao->addValidation('descricao', new TRequiredValidator()); 
 
         $id->setEditable(false);
         $id->setSize(100);
 
 
-        $posicao->setMask('999');
-        $jogos->setMask('999');
-        $vitorias->setMask('999');
-        $empates->setMask('999');
-        $derrotas->setMask('999');
-        $pontos->setMask('999');
-        $disciplina->setMask('999');
-        $gols_pro->setMask('999');
-        $gols_contra->setMask('999');
-        // $saldo_gols->setMask('999');
-
         $ref_campeonato->setChangeAction(new TAction([$this,'onMudaCampeonato']));
-        $ref_categoria->setChangeAction(new TAction([$this,'onMudaCategoria']));
+        // $ref_categoria_campeonato->setChangeAction(new TAction([$this,'onMudaCategoria']));
 
         $row1 = $this->form->addFields([new TLabel('Id:', null, '14px', null)],[$id]);
         $row2 = $this->form->addFields([new TLabel('Campeonato:', '#ff0000', '14px', null)],[$ref_campeonato]);
-        $row3 = $this->form->addFields([new TLabel('Categoria:', '#ff0000', '14px', null)],[$ref_categoria]);
-        $row12 = $this->form->addFields([new TLabel('Fase:', '#ff0000', '14px', null)],[$ref_fase]);
-        $row5 = $this->form->addFields([new TLabel('Equipe:', '#ff0000', '14px', null)],[$ref_equipe]);
-        $row6 = $this->form->addFields([new TLabel('Posicao:', null, '14px', null)],[$posicao]);
-        $row11 = $this->form->addFields([new TLabel('Pontos:', null, '14px', null)],[$pontos]);
-        $row7 = $this->form->addFields([new TLabel('Jogos:', null, '14px', null)],[$jogos]);
-        $row8 = $this->form->addFields([new TLabel('Vitorias:', null, '14px', null)],[$vitorias]);
-        $row9 = $this->form->addFields([new TLabel('Empates:', null, '14px', null)],[$empates]);
-        $row10 = $this->form->addFields([new TLabel('Derrotas:', null, '14px', null)],[$derrotas]);
-        $row12 = $this->form->addFields([new TLabel('Gols Pro:', null, '14px', null)],[$gols_pro]);
-        $row13 = $this->form->addFields([new TLabel('Gols Contra:', null, '14px', null)],[$gols_contra]);
-        $row14 = $this->form->addFields([new TLabel('Saldo de gols:', null, '14px', null)],[$saldo_gols]);
-        $row11 = $this->form->addFields([new TLabel('Disciplina:', null, '14px', null)],[$disciplina]);
+        $row3 = $this->form->addFields([new TLabel('Categoria:', '#ff0000', '14px', null)],[$ref_categoria_campeonato]);
+        $row5 = $this->form->addFields([new TLabel('Descricao:', '#ff0000', '14px', null)],[$descricao]);
 
 
         // create the form actions
@@ -84,13 +49,13 @@ class ClassificacaoEquipeForm extends TPage
         $btn_onsave->addStyleClass('btn-primary'); 
 
         $btn_onclear = $this->form->addAction('Limpar formulário', new TAction([$this, 'onClear']), 'fa:eraser #dd5a43');
-        $this->form->addAction(_t('Back'),new TAction(array('ClassificacaoEquipeList','onReload')),'fa:arrow-circle-o-left blue');
+        $this->form->addAction(_t('Back'),new TAction(array('FaseCategoriaList','onReload')),'fa:arrow-circle-o-left blue');
 
         // vertical box container
         $container = new TVBox;
         $container->style = 'width: 100%';
         $container->class = 'form-container';
-        $container->add(TBreadCrumb::create(['Cadastros','Classificação']));
+        $container->add(TBreadCrumb::create(['Cadastros','Fase']));
         $container->add($this->form);
 
         parent::add($container);
@@ -113,7 +78,7 @@ class ClassificacaoEquipeForm extends TPage
 
             $this->form->validate(); // validate form data
 
-            $object = new ClassificacaoEquipe(); // create an empty object 
+            $object = new FaseCategoria(); // create an empty object 
 
             $data = $this->form->getData(); // get form data as array
             $object->fromArray( (array) $data); // load the object with data
@@ -157,7 +122,7 @@ class ClassificacaoEquipeForm extends TPage
                 $key = $param['key'];  // get the parameter $key
                 TTransaction::open(self::$database); // open a transaction
 
-                $object = new ClassificacaoEquipe($key); // instantiates the Active Record 
+                $object = new FaseCategoria($key); // instantiates the Active Record 
 
                 $this->form->setData($object); // fill the form
                 // var_dump($object);die;
@@ -202,11 +167,11 @@ class ClassificacaoEquipeForm extends TPage
                 $criteria = TCriteria::create( ['ref_campeonato' => $param['ref_campeonato'] ] );
                 
                 // formname, field, database, model, key, value, ordercolumn = NULL, criteria = NULL, startEmpty = FALSE
-                TDBCombo::reloadFromModel('form_Classificacao', 'ref_categoria', 'futapp', 'CategoriaCampeonato', 'id', '{nome} ({id})', 'id', $criteria, TRUE);
+                TDBCombo::reloadFromModel('form_FaseCategoria', 'ref_categoria_campeonato', 'futapp', 'CategoriaCampeonato', 'id', '{nome} ({id})', 'id', $criteria, TRUE);
             }
             else
             {
-                TCombo::clearField('form_Classificacao', 'ref_categoria');
+                TCombo::clearField('form_FaseCategoria', 'ref_categoria_campeonato');
             }
             
             TTransaction::close();
@@ -225,19 +190,16 @@ class ClassificacaoEquipeForm extends TPage
         try
         {
             TTransaction::open('futapp');
-            if (!empty($param['ref_categoria']))
+            if (!empty($param['ref_categoria_campeonato']))
             {
-                $criteria = TCriteria::create( ['ref_categoria_campeonato' => $param['ref_categoria'] ] );
+                $criteria = TCriteria::create( ['ref_categoria_campeonato_campeonato' => $param['ref_categoria_campeonato'] ] );
                 
                 // formname, field, database, model, key, value, ordercolumn = NULL, criteria = NULL, startEmpty = FALSE
-                TDBCombo::reloadFromModel('form_Classificacao', 'ref_equipe', 'futapp', 'Equipe', 'id', '{nome} ({id})', 'ref_categoria_campeonato', $criteria, TRUE);
-
-                TDBCombo::reloadFromModel('form_Classificacao', 'ref_fase', 'futapp', 'FaseCategoria', 'id', '{descricao} ({id})', 'ref_categoria_campeonato', $criteria, TRUE);
+                TDBCombo::reloadFromModel('form_FaseCategoria', 'ref_equipe', 'futapp', 'Equipe', 'id', '{nome} ({id})', 'ref_categoria_campeonato_campeonato', $criteria, TRUE);
             }
             else
             {
-                TCombo::clearField('form_Classificacao', 'ref_equipe');
-                TCombo::clearField('form_Classificacao', 'ref_fase');
+                TCombo::clearField('form_FaseCategoria', 'ref_equipe');
             }
             
             TTransaction::close();
@@ -254,16 +216,14 @@ class ClassificacaoEquipeForm extends TPage
      */
     public function fireEvents( $object )
     {
-        $Equipe = new Equipe($object->ref_equipe);
-
-        $categoriaCampeonato = new CategoriaCampeonato($Equipe->ref_categoria_campeonato);
+      
+        $categoriaCampeonato = new CategoriaCampeonato($object->ref_categoria_campeonato);
         $obj = new stdClass;
 
         $obj->ref_campeonato = $categoriaCampeonato->ref_campeonato;
-        $obj->ref_categoria  = $categoriaCampeonato->id;
-        $obj->ref_fase       = $object->ref_fase;
-        $obj->ref_equipe     = $Equipe->id;
-        TForm::sendData('form_Classificacao', $obj);
+        $obj->ref_categoria_campeonato  = $categoriaCampeonato->id;
+        // $obj->ref_equipe     = $Equipe->id;
+        TForm::sendData('form_FaseCategoria', $obj);
     }
 }
 
