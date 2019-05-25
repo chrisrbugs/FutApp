@@ -195,3 +195,5 @@ CREATE TABLE IF NOT EXISTS fase_categoria (
 alter table classificacao_equipe add column ref_fase int;
 
 ALTER TABLE classificacao_equipe ADD CONSTRAINT ref_fase_fk FOREIGN KEY (ref_fase) REFERENCES fase_categoria(id);
+
+alter table campeonato add column dt_limite_inscricao date ;

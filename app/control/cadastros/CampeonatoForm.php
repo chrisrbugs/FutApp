@@ -35,6 +35,7 @@ class CampeonatoForm extends TPage
         $descricao   = new TText('descricao');
         $dt_inicio   = new TDate('dt_inicio');
         $dt_fim      = new TDate('dt_fim');
+        $dt_limite_inscricao      = new TDate('dt_limite_inscricao');
         $logo        = new TFile('logo');
         $regulamento = new TFile('regulamento');
         $jogos       = new TFile('jogos');
@@ -45,11 +46,15 @@ class CampeonatoForm extends TPage
         $dt_fim->setMask('dd/mm/yyyy');
         $dt_fim->setDatabaseMask('yyyy-mm-dd');
 
+        $dt_limite_inscricao->setMask('dd/mm/yyyy');
+        $dt_limite_inscricao->setDatabaseMask('yyyy-mm-dd');
+
         $nome->addValidation('Nome', new TRequiredValidator);
         $descricao->addValidation('Descrição', new TRequiredValidator);
         $logo->addValidation('Logo', new TRequiredValidator);
         $dt_inicio->addValidation('Dt inicio', new TRequiredValidator);
         $dt_fim->addValidation('Dt fim', new TRequiredValidator);
+        $dt_limite_inscricao->addValidation('Dt limite inscrição', new TRequiredValidator);
 
         // allow just these extensions
         $logo->setAllowedExtensions( ['gif', 'png', 'jpg', 'jpeg'] );
@@ -67,12 +72,14 @@ class CampeonatoForm extends TPage
         $descricao->setSize('70%');
         $dt_inicio->setSize('15%');
         $dt_fim->setSize('15%');
+        $dt_limite_inscricao->setSize('15%');
 
         $row1 = $this->form->addFields([new TLabel('Id:', null, '14px', null)],[$id]);
         $row2 = $this->form->addFields([new TLabel('Nome:', null, '14px', null)],[$nome]);
         $row3 = $this->form->addFields([new TLabel('Descrição:', null, '14px', null)],[$descricao]);
         $row4 = $this->form->addFields([new TLabel('Data de Inicio:', null, '14px', null)],[$dt_inicio]);
         $row5 = $this->form->addFields([new TLabel('Data de Fim:', null, '14px', null)],[$dt_fim]);
+        $row5 = $this->form->addFields([new TLabel('Data limite para inscrição:', null, '14px', null)],[$dt_limite_inscricao]);
         $row6 = $this->form->addFields([new TLabel('Logo:', null, '14px', null)],[$logo]);
         $row7 = $this->form->addFields([new TLabel('Regulamento:', null, '14px', null)],[$regulamento]);
         $row8 = $this->form->addFields([new TLabel('Jogos:', null, '14px', null)],[$jogos]);

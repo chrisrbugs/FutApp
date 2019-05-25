@@ -20,6 +20,8 @@ class Campeonato extends TRecord
         parent::addAttribute('logo');
         parent::addAttribute('regulamento');
         parent::addAttribute('jogos');
+        parent::addAttribute('dt_limite_inscricao');
+        
 
     }
 }

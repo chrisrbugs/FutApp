@@ -23,7 +23,10 @@ class InscricaoFormView extends TPage
         $this->form->setColumnClasses(2, ['col-sm-3', 'col-sm-9']);
         
         // create the form fields
-        $ref_campeonato = new TDBCombo('ref_campeonato', 'futapp', 'Campeonato', 'id', '{nome}','id asc'  );
+        $filter = new TFilter('dt_limite_inscricao', ' >= ', date('Y--m-d'));// create the filter 
+        $criteria = new TCriteria();
+        $criteria->add($filter);
+        $ref_campeonato = new TDBCombo('ref_campeonato', 'futapp', 'Campeonato', 'id', '{nome}','id asc',$criteria  );
         $ref_categoria  = new TCombo('ref_categoria');
 
         $this->form->addFields(['Campeonato'], [$ref_campeonato] );
