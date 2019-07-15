@@ -109,8 +109,10 @@ class GoleadorPublicList extends TPage
 
             $c = new THyperLink('Regulamento', $Campeonato->regulamento, 'red', 12, 'biu');
             $d = new THyperLink('Partidas(PDF)', $Campeonato->jogos, 'red', 12, 'biu');
+            $e = new THyperLink('Punições do ultimo campeonato', $Campeonato->punicoes_antigas, 'red', 12, 'biu');
             $container->add($c);
             $container->add($d);
+            $container->add($e);
         } 
 
         $container->add($panel);
