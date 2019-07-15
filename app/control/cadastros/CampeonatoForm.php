@@ -85,7 +85,7 @@ class CampeonatoForm extends TPage
         $row5 = $this->form->addFields([new TLabel('Data limite para inscrição:', null, '14px', null)],[$dt_limite_inscricao]);
         $row6 = $this->form->addFields([new TLabel('Logo:', null, '14px', null)],[$logo]);
         $row7 = $this->form->addFields([new TLabel('Regulamento:', null, '14px', null)],[$regulamento]);
-        $row8 = $this->form->addFields([new TLabel('Punições Passadas:', null, '14px', null)],[$punicoes_antigas]);
+        $row8 = $this->form->addFields([new TLabel('Atletas suspensos na edição anterior:', null, '14px', null)],[$punicoes_antigas]);
         $row9 = $this->form->addFields([new TLabel('Jogos:', null, '14px', null)],[$jogos]);
 
         // create the form actions
