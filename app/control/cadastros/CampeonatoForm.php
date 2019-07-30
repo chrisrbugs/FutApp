@@ -38,6 +38,7 @@ class CampeonatoForm extends TPage
         $dt_limite_inscricao      = new TDate('dt_limite_inscricao');
         $logo        = new TFile('logo');
         $regulamento = new TFile('regulamento');
+        $regulamento_musa = new TFile('regulamento_musa');
         $jogos       = new TFile('jogos');
         $punicoes_antigas = new TFile('punicoes_antigas');
 
@@ -61,11 +62,13 @@ class CampeonatoForm extends TPage
         $logo->setAllowedExtensions( ['gif', 'png', 'jpg', 'jpeg'] );
         $jogos->setAllowedExtensions( ['pdf'] );
         $regulamento->setAllowedExtensions( ['pdf'] );
+        $regulamento_musa->setAllowedExtensions( ['pdf'] );
         $punicoes_antigas->setAllowedExtensions( ['pdf'] );
         
         // enable progress bar, preview, and file remove actions
         $logo->enableFileHandling();
         $regulamento->enableFileHandling();
+        $regulamento_musa->enableFileHandling();
         $punicoes_antigas->enableFileHandling();
         $jogos->enableFileHandling();
 
@@ -85,6 +88,7 @@ class CampeonatoForm extends TPage
         $row5 = $this->form->addFields([new TLabel('Data limite para inscrição:', null, '14px', null)],[$dt_limite_inscricao]);
         $row6 = $this->form->addFields([new TLabel('Logo:', null, '14px', null)],[$logo]);
         $row7 = $this->form->addFields([new TLabel('Regulamento:', null, '14px', null)],[$regulamento]);
+        $row7 = $this->form->addFields([new TLabel('Regulamento musa:', null, '14px', null)],[$regulamento_musa]);
         $row8 = $this->form->addFields([new TLabel('Atletas suspensos na edição anterior:', null, '14px', null)],[$punicoes_antigas]);
         $row9 = $this->form->addFields([new TLabel('Jogos:', null, '14px', null)],[$jogos]);
 
@@ -135,6 +139,7 @@ class CampeonatoForm extends TPage
             $this->saveFile($object, $data, 'logo', 'campeonatos');
             $this->saveFile($object, $data, 'jogos', 'campeonatos');
             $this->saveFile($object, $data, 'regulamento', 'campeonatos');
+            $this->saveFile($object, $data, 'regulamento_musa', 'campeonatos');
             $this->saveFile($object, $data, 'punicoes_antigas', 'campeonatos');
 
 

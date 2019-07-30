@@ -107,8 +107,16 @@ class PunicaoPublicList extends TPage
             TTransaction::close();
 
             $c = new THyperLink('Regulamento', $Campeonato->regulamento, 'red', 12, 'biu');
+
+
             $d = new THyperLink('Partidas(PDF)', $Campeonato->jogos, 'red', 12, 'biu');
             $e = new THyperLink('Atletas suspensos na edição anterior', $Campeonato->punicoes_antigas, 'red', 12, 'biu');
+            
+            if ($Campeonato->regulamento_musa) 
+            {
+                $f = new THyperLink('Regulamento Musa', $Campeonato->regulamento_musa, 'red', 12, 'biu');
+                $container->add($f);
+            }
             $container->add($c);
             $container->add($d);
             $container->add($e);
