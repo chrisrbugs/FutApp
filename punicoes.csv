@@ -1,0 +1,120 @@
+ id  | ref_equipe |                                                descricao                                                | ref_partida | ref_atleta 
+-----+------------+---------------------------------------------------------------------------------------------------------+-------------+------------
+ 341 |        104 | 3 cartões amarelo (03.02)  (17.02) (16.03) - já cumpriu - 1 cartão amarelo (06.04)                      |             |       1491
+ 339 |        110 | 2 cartões amarelo (03.02) (06.04)                                                                       |             |       1801
+ 375 |        102 | 1 cartão amarelo (24.02)                                                                                |             |       1558
+ 319 |        111 | 1 cartão vermelho (26.01) - já cumpriu                                                                  |             |       1524
+ 320 |        111 | 1 cartão amarelo (26.01)                                                                                |             |       1527
+ 326 |        107 | 1 cartão amarelo (27.01)                                                                                |             |       1654
+ 330 |        102 | 1 cartão amarelo (27.01)                                                                                |             |       1549
+ 331 |        102 | 1 cartão amarelo (27.01)                                                                                |             |       1575
+ 332 |        102 | 1 cartão amarelo (27.01)                                                                                |             |       1552
+ 334 |        103 | 1 cartão amarelo (27.01)                                                                                |             |       1656
+ 335 |        103 | 1 cartão amarelo (27.01)                                                                                |             |       1668
+ 336 |        104 | 1 cartão amarelo (27.01)                                                                                |             |       1479
+ 344 |        109 | 1 cartão amarelo (03.02)                                                                                |             |       1715
+ 346 |        106 | 1 cartão amarelo (03.02)                                                                                |             |       1728
+ 349 |        103 | 1 cartão amarelo (09.02)                                                                                |             |       1688
+ 350 |        106 | 1 cartão amarelo (10.02)                                                                                |             |       1747
+ 352 |        110 | 1 cartão amarelo (10.02)                                                                                |             |       1799
+ 357 |        109 | 2 cartões amarelo (10.02) (14.04)                                                                       |             |       1705
+ 360 |        103 | 1 cartão amarelo (17.02)                                                                                |             |       1686
+ 361 |        103 | 1 cartão amarelo (17.02)                                                                                |             |       1670
+ 362 |        108 | 1 cartão amarelo (17.02)                                                                                |             |       1605
+ 363 |        108 | 1 cartão amarelo (17.02)                                                                                |             |       1613
+ 364 |        108 | 1 cartão amarelo (17.02)                                                                                |             |       1616
+ 358 |        102 | 2 cartões amarelo (03.02) e (17.02)                                                                     |             |       1568
+ 342 |        104 | 2 cartões amarelo (03.02) e (17.02)                                                                     |             |       1476
+ 376 |        102 | 2 cartões amarelo (24.02) (30.03)                                                                       |             |       1545
+ 324 |        106 | 3 cartões amarelo (27.01) (02.03) (23.03) suspenso por um jogo - já cumpriu - 1 cartão amarelo (14.04)  |             |       1738
+ 366 |        107 | 1 cartão amarelo (27.01)                                                                                |             |       1632
+ 367 |        111 | 1 cartão amarelo (17.02)                                                                                |             |       1533
+ 370 |        109 | 1 cartão amarelo (17.02)                                                                                |             |       1700
+ 347 |        104 | 2 cartões amarelo (09.02) (30.03)                                                                       |             |       1470
+ 377 |        106 | 1 cartão amarelo (24.02)                                                                                |             |       1742
+ 321 |        111 | 3 cartões amarelo (26.01) (02.03) (16.030 suspenso por um jogo - já cumpriu                             |             |       1529
+ 345 |        106 | 2 cartão amarelo (03.02)...(05/05)                                                                      |             |       1737
+ 359 |        102 | 2 cartões amarelo (17.02) (24.03)                                                                       |             |       1551
+ 327 |        102 | 3 cartões amarelo (27.01)  - (17.02) - (23.02) - já cumpriu - - - 1 cartão amarelo (30.03)              |             |       1550
+ 323 |        109 | 1 cartão amarelo (27.01) - 1 cartão vermelho (30.03) - três jogos de suspensão - dois já cumpriu        |             |       1721
+ 337 |        105 | 3 cartões amarelo (27.01) - (17.02) e (24.02) - já cumpriu                                              |             |       1786
+ 372 |        109 | 2 cartões amarelo (17.02) (1.603)                                                                       |             |       1693
+ 354 |        110 | 2 cartões amarelo (10.02) (06.04)                                                                       |             |       1809
+ 340 |        104 | 2 cartões amarelo (03.02) (16.03)                                                                       |             |       1493
+ 333 |        103 | 3 cartões amarelo (27.01) (09.02) (23.03) - suspenso por um jogo                                        |             |       1669
+ 322 |        111 | 2 cartões amarelo (26.01) (30.03)                                                                       |             |       1538
+ 368 |        111 | 3 cartões amarelo (17.02) (02.03) (16.03) suspenso por um jogo - já cumpriu                             |             |       1517
+ 329 |        102 | 3 cartões amarelo (27.01) (24.03) (30.03) - um jogo a cumprir                                           |             |       1561
+ 378 |        110 | 2 cartão amarelo (23.02) e (20.04)                                                                      |             |       1821
+ 371 |        109 | 2 cartões amarelo (17.02) (14.04) - cartão vermelho (20.04) a cumprir dois jogos de suspensão           |             |       1717
+ 369 |        109 | 2 cartões  amarelo (17.02) (14.04)                                                                      |             |       1711
+ 373 |        108 | 2 cartões amarelo (23.02) (14.04)                                                                       |             |       1612
+ 374 |        108 | 2 cartões amarelo (23.02) (14.04)                                                                       |             |       1595
+ 338 |        110 | 3 cartões amarelo (03.02) (06.04) (20.04) um jogo de suspensão                                          |             |       1812
+ 365 |        105 | 1 cartão amarelo (17.02)...(05/05)                                                                      |             |       1763
+ 395 |        108 | 1 cartão amarelo (02.03)                                                                                |             |       1594
+ 397 |        103 | 1 cartão amarelo (03.03)                                                                                |             |       1677
+ 399 |        110 | 1 cartão amarelo (03.03)                                                                                |             |       1796
+ 404 |        108 | 1 cartão amarelo (03.02)                                                                                |             |       1610
+ 406 |        104 | Pedro Franck = suspenso por 2 jogos no jogo do dia  09.02 (Ok cumpriu nos jogos dos dias 17.02 e 24.02) |             |       1405
+ 407 |        106 | Valmor Back = suspenso por 2 jogo no jogo do dia 03.02. (Ok cumpriu nos jogos 10.02 e 17.02)            |             |       1407
+ 409 |        106 | 2 cartões amarelo (03.02) e (17.02)                                                                     |             |       1943
+ 402 |        106 | 3 cartões amarelo (02.03) e (20.04) e(05/05)..suspenso por 1 jogo                                       |             |       1730
+ 398 |        109 | 2 cartões amarelo (03.03) (30.03)                                                                       |             |       1712
+ 453 |        105 | 1 cartão amarelo (16.03)                                                                                |             |       1793
+ 400 |        111 | 2 cartões amarelo (02.03) (16.03)                                                                       |             |       1532
+ 401 |        106 | 3 cartões amarelo (02.03) (28.03) (14.04) - já cumpriu ..1 cartão amarelo (05/05)                       |             |       1743
+ 408 |        106 | 1 cartão vermelho (03.02) suspenso por 1 jogo - já cumpriu                                              |             |       1944
+ 403 |        102 | 2 cartões amarelo (03.02) (30.03)                                                                       |             |       1554
+ 498 |        103 | 1 cartão amarelo (23.03)                                                                                |             |       1671
+ 501 |        102 | 1 cartão amarelo (24.03)                                                                                |             |       1556
+ 503 |        110 | 1 cartão amarelo (24.03)                                                                                |             |       1797
+ 504 |        108 | 1 cartão amarelo (24.03)                                                                                |             |       1590
+ 513 |        103 | 1 cartão amarelo (23.03)                                                                                |             |       2074
+ 524 |        109 | 1 cartão amarelo (30.03)                                                                                |             |       1720
+ 527 |        109 | 1 cartão amarelo (30.03)                                                                                |             |       1719
+ 502 |        107 | 2 cartões amarelo (24.03) (30.03)                                                                       |             |       1634
+ 351 |        106 | 3 cartões amarelo (10.02) (02.03) (23.03) suspenso por um jogo - já cumpriu                             |             |       1756
+ 529 |        106 | 1 cartão amarelo (30.03)                                                                                |             |       1732
+ 530 |        104 | 1 cartão amarelo (30.03)                                                                                |             |       1496
+ 531 |        103 | 1 cartão amarelo (30.03)                                                                                |             |       1662
+ 532 |        105 | 1 cartão amarelo (30.03)                                                                                |             |       1766
+ 533 |        105 | 1 cartão amarelo (30.03)                                                                                |             |       1785
+ 534 |        111 | 1 cartão amarelo (30.03)                                                                                |             |       1511
+ 535 |        111 | 1 cartão amarelo (30.03)                                                                                |             |       1518
+ 518 |        102 | 1 cartão vermelho (24.03) suspenso por um jogo - já cumpriu                                             |             |       1573
+ 328 |        102 | 3 cartões amarelo (27.01) (03.02) e (10.02) - já cumpriu - - 1 cartão amarelo (30.03)                   |             |       1560
+ 525 |        109 | 2 cartões amarelo (30.03) (14.04)                                                                       |             |       1725
+ 587 |        104 | 1 cartão amarelo 06.04                                                                                  |             |       1464
+ 588 |        110 | 1 cartão amarelo (06.04)                                                                                |             |       1816
+ 325 |        107 | 3 cartões amarelo (09.02) - (17.02) - (24.02) já cumpriu - - - 2 cartões amarelo (30.03) e (21.04)      |             |       1631
+ 589 |        107 | 1 cartão amarelo (13.04)                                                                                |             |       1624
+ 526 |        109 | 2 cartões amarelo (30.03) (14.04)                                                                       |             |       1714
+ 499 |        106 | 2 cartões amarelo (23.03) (14.04)                                                                       |             |       1744
+ 500 |        108 | 1 cartão amarelo (24.03)...(05/05)                                                                      |             |       1606
+ 454 |        105 | 1 cartão vermelho (16.03) suspenso por 3 jogos -  já cumpriu                                            |             |       1795
+ 539 |        107 | 1 cartão vermelho (30.03) suspenso por três jogos - cumpriu dois jogos                                  |             |       1636
+ 528 |        107 | 2 cartões amarelo (30.03) e (20.04)                                                                     |             |       1626
+ 586 |        104 | 1 cartão amarelo 06.04 - 1 cartão vermelho (20.04) um jogo de suspensão                                 |             |       1471
+ 455 |        104 | 1 cartão amarelo (16.03) - 1 cartão vermelho (30.03) - ja cumpriu                                       |             |       1478
+ 592 |        108 | equipe sofre advertência da Liga organizadora 200 pontos na disciplina                                  |             |           
+ 663 |        111 | 1 cartão amarelo (20.04)                                                                                |             |       1521
+ 664 |        105 | 1 cartão amarelo (21.04)                                                                                |             |       1762
+ 665 |        105 | 1 cartão amarelo (21.04)                                                                                |             |       1764
+ 666 |        107 | Jonas Peiter suspenso por dois jogos                                                                    |             |       1312
+ 591 |        108 | 2 cartões amarelo (14.04) e (20.04)                                                                     |             |       1619
+ 538 |        109 | Paulo Goettems - expulso dia 30.03 - a cumprir seis jogos - dois já cumpriu                             |             |       1416
+ 396 |        104 | 2 cartões amarelo (02.03) e (20.04)                                                                     |             |       1492
+ 667 |        110 | 1 cartão amarelo (20.04)                                                                                |             |       1803
+ 668 |        110 | 1 cartão amarelo (20.04)                                                                                |             |       1817
+ 593 |        106 | MASSAGISTA Mário Masseroni suspenso por 1 jogo - equipe perde 100 pts. na disciplina - já cumpriu       |             |           
+ 353 |        110 | 3 cartões amarelo (10.02) (03.03) (24.03) suspenso por um jogo - já cumpriu                             |             |       1802
+ 590 |        105 | 2 cartão amarelo (13.04)...(05/05)                                                                      |             |       1777
+ 722 |        106 | 1 cartão amarelo (05/05)                                                                                |             |       1758
+ 723 |        104 | 1 cartão amarelo (05/05)                                                                                |             |       1468
+ 724 |        104 | 1 cartão amarelo (05/05)                                                                                |             |       1945
+ 725 |        108 | 1 cartão amarelo (05/05)                                                                                |             |       1599
+ 355 |        108 | 3 cartões amarelo (09.02) - (17.02) - (23.02) (já cumpriu) 1 cartão amarelo (05/05)                     |             |       1589
+ 726 |        105 | 1 cartão amarelo (05/05)                                                                                |             |       1776
+(116 rows)
+
