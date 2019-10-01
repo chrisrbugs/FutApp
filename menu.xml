@@ -135,6 +135,10 @@
         <icon>fa:circle-o fa-fw </icon>
         <action>PunicaoPublicList#method=onShow</action>
       </menuitem>
+      <menuitem label="Atletas">
+        <icon>fa:circle-o fa-fw </icon>
+        <action>AtletasPublicList#method=onShow</action>
+      </menuitem>
     </menu>
   </menuitem>
   <menuitem label="_t{Documents}">

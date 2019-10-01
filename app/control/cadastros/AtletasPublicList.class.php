@@ -1,6 +1,6 @@
 <?php
 
-class PartidaPublicList extends TPage
+class AtletasPublicList extends TPage
 {
     private $form; // form
     private $datagrid; // listing
@@ -9,9 +9,9 @@ class PartidaPublicList extends TPage
     private $loaded;
     private $deleteButton;
     private static $database = 'futapp';
-    private static $activeRecord = 'Partida';
+    private static $activeRecord = 'AtletaEquipe';
     private static $primaryKey = 'id';
-    private static $formName = 'formList_Partida';
+    private static $formName = 'formList_Atletas';
 
     /**
      * Class constructor
@@ -24,39 +24,33 @@ class PartidaPublicList extends TPage
         $this->form = new BootstrapFormBuilder(self::$formName);
 
         // define the form title
-        $this->form->setFormTitle('Partidas');
+        $this->form->setFormTitle('Atletas');
 
 
-        $ref_campeonato    = new TDBCombo('ref_campeonato', 'futapp', 'Campeonato', 'id', '{nome}','id asc'  );
-        $ref_categoria     = new TCombo('ref_categoria');
-        $ref_equipe        = new TCombo('ref_equipe');
-        $dt_partida        = new TDateTime('dt_partida');
+        $ref_campeonato = new TDBCombo('ref_campeonato', 'futapp', 'Campeonato', 'id', '{nome}','id asc'  );
+        $ref_categoria  = new TCombo('ref_categoria');
+        $ref_equipe  = new TCombo('ref_equipe');
 
         $ref_campeonato->setChangeAction(new TAction([$this,'onMudaCampeonato']));
         $ref_categoria->setChangeAction(new TAction([$this,'onMudaCategoria']));
+        // $ref_equipe->setChangeAction(new TAction([$this,'onMudaEquipe']));
 
-        $dt_partida->setMask('dd/mm/yyyy hh:ii');
-        $dt_partida->setDatabaseMask('yyyy-mm-dd hh:ii');
-        $dt_partida->setSize(150);
-        $ref_categoria->setSize('70%');
-
-        $row0 = $this->form->addFields([new TLabel('Campeonato:', null, '14px', null)],[$ref_campeonato]);
-        $row1 = $this->form->addFields([new TLabel('Categoria:', null, '14px', null)],[$ref_categoria]);
-        $row1 = $this->form->addFields([new TLabel('Equipe:', null, '14px', null)],[$ref_equipe]);
-        $row2 = $this->form->addFields([new TLabel('Data jogo:', null, '14px', null)],[$dt_partida]);
-
+        $row1 = $this->form->addFields([new TLabel('Campeonato:', null, '14px', null)],[$ref_campeonato]);
+        $row2 = $this->form->addFields([new TLabel('Categoria:', null, '14px', null)],[$ref_categoria]);
+        $row3 = $this->form->addFields([new TLabel('Equipe:', null, '14px', null)],[$ref_equipe]);
         // keep the form filled during navigation with session data
         $this->form->setData( TSession::getValue(__CLASS__.'_filter_data') );
         $this->fireEvents(TSession::getValue(__CLASS__.'_filter_data'));
 
         $btn_onsearch = $this->form->addAction('Buscar', new TAction([$this, 'onSearch']), 'fa:search #ffffff');
         $btn_onsearch->addStyleClass('btn-primary'); 
-
+        
         $this->form->addAction('JOGOS', new TAction(array('PartidaPublicList', 'onSearch')), 'fa:chevron-circle-right green');
         $this->form->addAction('GOLEADORES', new TAction(array('GoleadorPublicList', 'onSearch')), 'fa:chevron-circle-right green');
         $this->form->addAction('PUNIÇÕES', new TAction(array('PunicaoPublicList', 'onSearch')), 'fa:chevron-circle-right green');
         $this->form->addAction('CLASSIFICAÇÃO', new TAction(array('ClassificacaoEquipePublicList', 'onSearch')), 'fa:chevron-circle-right green');
-        $this->form->addAction('EQUIPES', new TAction(array('AtletasPublicList', 'onSearch')), 'fa:chevron-circle-right green');      
+        $this->form->addAction('EQUIPES', new TAction(array('AtletasPublicList', 'onSearch')), 'fa:chevron-circle-right green');
+        
         // creates a Datagrid
         $this->datagrid = new TDataGrid;
         $this->datagrid = new BootstrapDatagridWrapper($this->datagrid);
@@ -64,26 +58,23 @@ class PartidaPublicList extends TPage
         $this->datagrid->style = 'width: 100%';
         $this->datagrid->setHeight(320);
 
-        $column_time_local = new TDataGridColumn('ref_equipe_local', 'Time local', 'left');
-        
-        $column_resultado = new TDataGridColumn('id', 'Resultado', 'left');
+        $column_time = new TDataGridColumn('id', 'Time', 'left');
+        $column_atleta = new TDataGridColumn('nome', 'Nome jogador', 'left');
+        // $column_gols = new TDataGridColumn('numero_gols', 'Gols', 'left');
+      
+        $formata_time = function($value)
+        {
+           $objAtleta = new AtletaEquipe($value);
+           $objEquipe = new Equipe($objAtleta->ref_equipe);
+	          return $objEquipe->nome;    
+        };
 
-        $column_time_visitante = new TDataGridColumn('ref_equipe_visitante', 'Time visitante', 'left');
-        $column_dt_partida = new TDataGridColumn('dt_partida', 'Dt jogo', 'left');
-        $column_etapa = new TDataGridColumn('etapa', 'Etapa', 'left');
+        $column_time->setTransformer( $formata_time );
 
-        $column_dt_partida->setTransformer(array($this, 'formatDate'));
-        $column_resultado->setTransformer(array($this, 'formatResultado'));
-        $column_time_visitante->setTransformer(array($this, 'formatNome'));
-        $column_time_local->setTransformer(array($this, 'formatNome'));
-
-        $this->datagrid->addColumn($column_time_local);
-        $this->datagrid->addColumn($column_resultado);
-        $this->datagrid->addColumn($column_time_visitante);
-        $this->datagrid->addColumn($column_dt_partida);
-        $this->datagrid->addColumn($column_etapa);
-
-
+        $this->datagrid->addColumn($column_time);
+        $this->datagrid->addColumn($column_atleta);
+        // $this->datagrid->addColumn($column_gols);
+      
         // create the datagrid model
         $this->datagrid->createModel();
 
@@ -99,7 +90,7 @@ class PartidaPublicList extends TPage
         // vertical box container
         $container = new TVBox;
         $container->style = 'width: 100%';
-        
+        // $container->add(TBreadCrumb::create(['Cadastros','Goleadores']));
         $container->add($this->form);
 
         if(isset($_POST['ref_campeonato']))
@@ -119,12 +110,14 @@ class PartidaPublicList extends TPage
             $container->add($c);
             $container->add($d);
             $container->add($e);
-        }  
+        } 
+
         $container->add($panel);
 
         parent::add($container);
 
     }
+
 
     /**
      * Register the filter in the session
@@ -138,33 +131,34 @@ class PartidaPublicList extends TPage
         TSession::setValue(__CLASS__.'_filter_data', NULL);
         TSession::setValue(__CLASS__.'_filters', NULL);
 
+        if (!$data->ref_campeonato || !$data->ref_equipe || !$data->ref_categoria) 
+        {
+            new TMessage('error', "Selecione o Campeonato, a Categoria e a equipe! ");
+            return false;
+        }
+
         if (isset($data->ref_campeonato) AND ( (is_scalar($data->ref_campeonato) AND $data->ref_campeonato !== '') OR (is_array($data->ref_campeonato) AND (!empty($data->ref_campeonato)) )) )
         {
-
-            $filters[] = new TFilter('id', 'in', "(select id from partida where ref_equipe_local in (select id from equipe where ref_categoria_campeonato in (select id from categoria_campeonato where ref_campeonato = {$data->ref_campeonato})) OR ref_equipe_visitante in (select id from equipe where ref_categoria_campeonato in (select id from categoria_campeonato where ref_campeonato = {$data->ref_campeonato})) )");
+            
+            $filters[] = new TFilter('ref_equipe', 'in', "(select id 
+                                                                    from equipe 
+                                                                   where ref_categoria_campeonato in (select id 
+                                                                                                        from categoria_campeonato
+                                                                                                        where ref_campeonato =  {$data->ref_campeonato}))");
         }
 
         if (isset($data->ref_categoria) AND ( (is_scalar($data->ref_categoria) AND $data->ref_categoria !== '') OR (is_array($data->ref_categoria) AND (!empty($data->ref_categoria)) )) )
         {
-
-             $filters[] = new TFilter('id', 'in', "(select id from partida where ref_equipe_local in (select id from equipe where ref_categoria_campeonato = $data->ref_categoria ) OR ref_equipe_visitante in (select id from equipe where ref_categoria_campeonato =  $data->ref_categoria) )");
+            $filters[] = new TFilter('ref_equipe', 'in', "(select id 
+                                                                    from equipe 
+                                                                   where ref_categoria_campeonato in ({$data->ref_categoria}))");// create the filter 
         }
 
         if (isset($data->ref_equipe) AND ( (is_scalar($data->ref_equipe) AND $data->ref_equipe !== '') OR (is_array($data->ref_equipe) AND (!empty($data->ref_equipe)) )) )
         {
-
-             $filters[] = new TFilter('id', 'in', "(select id from partida where ref_equipe_local in (select id from equipe where id = $data->ref_equipe ) OR ref_equipe_visitante in (select id from equipe where id =  $data->ref_equipe) )");
+           $filters[] = new TFilter('ref_equipe', '=', "{$data->ref_equipe}");// create the filter 
         }
 
-
-        if (isset($data->dt_partida) AND ( (is_scalar($data->dt_partida) AND $data->dt_partida !== '') OR (is_array($data->dt_partida) AND (!empty($data->dt_partida)) )) )
-        {
-
-            $dt = str_replace('/', '-', $data->dt_partida);
-            $dt_usa = date('Y-m-d', strtotime($dt));
-
-            $filters[] = new TFilter('dt_partida::date', '=', $dt_usa);// create the filter 
-        }
 
         $param = array();
         $param['offset']     = 0;
@@ -173,43 +167,15 @@ class PartidaPublicList extends TPage
         // fill the form with data again
         $this->form->setData($data);
 
-        $obj = new stdClass;
-        $obj->ref_campeonato = $data->ref_campeonato;
-        $obj->ref_categoria  = $data->ref_categoria;
-        $obj->ref_equipe     = $data->ref_equipe;
-
-        $this->fireEvents( $obj );
-
+        TTransaction::open(self::$database);
+        $this->fireEvents($data);
+        TTransaction::close();
         // keep the search data in the session
         TSession::setValue(__CLASS__.'_filter_data', $data);
         TSession::setValue(__CLASS__.'_filters', $filters);
 
         $this->onReload($param);
     }
-
-        /**
-     * Fire form events
-     * @param $param Request
-     */
-    public function fireEvents( $object )
-    {
-        $obj = new stdClass;
-        if (isset($object->ref_campeonato)) 
-        {
-            $obj->ref_campeonato = $object->ref_campeonato;
-        }
-        
-        if (isset($object->ref_categoria))
-        {
-            $obj->ref_categoria  = $object->ref_categoria;
-        }
-        if (isset($object->ref_equipe))
-        {
-            $obj->ref_equipe  = $object->ref_equipe;
-        }
-        TForm::sendData('formList_Partida', $obj);
-    }
-
 
     /**
      * Load the datagrid with data
@@ -219,9 +185,10 @@ class PartidaPublicList extends TPage
         try
         {
             // open a transaction with database 'futapp'
-            TTransaction::open(self::$database);
+		
+	       TTransaction::open(self::$database);
 
-            // creates a repository for Partidas
+            // creates a repository for Punicoes
             $repository = new TRepository(self::$activeRecord);
             $limit = 20;
             // creates a criteria
@@ -229,7 +196,7 @@ class PartidaPublicList extends TPage
 
             if (empty($param['order']))
             {
-                $param['order'] = 'dt_partida';    
+                $param['order'] = 'nome';    
             }
 
             if (empty($param['direction']))
@@ -247,10 +214,10 @@ class PartidaPublicList extends TPage
                     $criteria->add($filter);       
                 }
             }
-
-            // load the objects according to criteria
+          
+  	    // load the objects according to criteria	
             $objects = $repository->load($criteria, FALSE);
-
+	    
             $this->datagrid->clear();
             if ($objects)
             {
@@ -275,7 +242,6 @@ class PartidaPublicList extends TPage
             // close the transaction
             TTransaction::close();
             $this->loaded = true;
-
         }
         catch (Exception $e) // in case of exception
         {
@@ -298,46 +264,21 @@ class PartidaPublicList extends TPage
     public function show()
     {
         // check if the datagrid is already loaded
-        if (!$this->loaded AND (!isset($_GET['method']) OR !(in_array($_GET['method'],  array('onReload', 'onSearch')))) )
-        {
-            if (func_num_args() > 0)
-            {
-                $this->onReload( func_get_arg(0) );
-            }
-            else
-            {
-                $this->onReload();
-            }
-        }
+        // if (!$this->loaded AND (!isset($_GET['method']) OR !(in_array($_GET['method'],  array('onReload', 'onSearch')))) )
+        // {
+        //     if (func_num_args() > 0)
+        //     {
+        //         $this->onReload( func_get_arg(0) );
+        //     }
+        //     else
+        //     {
+        //         $this->onReload();
+        //     }
+        // }
         parent::show();
     }
 
-    public function formatDate($date)
-    {
-        return date('d/m/Y G:i:s', strtotime($date));
-    }
-
-    public function formatResultado($id)
-    {
-        $partida = new Partida($id);
-
-        return $partida->numero_gols_local.' x '.$partida->numero_gols_visitante;
-
-    }
-
-    public function formatNome($id)
-    {
-        $equipe = new Equipe($id);
-
-        return $equipe->nome;
-
-    }
-
-         /**
-     * On muda campeonato
-     */
-     
-    static function onMudaCampeonato( $param )
+        static function onMudaCampeonato( $param )
     {
         try
         {
@@ -347,11 +288,11 @@ class PartidaPublicList extends TPage
                 $criteria = TCriteria::create( ['ref_campeonato' => $param['ref_campeonato'] ] );
                 
                 // formname, field, database, model, key, value, ordercolumn = NULL, criteria = NULL, startEmpty = FALSE
-                TDBCombo::reloadFromModel('formList_Partida', 'ref_categoria', 'futapp', 'CategoriaCampeonato', 'id', '{nome} ({id})', 'id', $criteria, TRUE);
+                TDBCombo::reloadFromModel('formList_Atletas', 'ref_categoria', 'futapp', 'CategoriaCampeonato', 'id', '{nome} ({id})', 'id', $criteria, TRUE);
             }
             else
             {
-                TCombo::clearField('formList_Partida', 'ref_categoria');
+                TCombo::clearField('formList_Atletas', 'ref_categoria');
             }
             
             TTransaction::close();
@@ -375,11 +316,11 @@ class PartidaPublicList extends TPage
                 $criteria = TCriteria::create( ['ref_categoria_campeonato' => $param['ref_categoria'] ] );
                 
                 // formname, field, database, model, key, value, ordercolumn = NULL, criteria = NULL, startEmpty = FALSE
-                TDBCombo::reloadFromModel('formList_Partida', 'ref_equipe', 'futapp', 'Equipe', 'id', '{nome} ({id})', 'ref_categoria_campeonato', $criteria, TRUE);
+                TDBCombo::reloadFromModel('formList_Atletas', 'ref_equipe', 'futapp', 'Equipe', 'id', '{nome} ({id})', 'ref_categoria_campeonato', $criteria, TRUE);
             }
             else
             {
-                TCombo::clearField('formList_Partida', 'ref_equipe');
+                TCombo::clearField('formList_Atletas', 'ref_equipe');
             }
             
             TTransaction::close();
@@ -389,4 +330,59 @@ class PartidaPublicList extends TPage
             new TMessage('error', $e->getMessage());
         }
     }
+
+
+    static function onMudaEquipe( $param )
+    {
+        try
+        {
+            TTransaction::open('futapp');
+            if (!empty($param['ref_equipe']))
+            {
+                $criteria = TCriteria::create( ['ref_equipe' => $param['ref_equipe'] ] );
+                
+                // formname, field, database, model, key, value, ordercolumn = NULL, criteria = NULL, startEmpty = FALSE
+                TDBCombo::reloadFromModel('formList_Atletas', 'ref_atleta', 'futapp', 'AtletaEquipe', 'id', '{nome} ({id})', 'ref_equipe', $criteria, TRUE);
+            }
+            else
+            {
+                TCombo::clearField('formList_Atletas', 'ref_atleta');
+            }
+            
+            TTransaction::close();
+        }
+        catch (Exception $e)
+        {
+            new TMessage('error', $e->getMessage());
+        }
+    }
+
+        /**
+     * Fire form events
+     * @param $param Request
+     */
+    public function fireEvents( $object )
+    {
+        $obj = new stdClass;
+        if (isset($object->ref_campeonato)) 
+        {
+            $obj->ref_campeonato = $object->ref_campeonato;
+        }
+        
+        if (isset($object->ref_categoria))
+        {
+            $obj->ref_categoria  = $object->ref_categoria;
+        }
+        if (isset($object->ref_equipe))
+        {
+            $obj->ref_equipe  = $object->ref_equipe;
+        }
+        if (isset($object->ref_atleta) )
+        {
+            $obj->ref_atleta     = $object->ref_atleta;
+        }
+        TForm::sendData('formList_Atletas', $obj);
+    }
+
 }
+
