@@ -131,12 +131,6 @@ class AtletasPublicList extends TPage
         TSession::setValue(__CLASS__.'_filter_data', NULL);
         TSession::setValue(__CLASS__.'_filters', NULL);
 
-        if (!$data->ref_campeonato || !$data->ref_equipe || !$data->ref_categoria) 
-        {
-            new TMessage('error', "Selecione o Campeonato, a Categoria e a equipe! ");
-            return false;
-        }
-
         if (isset($data->ref_campeonato) AND ( (is_scalar($data->ref_campeonato) AND $data->ref_campeonato !== '') OR (is_array($data->ref_campeonato) AND (!empty($data->ref_campeonato)) )) )
         {
             
