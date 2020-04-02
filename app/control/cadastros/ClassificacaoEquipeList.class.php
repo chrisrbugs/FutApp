@@ -545,11 +545,12 @@ class ClassificacaoEquipeList extends TPage
             $criteria = new TCriteria;
             $criteria->add(new TFilter('ref_categoria_campeonato', '=', $obj->ref_categoria));
             TTransaction::open('futapp');
-            $atualizacao = AtualizacaoClassificacao::getObjects($criteria)[0];
+            $atualizacao = AtualizacaoClassificacao::getObjects($criteria);
 
             TTransaction::close();
             if ($atualizacao) 
             {
+                $atualizacao = $atualizacao[0];
                $obj->dt_atualizacao  =  TDate::date2br($atualizacao->dt_atualizacao);
             }
         }
