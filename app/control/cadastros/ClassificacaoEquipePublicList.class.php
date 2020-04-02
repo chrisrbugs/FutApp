@@ -136,7 +136,7 @@ class ClassificacaoEquipePublicList extends TPage
             $container->add($e);
         } 
 
-        if($_POST['ref_categoria'])
+        if(isset($_POST['ref_categoria']) && $_POST['ref_categoria'])
         {
             
             $criteria = new TCriteria;
