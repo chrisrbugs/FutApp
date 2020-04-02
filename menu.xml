@@ -47,6 +47,11 @@
         <action>ClassificacaoEquipeList#method=onShow</action>
       </menuitem>
 
+       <menuitem label="Site">
+        <icon>fa:circle-o fa-fw </icon>
+        <action>SiteForm#method=onEdit</action>
+      </menuitem>
+
       <!-- COOPEVA
       
       <menuitem label="Partidas">

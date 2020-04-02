@@ -36,6 +36,8 @@ class GoleadorPublicList extends TPage
         $ref_categoria->setChangeAction(new TAction([$this,'onMudaCategoria']));
         $ref_equipe->setChangeAction(new TAction([$this,'onMudaEquipe']));
 
+        $ref_campeonato->setEditable(false);
+
         $row1 = $this->form->addFields([new TLabel('Campeonato:', null, '14px', null)],[$ref_campeonato]);
         $row2 = $this->form->addFields([new TLabel('Categoria:', null, '14px', null)],[$ref_categoria]);
         $row3 = $this->form->addFields([new TLabel('Equipe:', null, '14px', null)],[$ref_equipe]);
@@ -119,6 +121,23 @@ class GoleadorPublicList extends TPage
             $container->add($d);
             $container->add($e);
         } 
+
+        if($_POST['ref_categoria'])
+        {
+            
+            $criteria = new TCriteria;
+            $criteria->add(new TFilter('ref_categoria_campeonato', '=', $_POST['ref_categoria']));
+            TTransaction::open('futapp');
+            $atualizacao = AtualizacaoGoleador::getObjects($criteria);
+
+            if ($atualizacao) 
+            {
+
+                $atualizacao = $atualizacao[0];
+                $container->add('<img src="'.$Campeonato->logo.'" width="70" height="70"> Atualizado em '.TDate::date2br($atualizacao->dt_atualizacao));
+            }
+
+        }
 
         $container->add($panel);
 

@@ -27,6 +27,8 @@ class ClassificacaoEquipe extends TRecord
         parent::addAttribute('gols_pro');
         parent::addAttribute('gols_contra');
         parent::addAttribute('saldo_gols');
+        parent::addAttribute('obs');
+        parent::addAttribute('fl_eliminado');
     }
     
 }

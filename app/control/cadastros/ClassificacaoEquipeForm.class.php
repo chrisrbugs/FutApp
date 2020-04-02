@@ -39,7 +39,11 @@ class ClassificacaoEquipeForm extends TPage
         $saldo_gols = new TEntry('saldo_gols');
 
         $disciplina = new TEntry('disciplina');
+        $obs = new TEntry('obs');
 
+        $fl_eliminado = new TCombo('fl_eliminado');
+
+        $fl_eliminado->addItems( [ 't' => 'Sim', 'f' => 'Não' ] ); 
 
         $ref_categoria->addValidation('Ref categoria', new TRequiredValidator()); 
         $ref_fase->addValidation('Fase', new TRequiredValidator()); 
@@ -77,7 +81,8 @@ class ClassificacaoEquipeForm extends TPage
         $row13 = $this->form->addFields([new TLabel('Gols Contra:', null, '14px', null)],[$gols_contra]);
         $row14 = $this->form->addFields([new TLabel('Saldo de gols:', null, '14px', null)],[$saldo_gols]);
         $row11 = $this->form->addFields([new TLabel('Disciplina:', null, '14px', null)],[$disciplina]);
-
+        $row11 = $this->form->addFields([new TLabel('Obs:', null, '14px', null)],[$obs]);
+        $row11 = $this->form->addFields([new TLabel('Eliminado:', null, '14px', null)],[$fl_eliminado]);
 
         // create the form actions
         $btn_onsave = $this->form->addAction('Salvar', new TAction([$this, 'onSave']), 'fa:floppy-o #ffffff');

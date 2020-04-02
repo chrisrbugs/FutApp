@@ -31,6 +31,8 @@ class GoleadorList extends TPage
         $ref_categoria  = new TCombo('ref_categoria');
         $ref_equipe  = new TCombo('ref_equipe');
         $ref_atleta = new TCombo('ref_atleta');
+        $dt_atualizacao = new TEntry('dt_atualizacao');
+        $dt_atualizacao->setMask('dd/mm/yyyy');
 
         $ref_campeonato->setChangeAction(new TAction([$this,'onMudaCampeonato']));
         $ref_categoria->setChangeAction(new TAction([$this,'onMudaCategoria']));
@@ -40,6 +42,7 @@ class GoleadorList extends TPage
         $row2 = $this->form->addFields([new TLabel('Categoria:', null, '14px', null)],[$ref_categoria]);
         $row3 = $this->form->addFields([new TLabel('Equipe:', null, '14px', null)],[$ref_equipe]);
         $row4 = $this->form->addFields([new TLabel('Atleta:', null, '14px', null)],[$ref_atleta]);
+        $row5 = $this->form->addFields([new TLabel('Atualizado em:', null, '14px', null)],[$dt_atualizacao]);
         // keep the form filled during navigation with session data
         $this->form->setData( TSession::getValue(__CLASS__.'_filter_data') );
         $this->fireEvents(TSession::getValue(__CLASS__.'_filter_data'));
@@ -100,6 +103,8 @@ class GoleadorList extends TPage
           $action_onDelete->setField(self::$primaryKey);
 
           $this->datagrid->addAction($action_onDelete);
+
+          $this->form->addAction('Salvar Data de Atualização', new TAction([$this, 'onSalvaAtualizacao']), 'fa:floppy-o #00000');
         }
       
         // create the datagrid model
@@ -123,6 +128,61 @@ class GoleadorList extends TPage
 
         parent::add($container);
 
+    }
+
+
+    function onSalvaAtualizacao($param)
+    {
+        try
+        {
+            // get the parameter $key
+            // $field = $param['field'];
+            $ref_categoria  = $param['ref_categoria'];
+            $dt_atualizacao = $param['dt_atualizacao'];
+            
+            if (!$ref_categoria) 
+            {
+               new TMessage('error', 'selecione a categoria');
+               return false;
+            }
+            // open a transaction with database 'samples'
+            TTransaction::open('futapp');
+
+            $criteria = new TCriteria;
+            $criteria->add(new TFilter('ref_categoria_campeonato', '=', $ref_categoria));
+        
+            $atualizacao = AtualizacaoGoleador::getObjects($criteria);
+
+            if ($atualizacao) 
+            {
+                $atualizacao = $atualizacao[0];
+                $classificacao = new AtualizacaoGoleador($atualizacao->id);
+            }
+            else
+            {
+                $classificacao = new AtualizacaoGoleador();
+            }
+            
+            // instantiates object Customer
+            $classificacao->ref_categoria_campeonato = $ref_categoria;
+            $classificacao->dt_atualizacao           = $dt_atualizacao;
+            $classificacao->store();
+            
+            // close the transaction
+            TTransaction::close();
+            
+            // reload the listing
+            $this->onReload($param);
+            // shows the success message
+            new TMessage('info', "Record Updated");
+        }
+        catch (Exception $e) // in case of exception
+        {
+            // shows the exception error message
+            new TMessage('error', $e->getMessage());
+            // undo all pending operations
+            TTransaction::rollback();
+        }
     }
 
     public function onDelete($param = null) 
@@ -428,6 +488,18 @@ class GoleadorList extends TPage
         if (isset($object->ref_categoria))
         {
             $obj->ref_categoria  = $object->ref_categoria;
+
+            $criteria = new TCriteria;
+            $criteria->add(new TFilter('ref_categoria_campeonato', '=', $obj->ref_categoria));
+            TTransaction::open('futapp');
+            $atualizacao = AtualizacaoGoleador::getObjects($criteria);
+
+            TTransaction::close();
+            if ($atualizacao) 
+            {
+               $atualizacao = $atualizacao[0];
+               $obj->dt_atualizacao  =  TDate::date2br($atualizacao->dt_atualizacao);
+            }
         }
         if (isset($object->ref_equipe))
         {

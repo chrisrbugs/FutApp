@@ -197,3 +197,36 @@ alter table classificacao_equipe add column ref_fase int;
 ALTER TABLE classificacao_equipe ADD CONSTRAINT ref_fase_fk FOREIGN KEY (ref_fase) REFERENCES fase_categoria(id);
 
 alter table campeonato add column dt_limite_inscricao date ;
+
+----------------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS atualizacao_classificacao (
+  id SERIAL NOT NULL,
+  ref_categoria_campeonato int,
+  dt_atualizacao date,
+  PRIMARY KEY (id)
+   );
+
+alter table classificacao_equipe add column obs text;
+
+alter table classificacao_equipe add column fl_eliminado VARCHAR(1);
+
+CREATE TABLE IF NOT EXISTS atualizacao_goleador (
+  id SERIAL NOT NULL,
+  ref_categoria_campeonato int,
+  dt_atualizacao date,
+  PRIMARY KEY (id)
+   );
+
+CREATE TABLE IF NOT EXISTS site (
+  id SERIAL NOT NULL,
+  banner1 TEXT NOT NULL,
+  banner2 TEXT NOT NULL,
+  banner3 TEXT NOT NULL,
+  banner4 TEXT NOT NULL,
+  quem_somos TEXT NOT NULL,
+  quem_somos_img TEXT NOT NULL,
+  contato TEXT NOT NULL, 
+  
+  PRIMARY KEY (id))
+;

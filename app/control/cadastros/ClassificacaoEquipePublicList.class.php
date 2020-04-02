@@ -30,6 +30,7 @@ class ClassificacaoEquipePublicList extends TPage
         $ref_campeonato = new TDBCombo('ref_campeonato', 'futapp', 'Campeonato', 'id', '{nome}','id asc'  );
         $ref_categoria  = new TCombo('ref_categoria');
         $ref_fase       = new TCombo('ref_fase');
+        $ref_campeonato->setEditable(false);
 
         $ref_campeonato->setChangeAction(new TAction([$this,'onMudaCampeonato']));
         $ref_categoria->setChangeAction(new TAction([$this,'onMudaCategoria']));
@@ -58,6 +59,7 @@ class ClassificacaoEquipePublicList extends TPage
         $this->datagrid->setHeight(320);
 
         $column_posicao = new TDataGridColumn('posicao', 'Posicao', 'left');
+        $column_img_time = new TDataGridColumn('ref_equipe', 'Time', 'right');
         $column_time = new TDataGridColumn('ref_equipe', 'Time', 'left');
         $column_pontos = new TDataGridColumn('pontos', 'Pontos', 'left');
         $column_jogos = new TDataGridColumn('jogos', 'Jogos', 'left');
@@ -68,6 +70,8 @@ class ClassificacaoEquipePublicList extends TPage
         $column_gp = new TDataGridColumn('gols_pro', 'Gols Pro', 'left');
         $column_gc = new TDataGridColumn('gols_contra', 'Gols Contra', 'left');
         $column_sg = new TDataGridColumn('saldo_gols', 'Saldo de Gols', 'left');
+        $column_obs = new TDataGridColumn('obs', 'Obs', 'left');
+        $column_eliminado = new TDataGridColumn('fl_eliminado', 'Eliminado', 'left');
 
         $formata_equipe = function($value)
         {
@@ -77,7 +81,12 @@ class ClassificacaoEquipePublicList extends TPage
 
         $column_time->setTransformer( $formata_equipe );
 
+        $column_eliminado->setTransformer(array($this, 'formataLinha'));
+
+        $column_img_time->setTransformer(array($this, 'formataLogo'));
+
         $this->datagrid->addColumn($column_posicao);
+        $this->datagrid->addColumn($column_img_time);
         $this->datagrid->addColumn($column_time);
         $this->datagrid->addColumn($column_pontos);
         $this->datagrid->addColumn($column_jogos);
@@ -88,6 +97,8 @@ class ClassificacaoEquipePublicList extends TPage
         $this->datagrid->addColumn($column_gc);
         $this->datagrid->addColumn($column_sg);
         $this->datagrid->addColumn($column_disciplina);
+        $this->datagrid->addColumn($column_obs);
+        $this->datagrid->addColumn($column_eliminado);
       
         // create the datagrid model
         $this->datagrid->createModel();
@@ -124,10 +135,61 @@ class ClassificacaoEquipePublicList extends TPage
             $container->add($d);
             $container->add($e);
         } 
+
+        if($_POST['ref_categoria'])
+        {
+            
+            $criteria = new TCriteria;
+            $criteria->add(new TFilter('ref_categoria_campeonato', '=', $_POST['ref_categoria']));
+            TTransaction::open('futapp');
+            $atualizacao = AtualizacaoClassificacao::getObjects($criteria);
+
+            if ($atualizacao) 
+            {
+
+                $atualizacao = $atualizacao[0];
+                $container->add('<img src="'.$Campeonato->logo.'" width="70" height="70"> Atualizado em '.TDate::date2br($atualizacao->dt_atualizacao));
+            }
+
+        }
         $container->add($panel);
 
         parent::add($container);
 
+    }
+
+    public function formataLogo($id)
+    {
+        TTransaction::open('futapp');
+        $Equipe = Equipe::where('id', ' = ', $id)->load();
+        TTransaction::close();
+        $Equipe = $Equipe[0];
+        if ($Equipe->escudo) 
+        {
+            $image = new TImage($Equipe->escudo);
+        }
+        else
+        {
+            $image = new TImage('equipes/padrao.png');
+        }
+        $image->style = 'max-width: 50px';
+
+        return $image;         
+    }
+
+    public function formataLinha($value, $object, $row)
+    {
+
+        if ($value == 't') 
+        {
+            $row->style = "background: #F84040";
+            return 'Sim';
+            
+        }
+        else
+        {
+            return 'Não';
+        }   
     }
 
     /**

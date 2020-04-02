@@ -35,6 +35,8 @@ class PartidaPublicList extends TPage
         $ref_campeonato->setChangeAction(new TAction([$this,'onMudaCampeonato']));
         $ref_categoria->setChangeAction(new TAction([$this,'onMudaCategoria']));
 
+        $ref_campeonato->setEditable(false);
+
         $dt_partida->setMask('dd/mm/yyyy hh:ii');
         $dt_partida->setDatabaseMask('yyyy-mm-dd hh:ii');
         $dt_partida->setSize(150);

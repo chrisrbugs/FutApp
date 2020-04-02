@@ -31,12 +31,17 @@ class ClassificacaoEquipeList extends TPage
         $ref_categoria  = new TCombo('ref_categoria');
         $ref_fase       = new TCombo('ref_fase');
 
+        $dt_atualizacao = new TEntry('dt_atualizacao');
+        $dt_atualizacao->setMask('dd/mm/yyyy');
         $ref_campeonato->setChangeAction(new TAction([$this,'onMudaCampeonato']));
         $ref_categoria->setChangeAction(new TAction([$this,'onMudaCategoria']));
 
         $row1 = $this->form->addFields([new TLabel('Campeonato:', null, '14px', null)],[$ref_campeonato]);
         $row2 = $this->form->addFields([new TLabel('Categoria:', null, '14px', null)],[$ref_categoria]);
         $row3 = $this->form->addFields([new TLabel('Fase:', null, '14px', null)],[$ref_fase]);
+
+
+        $row4 = $this->form->addFields([new TLabel('Atualizado em:', null, '14px', null)],[$dt_atualizacao]);
 
         // keep the form filled during navigation with session data
         $this->form->setData( TSession::getValue(__CLASS__.'_filter_data') );
@@ -51,6 +56,7 @@ class ClassificacaoEquipeList extends TPage
         $this->datagrid->style = 'width: 100%';
         $this->datagrid->setHeight(320);
 
+        $column_id = new TDataGridColumn('id', 'id', 'left');
         $column_posicao = new TDataGridColumn('posicao', 'Posicao', 'left');
         $column_time = new TDataGridColumn('ref_equipe', 'Time', 'left');
         $column_pontos = new TDataGridColumn('pontos', 'Pontos', 'left');
@@ -63,6 +69,8 @@ class ClassificacaoEquipeList extends TPage
         $column_sg = new TDataGridColumn('saldo_gols', 'Saldo de Gols', 'left');
         $column_disciplina = new TDataGridColumn('disciplina', 'Disciplina', 'left');
         $column_fase = new TDataGridColumn('ref_fase', 'Fase', 'left');
+        $column_obs = new TDataGridColumn('obs', 'Obs', 'left');
+        $column_eliminado = new TDataGridColumn('fl_eliminado', 'Eliminado', 'left');
 
         $formata_equipe = function($value)
         {
@@ -78,6 +86,7 @@ class ClassificacaoEquipeList extends TPage
 
         $column_time->setTransformer( $formata_equipe );
         $column_fase->setTransformer( $formata_fase );
+        $column_eliminado->setTransformer(array($this, 'formataLinha'));
 
         $this->datagrid->addColumn($column_posicao);
         $this->datagrid->addColumn($column_time);
@@ -90,6 +99,24 @@ class ClassificacaoEquipeList extends TPage
         $this->datagrid->addColumn($column_gc);
         $this->datagrid->addColumn($column_sg);
         $this->datagrid->addColumn($column_disciplina);
+        $this->datagrid->addColumn($column_obs);
+        $this->datagrid->addColumn($column_eliminado);
+
+        // creates the edit action
+        $editaction = new TDataGridAction(array($this, 'onEdit'));
+        $editaction->setField('id');
+        $column_posicao->setEditAction($editaction);
+        $column_pontos->setEditAction($editaction);
+        $column_jogos->setEditAction($editaction);
+        $column_vitorias->setEditAction($editaction);
+        $column_empates->setEditAction($editaction);
+        $column_derrotas->setEditAction($editaction);
+        $column_gp->setEditAction($editaction);
+        $column_gc->setEditAction($editaction);
+        $column_sg->setEditAction($editaction);
+        $column_disciplina->setEditAction($editaction);
+        $column_obs->setEditAction($editaction);
+        
       
         if ( TSession::getValue('logged') )
         {
@@ -113,6 +140,10 @@ class ClassificacaoEquipeList extends TPage
           $action_onDelete->setField(self::$primaryKey);
 
           $this->datagrid->addAction($action_onDelete);
+
+          $this->form->addAction('Salvar Data de Atualização', new TAction([$this, 'onSalvaAtualizacao']), 'fa:floppy-o #00000');
+        
+
         }
       
         // create the datagrid model
@@ -137,6 +168,23 @@ class ClassificacaoEquipeList extends TPage
         parent::add($container);
 
     }
+
+    public function formataLinha($value, $object, $row)
+    {
+
+        if ($value == 't') 
+        {
+            $row->style = "background: #F84040";
+            return 'Sim';
+            
+        }
+        else
+        {
+            return 'Não';
+        }   
+    }
+
+     
 
     public function onDelete($param = null) 
     { 
@@ -179,6 +227,100 @@ class ClassificacaoEquipeList extends TPage
             $action->setParameter('delete', 1);
             // shows a dialog to the user
             new TQuestion(AdiantiCoreTranslator::translate('Do you really want to delete ?'), $action);   
+        }
+    }
+
+
+    function onSalvaAtualizacao($param)
+    {
+        try
+        {
+            // get the parameter $key
+            // $field = $param['field'];
+            $ref_categoria  = $param['ref_categoria'];
+            $dt_atualizacao = $param['dt_atualizacao'];
+
+            if (!$ref_categoria) 
+            {
+               new TMessage('error', 'selecione a categoria');
+               return false;
+            }
+            
+            // open a transaction with database 'samples'
+            TTransaction::open('futapp');
+
+            $criteria = new TCriteria;
+            $criteria->add(new TFilter('ref_categoria_campeonato', '=', $ref_categoria));
+        
+            $atualizacao = AtualizacaoClassificacao::getObjects($criteria)[0];
+
+            if ($atualizacao) 
+            {
+                $classificacao = new AtualizacaoClassificacao($atualizacao->id);
+            }
+            else
+            {
+                $classificacao = new AtualizacaoClassificacao();
+            }
+            
+            // instantiates object Customer
+            $classificacao->ref_categoria_campeonato = $ref_categoria;
+            $classificacao->dt_atualizacao           = $dt_atualizacao;
+            $classificacao->store();
+            
+            // close the transaction
+            TTransaction::close();
+            
+            // reload the listing
+            $this->onReload($param);
+            // shows the success message
+            new TMessage('info', "Record Updated");
+        }
+        catch (Exception $e) // in case of exception
+        {
+            // shows the exception error message
+            new TMessage('error', $e->getMessage());
+            // undo all pending operations
+            TTransaction::rollback();
+        }
+    }
+
+    public function formatEliminidao($stock, $object, $row)
+    {
+        
+    }
+
+    function onEdit($param)
+    {
+        try
+        {
+            // get the parameter $key
+            $field = $param['field'];
+            $key   = $param['key'];
+            $value = $param['value'];
+            
+            // open a transaction with database 'samples'
+            TTransaction::open('futapp');
+            
+            // instantiates object Customer
+            $classificacao = new ClassificacaoEquipe($key);
+            $classificacao->{$field} = $value;
+            $classificacao->store();
+            
+            // close the transaction
+            TTransaction::close();
+            
+            // reload the listing
+            $this->onReload($param);
+            // shows the success message
+            new TMessage('info', "Record Updated");
+        }
+        catch (Exception $e) // in case of exception
+        {
+            // shows the exception error message
+            new TMessage('error', $e->getMessage());
+            // undo all pending operations
+            TTransaction::rollback();
         }
     }
 
@@ -399,6 +541,17 @@ class ClassificacaoEquipeList extends TPage
         if (isset($object->ref_categoria)) 
         {
             $obj->ref_categoria  = $object->ref_categoria;
+
+            $criteria = new TCriteria;
+            $criteria->add(new TFilter('ref_categoria_campeonato', '=', $obj->ref_categoria));
+            TTransaction::open('futapp');
+            $atualizacao = AtualizacaoClassificacao::getObjects($criteria)[0];
+
+            TTransaction::close();
+            if ($atualizacao) 
+            {
+               $obj->dt_atualizacao  =  TDate::date2br($atualizacao->dt_atualizacao);
+            }
         }
 
         if (isset($object->ref_fase)) 

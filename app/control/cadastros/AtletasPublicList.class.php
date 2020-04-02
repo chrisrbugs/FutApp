@@ -31,6 +31,8 @@ class AtletasPublicList extends TPage
         $ref_categoria  = new TCombo('ref_categoria');
         $ref_equipe  = new TCombo('ref_equipe');
 
+        $ref_campeonato->setEditable(false);
+
         $ref_campeonato->setChangeAction(new TAction([$this,'onMudaCampeonato']));
         $ref_categoria->setChangeAction(new TAction([$this,'onMudaCategoria']));
         // $ref_equipe->setChangeAction(new TAction([$this,'onMudaEquipe']));

@@ -20,17 +20,24 @@ class CampeonatosFormView extends TPage
         $this->form->setColumnClasses(2, ['col-sm-3', 'col-sm-9']);
         
         // create the form fields
-        $ref_campeonato = new TDBCombo('ref_campeonato', 'futapp', 'Campeonato', 'id', '{nome}','id asc'  );
-        $ref_categoria  = new TCombo('ref_categoria');
+        $andamento      = new TCombo('andamento');
+        $andamento->addItems( [ '1' => 'Em Andamento', '2' => 'Finalizados' ] ); 
 
-        $this->form->addFields(['Campeonato'], [$ref_campeonato] );
+        $ref_campeonato = new TCombo('ref_campeonato');
+        $ref_categoria  = new TCombo('ref_categoria');
+        
+        $andamento->setChangeAction(new TAction([$this,'onMudaAndamento']));
+        $ref_campeonato->setChangeAction(new TAction([$this,'onMudaCampeonato']));
+
+
+        $this->form->addFields(['Categoria'], [$andamento] );
+        $this->form->addFields(['Campeonato'],[$ref_campeonato] );
         $this->form->addFields(['Categoria'], [$ref_categoria] );
 
-        // validations
-        $ref_campeonato->addValidation('Campeonato', new TRequiredValidator);
-        $ref_categoria->addValidation('Categoria', new TRequiredValidator);
+        // // validations
+        // $ref_campeonato->addValidation('Campeonato', new TRequiredValidator);
+        // $ref_categoria->addValidation('Categoria', new TRequiredValidator);
 
-        $ref_campeonato->setChangeAction(new TAction([$this,'onMudaCampeonato']));
 
         // add a form action
         $this->form->addAction('JOGOS', new TAction(array('PartidaPublicList', 'onSearch')), 'fa:chevron-circle-right green');
@@ -81,6 +88,53 @@ class CampeonatosFormView extends TPage
         }
     }
 
+    static function onMudaAndamento( $params )
+    {
+
+        if( !empty($params['andamento']) )
+        {
+            try
+            {
+                TTransaction::open('futapp');
+                if ($params['andamento']) 
+                {
+                    if($params['andamento'] == 1)
+                    {
+                        $criteria = new TCriteria();
+                       
+                        $criteria->add(new TFilter('dt_fim',   ' >=',  date('Y-d-m') ),  TExpression::AND_OPERATOR);
+                        $criteria->add(new TFilter('dt_inicio',' <=',  date('Y-d-m') ),  TExpression::AND_OPERATOR);
+
+                    }
+                    else
+                    {
+                        $criteria = new TCriteria();
+                        $criteria->add(new TFilter('dt_fim',   ' <',  date('Y-d-m') ),  TExpression::AND_OPERATOR);
+                    }
+
+                
+                    TDBCombo::reloadFromModel('form_campeonatos', 'ref_campeonato', 'futapp', 'Campeonato', 'id', '{nome} ({id})', 'id', $criteria, TRUE);
+                   
+                    TTransaction::close();
+                }
+                else
+                {
+                    TCombo::clearField('form_campeonatos', 'ref_campeonato');
+                }
+                
+            }
+            catch (Exception $e) // in case of exception
+            {
+                new TMessage('error', $e->getMessage());
+                TTransaction::rollback();
+            }
+        }
+        else
+        {
+            TCombo::clearField('form_campeonatos', 'ref_campeonato');
+        }
+    }
+
     /**
      * On muda campeonato
      */
@@ -92,25 +146,18 @@ class CampeonatosFormView extends TPage
             {
                 TTransaction::open('futapp');
                 
-                $categoriasCampeonato = CategoriaCampeonato::where('ref_campeonato', ' = ', $params['ref_campeonato'])->load();
-                
-                $options = array();
-                if ($categoriasCampeonato) 
+                if ($params['ref_campeonato']) 
                 {
-                    foreach ($categoriasCampeonato as $categoriaCampeonato) 
-                    {
-                        $options[$categoriaCampeonato->id] = $categoriaCampeonato->nome;
-                        
-                    }
-
-                    TCombo::reload('form_campeonatos', 'ref_categoria', $options);
+                    $criteria = TCriteria::create( ['ref_campeonato' => $params['ref_campeonato'] ] );
+                
+                    TDBCombo::reloadFromModel('form_campeonatos', 'ref_categoria', 'futapp', 'CategoriaCampeonato', 'id', '{nome} ({id})', 'id', $criteria, TRUE);
                    
                     TTransaction::close();
                 }
                 else
                 {
-                    $options = array();
-                    TCombo::reload('form_campeonatos', 'ref_categoria', $options);
+                    TCombo::clearField('form_campeonatos', 'ref_campeonato');
+                    TCombo::clearField('form_campeonatos', 'ref_categoria');
                 }
             }
             catch (Exception $e) // in case of exception
