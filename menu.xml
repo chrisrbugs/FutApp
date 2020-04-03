@@ -51,6 +51,10 @@
         <icon>fa:circle-o fa-fw </icon>
         <action>SiteForm#method=onEdit</action>
       </menuitem>
+       <menuitem label="Notícias">
+        <icon>fa:circle-o fa-fw </icon>
+        <action>NoticiasList#method=onEdit</action>
+      </menuitem>
 
       <!-- COOPEVA
       
