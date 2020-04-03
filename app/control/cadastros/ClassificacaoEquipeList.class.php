@@ -252,10 +252,11 @@ class ClassificacaoEquipeList extends TPage
             $criteria = new TCriteria;
             $criteria->add(new TFilter('ref_categoria_campeonato', '=', $ref_categoria));
         
-            $atualizacao = AtualizacaoClassificacao::getObjects($criteria)[0];
+            $atualizacao = AtualizacaoClassificacao::getObjects($criteria);
 
             if ($atualizacao) 
             {
+                $atualizacao = $atualizacao[0];
                 $classificacao = new AtualizacaoClassificacao($atualizacao->id);
             }
             else
@@ -265,7 +266,8 @@ class ClassificacaoEquipeList extends TPage
             
             // instantiates object Customer
             $classificacao->ref_categoria_campeonato = $ref_categoria;
-            $classificacao->dt_atualizacao           = $dt_atualizacao;
+            
+            $classificacao->dt_atualizacao           = TDate::date2us($dt_atualizacao);
             $classificacao->store();
             
             // close the transaction
@@ -285,10 +287,6 @@ class ClassificacaoEquipeList extends TPage
         }
     }
 
-    public function formatEliminidao($stock, $object, $row)
-    {
-        
-    }
 
     function onEdit($param)
     {

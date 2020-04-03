@@ -20,6 +20,7 @@ class Site extends TRecord
         parent::addAttribute('quem_somos');
         parent::addAttribute('quem_somos_img');
         parent::addAttribute('contato');
+        parent::addAttribute('banner_central');
         
 
     }

@@ -36,6 +36,7 @@ class SiteForm extends TPage
         $banner2        = new TFile('banner2');
         $banner3        = new TFile('banner3');
         $banner4        = new TFile('banner4');
+        $banner_central = new TFile('banner_central');
         $quem_somos     = new THtmlEditor('quem_somos');
         $quem_somos_img = new TFile('quem_somos_img');
         $contato        = new THtmlEditor('contato');
@@ -44,6 +45,7 @@ class SiteForm extends TPage
         $banner2->addValidation('banner 2', new TRequiredValidator);
         $banner3->addValidation('banner 3', new TRequiredValidator);
         $banner4->addValidation('banner 4', new TRequiredValidator);
+        $banner_central->addValidation('Banner central', new TRequiredValidator);
         $quem_somos->addValidation('Quem somos', new TRequiredValidator);
         $quem_somos_img->addValidation('Quem somos img', new TRequiredValidator);
         $contato->addValidation('Contato', new TRequiredValidator);
@@ -53,6 +55,7 @@ class SiteForm extends TPage
         $banner2->setAllowedExtensions( ['gif', 'png', 'jpg', 'jpeg'] );
         $banner3->setAllowedExtensions( ['gif', 'png', 'jpg', 'jpeg'] );
         $banner4->setAllowedExtensions( ['gif', 'png', 'jpg', 'jpeg'] );
+        $banner_central->setAllowedExtensions( ['gif', 'png', 'jpg', 'jpeg'] );
         $quem_somos_img->setAllowedExtensions( ['gif', 'png', 'jpg', 'jpeg'] );
 
         // enable progress bar, preview, and file remove actions
@@ -60,6 +63,7 @@ class SiteForm extends TPage
         $banner2->enableFileHandling();
         $banner3->enableFileHandling();
         $banner4->enableFileHandling();
+        $banner_central->enableFileHandling();
         $quem_somos_img->enableFileHandling();
 
         $id->setEditable(false);
@@ -70,6 +74,7 @@ class SiteForm extends TPage
         $row3 = $this->form->addFields([new TLabel('Banner 2:', null, '14px', null)],[$banner2]);
         $row4 = $this->form->addFields([new TLabel('Banner 3:', null, '14px', null)],[$banner3]);
         $row5 = $this->form->addFields([new TLabel('Banner 4:', null, '14px', null)],[$banner4]);
+        $row5 = $this->form->addFields([new TLabel('Banner Central:', null, '14px', null)],[$banner_central]);
         $row5 = $this->form->addFields([new TLabel('Quem Somos:', null, '14px', null)],[$quem_somos]);
         $row6 = $this->form->addFields([new TLabel('Quem Somos img:', null, '14px', null)],[$quem_somos_img]);
         $row7 = $this->form->addFields([new TLabel('Contato:', null, '14px', null)],[$contato]);
@@ -106,8 +111,8 @@ class SiteForm extends TPage
             $messageAction = null;
 
             $this->form->validate(); // validate form data
-
-            $object = new Site(); // create an empty object 
+            
+            $object = new Site($param['id']); // create an empty object 
 
             $data = $this->form->getData(); // get form data as array
 
@@ -120,8 +125,8 @@ class SiteForm extends TPage
             $this->saveFile($object, $data, 'banner2', 'site');
             $this->saveFile($object, $data, 'banner3', 'site');
             $this->saveFile($object, $data, 'banner4', 'site');
+            $this->saveFile($object, $data, 'banner_central', 'site');
             $this->saveFile($object, $data, 'quem_somos_img', 'site');
-
 
             // get the generated {PRIMARY_KEY}
             $data->id = $object->id; 

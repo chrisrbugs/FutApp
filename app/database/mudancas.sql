@@ -230,3 +230,16 @@ CREATE TABLE IF NOT EXISTS site (
   
   PRIMARY KEY (id))
 ;
+
+
+CREATE TABLE IF NOT EXISTS noticias (
+  id SERIAL NOT NULL,
+  foto TEXT NOT NULL,
+  titulo TEXT NOT NULL,
+  subtitulo TEXT NOT NULL,
+  texto TEXT NOT NULL,
+  
+  PRIMARY KEY (id))
+;
+
+alter table site add column banner_central text;

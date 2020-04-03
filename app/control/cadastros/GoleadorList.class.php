@@ -165,11 +165,14 @@ class GoleadorList extends TPage
             
             // instantiates object Customer
             $classificacao->ref_categoria_campeonato = $ref_categoria;
-            $classificacao->dt_atualizacao           = $dt_atualizacao;
+            $classificacao->dt_atualizacao           = TDate::date2us($dt_atualizacao);
             $classificacao->store();
             
             // close the transaction
             TTransaction::close();
+
+            TSession::setValue(__CLASS__.'_filter_data', $data);
+            TSession::setValue(__CLASS__.'_filters', $filters);
             
             // reload the listing
             $this->onReload($param);
