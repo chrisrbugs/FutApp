@@ -30,6 +30,7 @@ class NoticiaView extends TPage
         $replaces['subtitulo']  = $noticia->subtitulo;
         $replaces['texto']  = $noticia->texto;
         $replaces['img']  = $noticia->foto;   
+        $replaces['id_noticia']  = $noticia->id;  
         
         // replace the main section variables
         $html->enableSection('main', $replaces);

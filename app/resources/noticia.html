@@ -1,0 +1,35 @@
+<!--[main]-->
+<ha>
+  <h1 class="content-head__title" itemprop="headline">{$titulo}</h1>
+  
+  {$subtitulo}
+<ha>
+
+      <div align="center"><img class = "img-fluid" src="{$img}"></div> 
+
+  <br>
+  <br>
+   <div class="item">  <p class="post-meta">{$texto}</p></div> 
+    <br>
+
+     <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Your share button code -->
+  <div class="fb-share-button" 
+    data-href="http://www.j30eventos.com.br/index.php?class=class=NoticiaView&method=onShow&key={$id_noticia}&id={$id_noticia}" 
+    data-layout="button_count">
+  </div>
+    <div class="clearfix">
+        <a class="btn btn-primary float-right" href="index.php?class=PublicView">Voltar →</a>
+    </div>
+
+
+<!--[/main]-->
