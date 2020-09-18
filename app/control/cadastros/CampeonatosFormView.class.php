@@ -102,14 +102,14 @@ class CampeonatosFormView extends TPage
                     {
                         $criteria = new TCriteria();
                        
-                        $criteria->add(new TFilter('dt_fim',   ' >=',  date('Y-d-m') ),  TExpression::AND_OPERATOR);
-                        $criteria->add(new TFilter('dt_inicio',' <=',  date('Y-d-m') ),  TExpression::AND_OPERATOR);
+                        $criteria->add(new TFilter('dt_fim',   ' >=',  date('Y-m-d') ),  TExpression::AND_OPERATOR);
+                        $criteria->add(new TFilter('dt_inicio',' <=',  date('Y-m-d') ),  TExpression::AND_OPERATOR);
 
                     }
                     else
                     {
                         $criteria = new TCriteria();
-                        $criteria->add(new TFilter('dt_fim',   ' <',  date('Y-d-m') ),  TExpression::AND_OPERATOR);
+                        $criteria->add(new TFilter('dt_fim',   ' <',  date('Y-m-d') ),  TExpression::AND_OPERATOR);
                     }
 
                 
