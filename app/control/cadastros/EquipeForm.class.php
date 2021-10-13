@@ -75,8 +75,6 @@ class EquipeForm extends TPage
         
         // add validations
         $nome->addValidation('Nome', new TRequiredValidator);
-
-        $cpf->addValidation('CPF', new TCPFValidator);
         
         // add master form fields
         $this->form->addFields( [new TLabel('ID')], [$id]);
@@ -168,6 +166,63 @@ class EquipeForm extends TPage
         // $container->add(new TXMLBreadCrumb('menu.xml', __CLASS__));
         $container->add($this->form);
         parent::add($container);
+    }
+
+    public function validaCpf($value, $parameters = NULL)
+    {
+        $label = 'CPF';
+        // cpfs inválidos
+        $nulos = array("12345678909","11111111111","22222222222","33333333333",
+                       "44444444444","55555555555","66666666666","77777777777",
+                       "88888888888","99999999999","00000000000");
+        // Retira todos os caracteres que nao sejam 0-9
+        $cpf = preg_replace("/[^0-9]/", "", $value);
+        
+        if (strlen($cpf) <> 11)
+        {
+            throw new Exception(AdiantiCoreTranslator::translate('The field ^1 has not a valid CPF', $label));
+        }
+        
+        // Retorna falso se houver letras no cpf
+        if (!(preg_match("/[0-9]/",$cpf)))
+        {
+            throw new Exception(AdiantiCoreTranslator::translate('The field ^1 has not a valid CPF', $label));
+        }
+
+        // Retorna falso se o cpf for nulo
+        if( in_array($cpf, $nulos) )
+        {
+            throw new Exception(AdiantiCoreTranslator::translate('The field ^1 has not a valid CPF', $label));
+        }
+
+        // Calcula o penúltimo dígito verificador
+        $acum=0;
+        for($i=0; $i<9; $i++)
+        {
+          $acum+= $cpf[$i]*(10-$i);
+        }
+
+        $x=$acum % 11;
+        $acum = ($x>1) ? (11 - $x) : 0;
+        // Retorna falso se o digito calculado eh diferente do passado na string
+        if ($acum != $cpf[9])
+        {
+          throw new Exception(AdiantiCoreTranslator::translate('The field ^1 has not a valid CPF', $label));
+        }
+        // Calcula o último dígito verificador
+        $acum=0;
+        for ($i=0; $i<10; $i++)
+        {
+          $acum+= $cpf[$i]*(11-$i);
+        }  
+
+        $x=$acum % 11;
+        $acum = ($x > 1) ? (11-$x) : 0;
+        // Retorna falso se o digito calculado eh diferente do passado na string
+        if ( $acum != $cpf[10])
+        {
+          throw new Exception(AdiantiCoreTranslator::translate('The field ^1 has not a valid CPF', $label));
+        }  
     }
     
     /**
@@ -549,6 +604,8 @@ class EquipeForm extends TPage
                     {
                        throw new Exception( "Digite o nome completo" );
                     }
+
+                    $this->validaCpf($atleta['cpf']);
 
                     //verificar se o atleta ja não esta em uma equipe
                     $isAtletaOutraEquipe = AtletaEquipe::isAtletaOutraEquipe($atleta['cpf'],$objCategoria->ref_campeonato,$equipe->id);
