@@ -75,6 +75,8 @@ class EquipeForm extends TPage
         
         // add validations
         $nome->addValidation('Nome', new TRequiredValidator);
+
+        $cpf->addValidation('CPF', new TCPFValidator);
         
         // add master form fields
         $this->form->addFields( [new TLabel('ID')], [$id]);
