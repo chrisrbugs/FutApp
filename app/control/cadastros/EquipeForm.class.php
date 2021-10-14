@@ -180,19 +180,19 @@ class EquipeForm extends TPage
         
         if (strlen($cpf) <> 11)
         {
-            throw new Exception(AdiantiCoreTranslator::translate('The field ^1 has not a valid CPF'. $cpf, $label));
+            throw new Exception('CPF INVALIDO '. $cpf);
         }
         
         // Retorna falso se houver letras no cpf
         if (!(preg_match("/[0-9]/",$cpf)))
         {
-            throw new Exception(AdiantiCoreTranslator::translate('The field ^1 has not a valid CPF'. $cpf, $label));
+            throw new Exception('CPF INVALIDO '. $cpf);
         }
 
         // Retorna falso se o cpf for nulo
         if( in_array($cpf, $nulos) )
         {
-            throw new Exception(AdiantiCoreTranslator::translate('The field ^1 has not a valid CPF'. $cpf, $label));
+            throw new Exception('CPF INVALIDO '. $cpf);
         }
 
         // Calcula o penúltimo dígito verificador
@@ -207,7 +207,7 @@ class EquipeForm extends TPage
         // Retorna falso se o digito calculado eh diferente do passado na string
         if ($acum != $cpf[9])
         {
-          throw new Exception(AdiantiCoreTranslator::translate('The field ^1 has not a valid CPF'. $cpf, $label));
+          throw new Exception('CPF INVALIDO '. $cpf);
         }
         // Calcula o último dígito verificador
         $acum=0;
@@ -221,7 +221,7 @@ class EquipeForm extends TPage
         // Retorna falso se o digito calculado eh diferente do passado na string
         if ( $acum != $cpf[10])
         {
-          throw new Exception(AdiantiCoreTranslator::translate('The field ^1 has not a valid CPF'. $cpf, $label));
+          throw new Exception('CPF INVALIDO '. $cpf);
         }  
     }
     
