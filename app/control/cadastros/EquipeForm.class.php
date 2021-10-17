@@ -604,9 +604,13 @@ class EquipeForm extends TPage
                     {
                        throw new Exception( "Digite o nome completo" );
                     }
-
-                    $this->validaCpf($atleta['cpf']);
-
+                    
+                    if(   TSession::getValue('login') != 'J30EVENTOS' 
+                       && TSession::getValue('login') != 'admin' 
+                       && TSession::getValue('login') != 'Roni')
+                    {
+                        $this->validaCpf($atleta['cpf']);
+                    }
                     //verificar se o atleta ja não esta em uma equipe
                     $isAtletaOutraEquipe = AtletaEquipe::isAtletaOutraEquipe($atleta['cpf'],$objCategoria->ref_campeonato,$equipe->id);
                     
