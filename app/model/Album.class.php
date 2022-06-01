@@ -15,6 +15,7 @@ class Album extends TRecord
         parent::__construct($id, $callObjectLoad);
         parent::addAttribute('descricao');
         parent::addAttribute('dt_album');
+        parent::addAttribute('link');
     }
 }
 ?>

@@ -340,7 +340,17 @@ class AlbumList extends TPage
 
       public function onAlbum($param = null)
     {
-       AdiantiCoreApplication::gotoPage('GaleriaFotosView', 'onShow', $param);  
+        TTransaction::open('futapp');
+        $album = new Album($param['id']);
+        TTransaction::close();
+        if ($album->link) 
+        {
+            TScript::create('window.open("'.$album->link.'","_blank")');  
+        }
+        else
+        {
+            AdiantiCoreApplication::gotoPage('GaleriaFotosView', 'onShow', $param); 
+        }
     }
 
     /**

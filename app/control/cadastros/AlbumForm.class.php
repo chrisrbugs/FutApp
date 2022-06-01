@@ -32,10 +32,11 @@ class AlbumForm extends TPage
         $this->setActiveRecord('Album');
         
         // create the form fields
-        $id          = new TEntry('id');
-        $descricao = new TEntry('descricao');
-        $dt_album = new TDateTime('dt_album');
-        $photo_path  = new TMultiFile('photo_path');
+        $id         = new TEntry('id');
+        $descricao  = new TEntry('descricao');
+        $dt_album   = new TDateTime('dt_album');
+        $photo_path = new TFile('photo_path');
+        $link       = new TEntry('link');
         
         // allow just these extensions
         $photo_path->setAllowedExtensions( ['gif', 'png', 'jpg', 'jpeg'] );
@@ -48,10 +49,11 @@ class AlbumForm extends TPage
         $id->setEditable( FALSE );
     
         // add the form fields
-        $this->form->addFields( [new TLabel('ID', 'red')],          [$id] );
-        $this->form->addFields( [new TLabel('Descrição', 'red')], [$descricao] );
-        $this->form->addFields( [new TLabel('Data', 'red')], [$dt_album] );
-        $this->form->addFields( [new TLabel('Fotos', 'red')],  [$photo_path] );
+        $this->form->addFields( [new TLabel('ID', 'red')],           [$id] );
+        $this->form->addFields( [new TLabel('Descrição', 'red')],    [$descricao] );
+        $this->form->addFields( [new TLabel('Data', 'red')],         [$dt_album] );
+        $this->form->addFields( [new TLabel('Foto de capa', 'red')], [$photo_path] );
+        $this->form->addFields( [new TLabel('Link', 'red')],         [$link] );
         
         $id->setSize('50%');
         
@@ -93,28 +95,51 @@ class AlbumForm extends TPage
 		
 	    $array_fotos = $data->photo_path;
 
-        if ($array_fotos) 
+        if (isset($array_fotos) && ! is_null($array_fotos) && $array_fotos != '') 
         {
-    	    foreach($array_fotos as $foto)
-    	    {
-        		$fotos_album = new FotosAlbum();
-        		    
-        		$dados_file = json_decode(urldecode($foto));
-        		$nome_foto = explode('/',$dados_file->fileName)[1];
+            if (is_array($array_fotos)) 
+            {
+        	    foreach($array_fotos as $foto)
+        	    {
+            		$fotos_album = new FotosAlbum();
+            		    
+            		$dados_file = json_decode(urldecode($foto));
+            		$nome_foto = explode('/',$dados_file->fileName)[1];
+            		
+                    if(! is_dir("album/".$album->id)) 
+                    {   
+                        mkdir("album/".$album->id, 0700);
+                    }
+                    
+            		$fotos_album->caminho_foto = "album/".$album->id."/".uniqid().$nome_foto;    
+            		$fotos_album->ref_album = $album->id;
+            		
+            		$fotos_album->store();
+            		    
+            		rename( $dados_file->fileName ,  $fotos_album->caminho_foto);
         		
+        	    }
+            }
+            else
+            {
+                $foto = $array_fotos;
+                $fotos_album = new FotosAlbum();
+                        
+                $dados_file = json_decode(urldecode($foto));
+                $nome_foto = explode('/',$dados_file->fileName)[1];
+                // var_dump($nome_foto);die;
                 if(! is_dir("album/".$album->id)) 
                 {   
                     mkdir("album/".$album->id, 0700);
                 }
                 
-        		$fotos_album->caminho_foto = "album/".$album->id."/".uniqid().$nome_foto;    
-        		$fotos_album->ref_album = $album->id;
-        		
-        		$fotos_album->store();
-        		    
-        		rename( $dados_file->fileName ,  $fotos_album->caminho_foto);
-    		
-    	    }
+                $fotos_album->caminho_foto = "album/".$album->id."/".uniqid().$nome_foto;    
+                $fotos_album->ref_album = $album->id;
+                
+                $fotos_album->store();
+                    
+                rename( $dados_file->fileName ,  $fotos_album->caminho_foto);
+            }
         }
             
             // send id back to the form
