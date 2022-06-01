@@ -345,7 +345,7 @@ class AlbumList extends TPage
         TTransaction::close();
         if ($album->link) 
         {
-            TScript::create('window.open("'.$album->link.'","_blank")');  
+            TScript::create('window.open("'.$album->link.'","_blank")');   
         }
         else
         {
